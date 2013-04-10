@@ -28,3 +28,14 @@ xiayf的学习笔记
     development/js
     development/shell
     development/go
+
+三.根基
+-----------
+
+.. toctree::
+    :maxdepth: 2
+
+    base/os
+    base/compiler
+    base/algorithm
+    base/network
