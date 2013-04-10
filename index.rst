@@ -29,7 +29,7 @@ xiayf的学习笔记
     development/shell
     development/go
 
-三.根基
+三. 根基
 -----------
 
 .. toctree::
