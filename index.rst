@@ -12,9 +12,14 @@ xiayf的学习笔记
 .. toctree::
     :maxdepth: 2
     
+    operations/index   
     operations/os
     operations/nginx
     operations/db
+    operations/lvs
+    operations/varnish
+    operations/haproxy
+    operations/keepalived
 
 
 二. 开发
