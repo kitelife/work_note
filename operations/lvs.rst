@@ -8,7 +8,7 @@ LVS - Linux Virtual Server
 
 **可伸缩网络服务的设计与实现**
 
-来源：.._`http://zh.linuxvirtualserver.org/book/export/html/7`: http://zh.linuxvirtualserver.org/book/export/html/7
+来源：`http://zh.linuxvirtualserver.org/book/export/html/7 <http://zh.linuxvirtualserver.org/book/export/html/7>`_
 
 可伸缩/可扩展服务是指网络服务能随着用户数目的增长而扩展其性能，如在系统中增加服务器、内存或硬盘等；整个系统很容易扩展，无需重新设置整个系统，无需中断服务。换句话说，系统管理员扩展系统的操作对最终用户是透明的，他们不会知道系统的改变。
 
