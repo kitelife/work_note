@@ -7,10 +7,10 @@
 
 **标记**
 
-PHP也允许使用短标记`<?`和`?>`，但不鼓励使用。只有通过激活php.ini中short_open_tag配置指令或者在编译PHP时使用了配置选项--enable-short-tags时才能使用短标记。
+PHP也允许使用短标记``<?``和``?>``，但不鼓励使用。只有通过激活php.ini中short_open_tag配置指令或者在编译PHP时使用了配置选项--enable-short-tags时才能使用短标记。
 
 如果文件内容是纯PHP代码，最好在文件末尾删除PHP结束标记。这可以避免在PHP结束标记之后万一意外加入了空格或者换行符，会导致PHP开始输出这些空白，而脚本中此时并无输出的意图。
 
 **注释**
 
-PHP支持C、C++和Unix Shell风格（`#`，Perl风格）的注释。
+PHP支持C、C++和Unix Shell风格（``#``，Perl风格）的注释。
