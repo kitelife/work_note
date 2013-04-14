@@ -56,7 +56,7 @@ PHP中没有整除的运算符。
 
 字符串最大可以达到2GB。
 
-关于字符串的4种形式见： `http://youngsterxyf.github.io/2013/03/08/php-basics/#id112 <PHP之道/PHP基础知识/字符串>`_
+关于字符串的4种形式见： `PHP之道/PHP基础知识/字符串 <http://youngsterxyf.github.io/2013/03/08/php-basics/#id112>`_
 
 当字符串用双引号或 heredoc 结构定义时，其中的变量将会被解析。
 
