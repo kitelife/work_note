@@ -20,6 +20,7 @@ xiayf的学习笔记
     operations/varnish
     operations/haproxy
     operations/keepalived
+    operations/puppet
 
 
 二. 开发
