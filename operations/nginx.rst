@@ -6,3 +6,8 @@ Nginx
 
 实现
 --------------
+
+资源
+--------
+
+- `Nginx开发从入门到精通 <http://tengine.taobao.org/book/>`_
