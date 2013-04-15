@@ -21,6 +21,7 @@ xiayf的学习笔记
     operations/haproxy
     operations/keepalived
     operations/puppet
+    operations/fabric
 
 
 二. 开发
