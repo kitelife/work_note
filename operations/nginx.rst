@@ -11,3 +11,4 @@ Nginx
 --------
 
 - `Nginx开发从入门到精通 <http://tengine.taobao.org/book/>`_
+- `开源软件架构-Nginx <http://www.ituring.com.cn/article/4436>`_
