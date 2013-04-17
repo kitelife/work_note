@@ -381,3 +381,78 @@ PHP中的引用是别名，即两个不同的变量名字指向相同的内容�
 所有php里面的值都可以使用函数serialize()来返回一个包含字节流的字符串来表示。unserialize()函数能够重新把字符串变回php原来的值。序列化一个对象将会保存对象的所有变量，但不会保存对象的方法，只会保存类的名字。
 
 
+命名空间
+=============
+
+在PHP中，命名空间用来解决在编写类库或应用程序时创建可重用的代码如类或函数时碰到的两类问题：
+
+1. 用户编写的代码与PHP内部的类/函数/常量或第三方类/函数/常量之间的名字冲突。
+2. 为很长的标识符名称（通常是为了缓解第一类问题而定义的）创建一个别名（或简短的名称），提高代码的可读性。
+
+虽然任意合法的PHP代码都可以包含在命名空间中，但只有三种类型的代码受命名空间的影响，它们是：类，函数和常量。
+
+命名空间通过关键字namespace来声明。如果一个文件中包含命名空间，它必须在其他所有代码之前声明命名空间。
+
+在声明命名空间之前唯一合法的代码是用于定义源文件编码方式的declare语句。另外，所有非PHP代码包括空白符都不能出现在命名空间的声明之前。
+
+另外，与PHP其它的语言特征不同，同一个命名空间可以定义在多个文件中，即允许将同一个命名空间的内容分割存放在不同的文件中。
+
+*定义子命名空间*
+
+与目录和文件的关系很像，PHP命名空间也允许指定层次化的命名空间的名称。因此，命名空间的名字可以使用分层次的方式定义：::
+
+    <?php
+    namespace MyProject\Sub\Level;
+
+    const CONNECT_OK = 1;
+    class Connection {/*...*/}
+    function connect() {/*...*/}
+    ?>
+
+上述示例创建了常量MyProject\Sub\Level\CONNECT_OK，类MyProject\Sub\Level\Connection和函数MyProject\Sub\Level\Connection。
+
+常量 ``__NAMESPACE__`` 的值是包含当前命名空间名称的字符串。在全局的，不包括在任何命名空间中的代码，它包含一个空的字符串。
+
+*别名/导入*
+
+PHP命名空间支持有两种使用别名或导入方式：为类名称使用别名，或为命名空间名称使用别名。注意PHP不支持导入函数或常量。::
+
+    <?php
+    namespace foo;
+    use My\Full\Classname as Another;
+
+    // 与use My\Full\NSname as NSname相同
+    use My\Full\NSname;
+
+    // 导入一个全局类
+    use \ArrayObject;
+
+    $obj = new namespace\Another;   // 实例化foo\Another对象
+    $obj = new Another; // 实例化My\Full\Classname对象
+    NSname\subns\func();    // 实例化My\Full\NSname\subns\func
+    $a = new ArrayObject(array(1)); // 实例化ArrayObject对象
+                                    // 如果不使用"use \ArrayObject"，则实例化一个foo\ArrayObject对象
+    ?>
+
+为了简化操作，PHP还支持在一行中导入多个别名。
+
+如果文件中没有定义任何命名空间，所有的类与函数的定义都是在全局空间。在定义了命名空间的文件中，要使用全局空间的类或函数，可以使用命名空间别名导入（个人觉得不推荐这么做），或在调用的类或函数之前加 ``\`` 。::
+
+    <?php
+    namespace A\B\C;
+
+    /* 这个函数是A\B\C\fopen */
+    function fopen() {
+        /*...*/
+        $f = \fopen(...);   // 调用全局的fopen函数
+        return $f;
+    }
+    ?>
+
+
+引用的解释
+----------------
+
+在PHP中引用意味着用不同的名字访问同一个变量的内容。这并不像C的指针，替代的是，引用是符号表别名。注意在PHP中，变量名和变量内容是不一样的，因此同样的内容可以有不同的名字。最接近的比喻是Unix的文件名和文件本身---变量名是目录条目，而变量内容则是文件本身。引用可以被看作是Unix文件系统中的hardlink。
+
+当unset一个引用，只是断开了变量名和变量内容之间的绑定，这并不意味着变量内容被销毁了。
