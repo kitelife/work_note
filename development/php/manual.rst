@@ -380,6 +380,77 @@ PHP中的引用是别名，即两个不同的变量名字指向相同的内容�
 
 所有php里面的值都可以使用函数serialize()来返回一个包含字节流的字符串来表示。unserialize()函数能够重新把字符串变回php原来的值。序列化一个对象将会保存对象的所有变量，但不会保存对象的方法，只会保存类的名字。
 
+~~~~~~
+
+*自动加载*
+
+很多开发者写面向对象的应用程序时对每个类的定义建立一个PHP源文件。一个很大的烦恼是不得不在每个脚本（每个类一个文件）开头写一个长长的包含文件列表。
+
+在PHP 5中不再需要这样。可以定义一个__autoload函数，它会在试图使用尚未被定义的类时自动调用。通过调用此函数，脚本引擎在PHP出错失败前有了最后一个机会加载所需的类。
+
+**spl_autoload_register()提供了一种更加灵活的方式来实现类的自动加载。因此，不再建议使用__autoload()函数。** ，见如下示例：::
+
+    <?php
+    class autoloader {
+        
+        public static $loader;
+
+        public static function init()
+        {
+            if (self::$loader == NULL)
+                self::$loader = new self();
+
+            return self::$loader;
+        }
+
+        public function __construct()
+        {
+            spl_autoload_register(array($this, 'model'));
+            spl_autoload_register(array($this, 'helper'));
+            spl_autoload_register(array($this, 'controller'));
+            spl_autoload_register(array($this, 'library'));
+        }
+
+        public function library($class)
+        {
+            set_include_path(get_include_path().PATH_SEPARATOR.'/lib/');
+            spl_autoload_extensions('.library.php');
+            spl_autoload($class);
+        }
+
+        public function controller($class)
+        {
+            $class = preg_replace('/_controller$/ui', '', $class);
+
+            set_include_path(get_include_path().PATH_SEPARATOR.'/controller/');
+            spl_autoload_extensions('.controller.php');
+            spl_autoload($class);
+        }
+
+        public function model($class)
+        {
+            $class = preg_replace('/_model$/ui', '', $class);
+
+            set_include_path(get_include_path().PATH_SEPARATOR.'/model/');
+            spl_autoload_extensions('.model.php');
+            spl_autoload($class);
+        }
+
+        public function helper($class)
+        {
+            $class = preg_replace('/_helper$/ui', '', $class);
+
+            set_include_path(get_include_path().PATH_SEPARATOR.'/helper/');
+            spl_autoload_extensions('.helper.php');
+            spl_autoload($class);
+        }
+    }
+
+    // call
+    autoloader::init();
+
+上例代码中 ``self`` 代表当前类，另外 ``$this`` 代表当前对象。
+
 
 命名空间
 -------------
@@ -456,4 +527,3 @@ PHP命名空间支持有两种使用别名或导入方式：为类名称使用�
 在PHP中引用意味着用不同的名字访问同一个变量的内容。这并不像C的指针，替代的是，引用是符号表别名。注意在PHP中，变量名和变量内容是不一样的，因此同样的内容可以有不同的名字。最接近的比喻是Unix的文件名和文件本身---变量名是目录条目，而变量内容则是文件本身。引用可以被看作是Unix文件系统中的hardlink。
 
 当unset一个引用，只是断开了变量名和变量内容之间的绑定，这并不意味着变量内容被销毁了。
-
