@@ -22,6 +22,7 @@ xiayf的学习笔记
     operations/keepalived
     operations/puppet
     operations/fabric
+    operations/supervisor
 
 
 二. 开发
