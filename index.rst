@@ -23,6 +23,7 @@ xiayf的学习笔记
     operations/puppet
     operations/fabric
     operations/supervisor
+    operations/gunicorn
 
 
 二. 开发
