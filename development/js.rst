@@ -6,3 +6,7 @@ JavaScript
 
     js/basic
     js/jquery
+    js/prototype
+    js/modernizr
+    js/mootools
+    js/underscore
