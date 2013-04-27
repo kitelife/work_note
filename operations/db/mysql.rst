@@ -14,6 +14,7 @@ MySQL
 
 删除数据库的SQL语句： ``DROP DATABASE dbname`` 。
 
+为数据库添加字段的SQL语句： ``ALTER TABLE `serverinfo` ADD COLUMN processlist varchar(1024) DEFAULT NULL COMMENT '进程列表' AFTER `alias`;``
 
 资源
 --------
