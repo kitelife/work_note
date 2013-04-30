@@ -4,7 +4,7 @@ jQuery
 源码阅读(v1.6.2)
 ------------
 
-class2type：::
+class2type： ::
 
     class2type = {};
     
@@ -20,20 +20,20 @@ class2type：::
     }
 
 
-isFunction：::
+isFunction： ::
 
     isFunction: function (obj) {
         return jQuery.type(obj) === "function";
     }
 
-isArray：::
+isArray： ::
 
     // 尽可能使用原生的方法
     isArray: Array.isArray || function (obj) {
         return jQuery.type(obj) === "array";
     }
 
-isPlainObject：::
+isPlainObject： ::
 
     // 检查一个对象是否是一个普通的对象（以"{}"或"new Object"创建的对象）
     isPlainObject: function (obj) {
