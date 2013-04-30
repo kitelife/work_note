@@ -2,7 +2,7 @@ jQuery
 ============
 
 源码阅读(v1.6.2)
-------------
+-----------------
 
 class2type： ::
 
@@ -59,4 +59,22 @@ isPlainObject： ::
         return key === undefined || hasOwn.call(obj, key);
     }
 
+trim： ::
 
+    var trimLeft = /^\s+/,
+        trimRight = /\s+$/;
+
+    // Use native String.trim function wherever possible
+    trim: trim ?
+        function (text) {
+            return text == null ?
+                "" :
+                trim.call(text);
+        } :
+
+        // Otherwise use our own trimming functionality
+        function (text) {
+            return text == null ?
+                "" :
+                text.toString().replace(trimLeft, "").replace(trimRight, "");
+        }
