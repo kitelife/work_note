@@ -9,4 +9,4 @@ JavaScript
     js/prototype
     js/modernizr
     js/mootools
-    js/underscore
+    js/underscorejs
