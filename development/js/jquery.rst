@@ -5,6 +5,7 @@ jQuery
 ------------
 
 class2type：::
+
     class2type = {};
     
     jQuery.each("Boolean Number String Function Array Date RegExp Object".split(" "), function(i, name){
@@ -20,17 +21,20 @@ class2type：::
 
 
 isFunction：::
+
     isFunction: function (obj) {
         return jQuery.type(obj) === "function";
     }
 
 isArray：::
+
     // 尽可能使用原生的方法
     isArray: Array.isArray || function (obj) {
         return jQuery.type(obj) === "array";
     }
 
 isPlainObject：::
+
     // 检查一个对象是否是一个普通的对象（以"{}"或"new Object"创建的对象）
     isPlainObject: function (obj) {
         // Must be an Object
