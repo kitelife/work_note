@@ -1,7 +1,7 @@
 jQuery
 ============
 
-- 《Learning from jQuery》阅读笔记：https://github.com/youngsterxyf/Coder-s-code/blob/master/JavaScript/learning-jQuery.js
+- 《Learning from jQuery》阅读笔记：`https://github.com/youngsterxyf/Coder-s-code/blob/master/JavaScript/learning-from-jQuery.js <https://github.com/youngsterxyf/Coder-s-code/tree/master/JavaScript/learning-from-jQuery.js>`_
 
 源码阅读(v1.6.2)
 -----------------
