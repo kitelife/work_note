@@ -17,3 +17,13 @@ JavaScript中的所有作用域，包括全局作用域，都有一个特别的�
 3. 函数自身是否叫做 ``foo`` 。
 
 4. 回溯到上一级作用域，然后从 #1 重新开始。
+
+
+材料
+---------
+
+- Learning from jQuery
+- JavaScript DOM编程艺术
+- High Performance JavaScript
+- `Learning JavaScript Design Patterns <http://addyosmani.com/resources/essentialjsdesignpatterns/book/>`_
+- 高性能网站建设指南
