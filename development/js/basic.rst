@@ -26,4 +26,5 @@ JavaScript中的所有作用域，包括全局作用域，都有一个特别的�
 - JavaScript DOM编程艺术
 - High Performance JavaScript
 - `Learning JavaScript Design Patterns <http://addyosmani.com/resources/essentialjsdesignpatterns/book/>`_
+- JavaScript Patterns
 - 高性能网站建设指南
