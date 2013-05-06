@@ -1,6 +1,39 @@
 JavaScript基础
 =================
 
+**内部函数中的this**
+
+::
+
+    var name = "clever coder";
+    var person = {
+        name: "foocoder",
+        hello: function (sth) {
+            var sayhello = function (sth) {
+                console.log(this.name + " says " + sth);
+            };
+            sayhello(sth);
+        }
+    }
+    person.hello("hello world");    // clever coder says hello world
+
+JavaScript的内部函数中，this没有按预想的绑定到外层函数对象上，而是绑定到了全局对象。
+这里普遍被认为是JavaScript语言的设计错误，因为没有人想让内部函数中的this指向全局函数。
+一般的处理方式是将this作为变量保存下来，一般约定为that或者self::
+
+    var name = "clever coder";
+    var person = {
+        name: "foocoder",
+        hello: function (sth) {
+            var that = this;
+            var sayhello = function (sth) {
+                console.log(that.name + " says " + sth);
+            };
+            sayhello(sth);
+        }
+    }
+    person.hello("hello world");    // foocoder says hello world
+
 
 **名称解析顺序**
 
