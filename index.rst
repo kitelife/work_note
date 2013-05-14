@@ -57,3 +57,4 @@ xiayf的学习笔记
     :maxdepth: 2
 
     others/quotes
+    others/data-visual
