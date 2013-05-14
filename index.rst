@@ -54,7 +54,7 @@ xiayf的学习笔记
 --------------
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     others/quotes
     others/data-visual
