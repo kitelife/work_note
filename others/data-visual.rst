@@ -90,7 +90,7 @@ Re-usable charts for d3.js
 
 
 参考资料
-===========
+----------
 
 - `前端数据可视化库大搜罗 <http://www.ituring.com.cn/article/40497>`_
 - `精心挑选的数据可视化工具推荐列表 <http://youngsterxyf.github.io/2013/01/15/a-carefully-selected-list-of-recommended-tools/>`_
