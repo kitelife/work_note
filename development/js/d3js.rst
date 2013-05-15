@@ -4,7 +4,8 @@ D3.js
 Interactive Data Visualization for the Web
 -----------------------------------------------
 
-::
+简单示例::
+
     var w = 500;
     var h = 50;
 
