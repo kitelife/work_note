@@ -1,6 +1,9 @@
 Web开发问题记录
 ==================
 
+从这里查看各种浏览器对于某些CSS、JS、SVG、HTML5特性的支持情况：http://caniuse.com
+
+
 IE 8没有内置好用的前端调试工具，可以通过在待调试的页面中引入Firebug Lite来调试。::
 
     <script type="text/javascript" src="https://getfirebug.com/firebug-lite.js"></script>
