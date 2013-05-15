@@ -100,3 +100,10 @@ https://developer.mozilla.org/zh-CN/docs/JavaScript/Reference/Global_Objects/Arr
 IE 8(在iframe中无法正常使用json)以及更早版本对于JSON没有原生支持，可使用Douglas Crockford写的json2.js，但要
 考虑如何根据条件加载该文件。若仅需要解析JSON字符串返回JavaScript对象，也可以使用
 jQuery的jQuery.parseJSON方法，但jQuery没有stringify方法。
+
+
+最佳实践
+------------
+
+1.
+外部CSS文件在<head>中引入，外部JS文件在<body>的最后位置引入。
