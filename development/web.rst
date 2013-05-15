@@ -98,4 +98,5 @@ https://developer.mozilla.org/zh-CN/docs/JavaScript/Reference/Global_Objects/Arr
 
 5.
 IE 8(在iframe中无法正常使用json)以及更早版本对于JSON没有原生支持，可使用Douglas Crockford写的json2.js，但要
-考虑如何根据条件加载该文件。
+考虑如何根据条件加载该文件。若仅需要解析JSON字符串返回JavaScript对象，也可以使用
+jQuery的jQuery.parseJSON方法，但jQuery没有stringify方法。
