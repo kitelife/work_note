@@ -25,9 +25,11 @@ is when checking for undefined and null by way of null.::
 * null: object === null
 * null or undefined: object == null
 * undefined:
-    * Global Variables: typeof variable === "undefined"
-    * Local Variables: variable === undefined
-    * Properties: object.prop === undefined
+ * Global Variables: typeof variable === "undefined"
+ * Local Variables: variable === undefined
+ * Properties: object.prop === undefined
+
+http://contribute.jquery.org/style-guide/js/
 
 ------
 
