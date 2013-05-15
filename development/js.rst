@@ -10,3 +10,4 @@ JavaScript
     js/modernizr
     js/mootools
     js/underscorejs
+    js/d3js
