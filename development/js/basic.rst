@@ -1,6 +1,36 @@
 JavaScript基础
 =================
 
+Style Guide
+--------------
+
+**Equality**
+
+Strict equality checks (===) should be used in favor of ==. The only exception
+is when checking for undefined and null by way of null.::
+
+    // Check for both undefined and null values, for some important reason.
+    undefOrNull == null;
+
+**Type Checks**
+
+- String: typeof object === "string"
+- Number: typeof object === "number"
+- Boolean: typeof object === "boolean"
+- Object: typeof object === "object"
+- Plain Object: jQuery.isPlainObject( object )
+- Function: jQuery.isFunction( object )
+- Array: jQuery.isArray( object )
+- Element: object.nodeType
+- null: object === null
+- null or undefined: object == null
+- undefined:
+-- Global Variables: typeof variable === "undefined"
+-- Local Variables: variable === undefined
+-- Properties: object.prop === undefined
+
+------
+
 **内部函数中的this**
 
 ::
