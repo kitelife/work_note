@@ -97,5 +97,5 @@ https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Arr
 https://developer.mozilla.org/zh-CN/docs/JavaScript/Reference/Global_Objects/Array/map
 
 5.
-IE 8以及更早版本对于JSON没有原生支持，可使用Douglas Crockford写的json2.js，但要
+IE 8(在iframe中无法正常使用json)以及更早版本对于JSON没有原生支持，可使用Douglas Crockford写的json2.js，但要
 考虑如何根据条件加载该文件。
