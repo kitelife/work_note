@@ -87,6 +87,13 @@ http://nvd3.org
 
 Re-usable charts for d3.js
 
+Flot
+---------
+
+http://www.flotcharts.org/
+
+Flot is a pure JavaScript plotting library for jQuery, with a focus on simple usage,
+attractive looks and interactive features.
 
 
 参考资料
