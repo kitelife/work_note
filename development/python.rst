@@ -9,3 +9,4 @@ Python
     python/django
     python/Celery
     python/gunicorn
+    python/eventlet
