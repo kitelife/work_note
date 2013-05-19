@@ -1,6 +1,14 @@
 Web开发问题记录
 ==================
 
+工具
+-------
+
+**Chrome Dev Tools** :
+
+`http://blog.jobbole.com/22065/ <Chrome Dev Tools 浅析：成为更高效的开发人员>`_
+
+
 从这里查看各种浏览器对于某些CSS、JS、SVG、HTML5特性的支持情况：http://caniuse.com
 
 
