@@ -8,3 +8,4 @@ Python
     python/libs
     python/django
     python/Celery
+    python/gunicorn
