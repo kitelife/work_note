@@ -6,3 +6,5 @@ Python
 
     python/best-practices
     python/libs
+    python/django
+    python/Celery
