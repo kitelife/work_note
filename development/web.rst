@@ -44,6 +44,9 @@ IE 8以及更早的版本不支持JavaScript字符串的trim()方法。可如下
 
 另外，还有ltrim()和rtrim()方法。
 
+也可以使用jQuery提供的工具方法 `$.trim(str)` 。
+
+http://api.jquery.com/jQuery.trim/
 
 3.
 IE 8以及更早也不支持JavaScript数组的forEach方法，有两种解决方案：1）以for循环
