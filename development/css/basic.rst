@@ -80,3 +80,8 @@
 .. image:: /_static/pics/static_position.png
 
 虽然红色div在标记中的位置比绿色div靠前（按理应该在常规流程中优先绘制），但是z-index属性的优先级更高，因此它移动到了根框所保持的堆栈中更靠前的位置。
+
+资源
+-------
+
+1. `Alice---写样式的更好方式 <http://aliceui.org/>`_
