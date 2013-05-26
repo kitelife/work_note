@@ -1,6 +1,63 @@
 Redis
 ===========
 
+官网资料学习
+-----------------
+
+**Introduction to Redis**
+
+Redis is an advanced **key-value store** , and is often referred to as a data structure server since keys can contain strings, hashes, lists, sets and sorted sets.
+
+You can run atomic operations on these types, like appending to a string; incrementing the value in a hash; pushing to a list; computing set intersection, union and difference; or getting the member with highest ranking in a sorted set.
+
+In order to achieve its outstanding performance, Redis works with an in-memory dataset. Depending on your use case, you can persist it either by dumping the dataset to disk every once in a while, or by appending each command to a log.
+
+Redis also supports trivial-to-setup master-slave replication, with very fast non-blocking first synchronization, auto-reconnection on net split and so forth.
+
+Other features include Transactions, Pub/Sub, Lua scripting, Keys with a limited time-to-live, and configuration settings to make Redis behave like a cache.
+
+**Data types**
+
+*Strings*
+
+Strings are the most basic kind of Redis value. Redis Strings are binary safe, this means that a Redis string can contain any kind of data, for instance a JPEG image or a serialized Ruby object.
+
+A String value can be at **max 512 Megabytes** in length.
+
+.. seealso:: `all the available string commands <http://redis.io/commands/#string>`_
+
+*Lists*
+
+Redis Lists are simply lists of strings, sorted by insertion order. It is possible to add elements to a Redis List pushing new elements on the head (on the left) or on the tail (on the right) of the list.
+
+The LPUSH command inserts a new element on the head, while RPUSH inserts a new element on the tail. A new list is created when one of this operations is performed against an empty key. Similarly the key is removed from the key space if a list operation will empty the list.
+
+The max length of a list is 232 - 1 elements (4294967295, more than 4 billion of elements per list).
+
+The main features of Redis Lists from the point of view of time complexity are the support for constant time insertion and deletion of elements near the head and tail, even with many millions of inserted items. Accessing elements is very fast near the extremes of the list but is slow if you try accessing the middle of a very big list, as it is an O(N) operation.
+
+.. seealso:: `all the available commands operating on lists <http://redis.io/commands#list>`_
+
+*Sets*
+
+Redis Sets are an unordered collection of Strings. It is possible to add, remove, and test for existence of members in O(1) (constant time regardless of the number of elements contained inside the Set).
+
+.. seealso:: `The full list of Set commands <http://redis.io/commands#set>`_
+
+*Hashes*
+
+Redis Hashes are maps between string fields and string values, so they are the perfect data type to represent objects.
+
+.. seealso:: `The full list of Hash commands <http://redis.io/commands#hash>`_
+
+*Sorted sets*
+
+Redis Sorted Sets are, similarly to Redis Sets, non repeating collections of Strings. The difference is that every member of a Sorted Set is associated with score, that is used in order to take the sorted set ordered, from the smallest to the greatest score. While members are unique, scores may be repeated.
+
+With sorted sets you can add, remove, or update elements in a very fast way (in a time proportional to the logarithm of the number of elements). Since elements are taken in order and not ordered afterwards, you can also get ranges by score or by rank (position) in a very fast way. Accessing the middle of a sorted set is also very fast, so you can use Sorted Sets as a smart list of non repeating elements where you can quickly access everything you need: elements in order, fast existence test, fast access to elements in the middle!
+
+.. seealso:: `The full list of Sorted Set commands <http://redis.io/commands#sorted_set>`_
+
 《Redis设计与实现》读书笔记
 ------------------------------
 
