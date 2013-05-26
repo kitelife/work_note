@@ -85,3 +85,4 @@
 -------
 
 1. `Alice---写样式的更好方式 <http://aliceui.org/>`_
+2. `20 Very Useful CSS Stylesheet Tips & Tricks <http://viralpatel.net/blogs/20-very-useful-css-stylesheet-tips-tricks/>`_
