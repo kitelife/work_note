@@ -231,6 +231,7 @@ Note that we use toFixed() method here. toFixed(n) provides n length after the d
     str.trim();
     //print str = "some string"
 
+
 20. Redirect webpage in JavaScript
 
 This javascript code should perform http redirect on a given URL::

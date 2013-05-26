@@ -1,6 +1,158 @@
 基础知识
 ============
 
+20 Very Useful CSS Stylesheet Tips & Tricks
+-----------------------------------------------
+
+1. Round Corners without images
+
+Here is a simple CSS technique of rounding off the corners of the DIV using some css attributes. This technique will work in Firefox, Safari, Chrome and any other CSS3-compatible browser. This technique will not work in Internet Explorer.::
+
+    div {
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+    }
+
+To round a specific corner (top-left or bottom-right) use below stylesheet.::
+
+    div {
+        -moz-border-radius-topleft: 10px;
+        -webkit-border-top-left-radius: 10px;
+    }
+
+2. Create an IE Specific Stylesheet
+
+Create a separate stylesheet altogether and include it in the webpage whenever the client is using Internet Explorer.
+
+**IE Only** ::
+
+    <!--[if IE]>
+        <link rel="stylesheet" type="text/css" href="ie-only.css" />
+    <![endif]-->
+
+**IE 7 Only** ::
+
+    <!--[if IE 7]>
+        <link href="IE-7-SPECIFIC.css" rel="stylesheet" type="text/css">
+    <![endif]-->
+
+.. seealso:: `How To: Create An IE Specific Stylesheet <http://viralpatel.net/blogs/how-to-create-ie-specific-css-stylesheet/>`_
+
+3. Background Image of Textbox
+::
+
+    input#sometextbox {
+        background-image:url('back-image.gif');
+        background-repeat:no-repeat;
+        padding-left:20px;
+    }
+
+7. Rotate Text using CSS
+
+The rotation property of Internet Explorer’s BasicImage filter can accept one of four values: 0, 1, 2, or 3 which will rotate the element 0, 90, 180 or 270 degress respectively.::
+
+    .rotate-style {
+        /* Safari */
+        -webkit-transform: rotate(-90deg);
+
+        /* Firefox */
+        -moz-transform: rotate(-90deg);
+
+        /* Internet Explorer */
+        filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    }
+
+9. Change Text Selection Color
+
+By default, browsers uses blue color as the text selection. You can change this color to match your website theme.::
+
+    /* Mozilla based browsers */
+    ::-moz-selection {
+       background-color: #FFA;
+       color: #000;
+    }
+
+    /* Works in Safari */
+    ::selection {
+       background-color: #FFA;
+       color: #000;
+    }
+
+11. Centering a Website
+
+Most of website uses this technique to center the content.::
+
+    <body>
+        <div id="page-wrap">
+            <!-- all websites HTML here -->
+        </div>
+    </body>
+
+
+    #page-wrap {
+        width: 800px;
+        margin: 0 auto;
+    }
+
+12. CSS Drop Caps
+
+If your browser supports the pseudo-class “first-letter”, the first letter will be a drop-cap.::
+
+    p:first-letter {
+       font-size : 300%;
+       font-weight : bold;
+       float : left;
+       width : 1em;
+    }
+
+13. Attribute-Specific Icons
+
+CSS Attribute selectors are very powerful giving you many options to control styles of different elements e.g. you can add an icon based on the href attribute of the a tag to let the user know whether link points to an image, pdf, doc file etc.::
+
+    a[href$='.doc'] {
+        padding:0 20px 0 0;
+        background:transparent url(/graphics/icons/doc.gif) no-repeat center rightright;
+    }
+
+14. Capitalize Text
+
+This trick is especially useful for displaying title of an article on a web page with all its words starting with capital letter.::
+
+    text-transform: capitalize;
+
+    text-transform: lowercase
+
+    text-transform: uppercase
+
+- none: No capitalization. The text renders as it is. This is default
+- capitalize: Transforms the first character of each word to uppercase
+- uppercase: Transforms all characters to uppercase
+- lowercase: Transforms all characters to lowercase
+- inherit: Specifies that the value of the text-transform property should be inherited from the parent element
+
+15. CSS Text Shadow
+
+Regular text shadow:::
+
+    p { text-shadow: 1px 1px 1px #000; }
+
+Multiple shadows:::
+
+    p { text-shadow: 1px 1px 1px #000, 3px 3px 5px blue; }
+
+The first two values specify the length of the shadow offset. The first value specifies the horizontal distance and the second specifies the vertical distance of the shadow. The third value specifies the blur radius and the last value describes the color of the shadow.
+
+18. CSS Pointer Cursors
+::
+
+    input[type=submit],label,select,.pointer { cursor:pointer; }
+
+
+.. seealso:: `20 Very Useful CSS Stylesheet Tips & Tricks <http://viralpatel.net/blogs/20-very-useful-css-stylesheet-tips-tricks/>`_
+
+------
+
 **层叠顺序**
 
 样式表属性的声明可能会出现在多个样式表中，也可能在同一个样式表中出现多次。这意味着应用规则的顺序极为重要。优先级从低到高层叠顺序如下所示：
