@@ -4,13 +4,14 @@ Web开发问题记录
 工具
 -------
 
-**Chrome Dev Tools** :
+1. **Chrome Dev Tools** :
 
 `http://blog.jobbole.com/22065/ <Chrome Dev Tools 浅析：成为更高效的开发人员>`_
 
 
 从这里查看各种浏览器对于某些CSS、JS、SVG、HTML5特性的支持情况：http://caniuse.com
 
+2. Firebug调试IE调试
 
 IE 8没有内置好用的前端调试工具，可以通过在待调试的页面中引入Firebug Lite来调试。::
 
@@ -51,7 +52,7 @@ http://api.jquery.com/jQuery.trim/
 3.
 IE 8以及更早也不支持JavaScript数组的forEach方法，有两种解决方案：1）以for循环
 替代；2）为Array.prototype添加forEach方法。::
-    
+
     if ( !Array.prototype.forEach ) {
         Array.prototype.forEach = function(fn, scope) {
             for(var i = 0, len = this.length; i < len; ++i) {
@@ -68,10 +69,10 @@ https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Arr
     if (!Array.prototype.map) {
         Array.prototype.map = function(callback, thisArg) {
             var T, A, k;
-        
+
             if (this == null) {
                 throw new TypeError(" this is null or not defined");
-            } 
+            }
             // 1. 将O赋值为调用map方法的数组.
             var O = Object(this);
             // 2.将len赋值为数组O的长度.
@@ -92,11 +93,11 @@ https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Arr
             while(k < len) {
                 var kValue, mappedValue;
                 //遍历O,k为原数组索引
-                if (k in O) { 
+                if (k in O) {
                     //kValue为索引k对应的值.
-                    kValue = O[ k ]; 
+                    kValue = O[ k ];
                     // 执行callback,this指向T,参数有三个.分别是kValue:值,k:索引,O:原数组.
-                    mappedValue = callback.call(T, kValue, k, O); 
+                    mappedValue = callback.call(T, kValue, k, O);
                     // 返回值添加到新书组A中.
                     A[ k ] = mappedValue;
                 }
@@ -105,7 +106,7 @@ https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Arr
             }
             // 9. 返回新数组A
             return A;
-        };      
+        };
     }
 
 https://developer.mozilla.org/zh-CN/docs/JavaScript/Reference/Global_Objects/Array/map
@@ -121,3 +122,8 @@ jQuery的jQuery.parseJSON方法，但jQuery没有stringify方法。
 
 1.
 外部CSS文件在<head>中引入，外部JS文件在<body>的最后位置引入。
+
+原理
+-------
+
+- `浏览器的渲染原理简介 <http://coolshell.cn/articles/9666.html>`_
