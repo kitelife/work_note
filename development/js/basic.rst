@@ -338,3 +338,4 @@ JavaScript中的所有作用域，包括全局作用域，都有一个特别的�
 - JavaScript Patterns
 - 高性能网站建设指南
 - `21 JavaScript Tips And Tricks For JavaScript Developers <http://viralpatel.net/blogs/javascript-tips-tricks/>`_
+- `JavaScript: The Important Parts <http://benlakey.com/2013/05/26/javascript-the-important-parts/>`_
