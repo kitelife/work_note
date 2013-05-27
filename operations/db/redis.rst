@@ -135,6 +135,63 @@ So Redis supports an interesting feature: it is able to rebuild the AOF in the b
 
 .. seealso:: `Redis Persistence <http://redis.io/topics/persistence>`_
 
+
+**Replication**
+
+*How Redis replication works*
+
+If you set up a slave, upon connection it sends a SYNC command. And it doesn't matter if it's the first time it has connected or if it's a reconnection.
+
+The master then starts background saving, and collects all new commands received that will modify the dataset. When the background saving is complete, the master transfers the database file to the slave, which saves it on disk, and then loads it into memory. The master will then send to the slave all accumulated commands, and all new commands received from clients that will modify the dataset. This is done as a stream of commands and is in the same format of the Redis protocol itself.
+
+*Configuration*
+
+To configure replication is trivial: just add the following line to the slave configuration file:::
+
+    slaveof 192.168.1.1 6379
+
+.. seealso:: `Repication <http://redis.io/topics/replication>`_
+
+**Transactions**
+
+*MULTI* , *EXEC* , *DISCARD* and *WATCH* are the foundation of transactions in Redis. They allow the execution of a group of commands in a single step, with two important guarantees:
+
+- All the commands in a transaction are serialized and executed sequentially. It can never happen that a request issued by another client is served in the middle of the execution of a Redis transaction. This guarantees that the commands are executed as a single isolated operation.
+- Either all of the commands or none are processed, so a Redis transaction is also atomic. The EXEC command triggers the execution of all the commands in the transaction, so if a client loses the connection to the server in the context of a transaction before calling the MULTI command none of the operations are performed, instead if the EXEC command is called, all the operations are performed.However if the Redis server crashes or is killed by the system administrator in some hard way it is possible that only a partial number of operations are registered. Redis will detect this condition at restart, and will exit with an error. Using the redis-check-aof tool it is possible to fix the append only file that will remove the partial transaction so that the server can start again.
+
+.. seealso:: `Transactions <http://redis.io/topics/transactions>`_
+
+**Pub/Sub**
+
+SUBSCRIBE, UNSUBSCRIBE and PUBLISH implement the Publish/Subscribe messaging paradigm where (citing Wikipedia) senders (publishers) are not programmed to send their messages to specific receivers (subscribers).
+
+**Redis Administration**
+
+*Redis setup hints*
+
+- suggest deploying Redis using the Linux operating system.
+- Make sure to set the Linux kernel overcommit memory setting to 1. Add vm.overcommit_memory = 1 to /etc/sysctl.conf and then reboot or run the command sysctl vm.overcommit_memory=1 for this to take effect immediately.
+- Make sure to setup some swap in your system (we suggest as much as swap as memory). If Linux does not have swap and your Redis instance accidentally consumes too much memory, either Redis will crash for out of memory or the Linux kernel OOM killer will kill the Redis process.
+- Even if you have persistence disabled, Redis will need to perform RDB saves if you use replication.
+- Use daemonize no when run under daemontools.
+
+**Redis configuration**
+
+Redis is able to start without a configuration file using a built-in default configuration, however this setup is only recommanded for testing and development purposes.
+
+The proper way to configure Redis is by providing a Redis configuration file, usually called redis.conf.
+
+*Changing Redis configuration while the server is running*
+
+It is possible to reconfigure Redis on the fly without stopping and restarting the service, or querying the current configuration programmatically using the special commands CONFIG SET and CONFIG GET
+
+Not all the configuration directives are supported in this way, but most are supported as expected. Please refer to the CONFIG SET and CONFIG GET pages for more information.
+
+Note that modifying the configuration on the fly has no effects on the redis.conf file so at the next restart of Redis the old configuration will be used instead.
+
+Make sure to also modify the redis.conf file accordingly to the configuration you set using CONFIG SET. There are plans to provide a CONFIG REWRITE command that will be able to run the redis.conf file rewriting the configuration accordingly to the current server configuration, without modifying the comments and the structure of the current file.
+
+
 《Redis设计与实现》读书笔记
 ------------------------------
 
