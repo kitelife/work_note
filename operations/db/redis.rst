@@ -16,6 +16,8 @@ Redis also supports trivial-to-setup master-slave replication, with very fast no
 
 Other features include Transactions, Pub/Sub, Lua scripting, Keys with a limited time-to-live, and configuration settings to make Redis behave like a cache.
 
+------
+
 **Data types**
 
 *Strings*
@@ -57,6 +59,81 @@ Redis Sorted Sets are, similarly to Redis Sets, non repeating collections of Str
 With sorted sets you can add, remove, or update elements in a very fast way (in a time proportional to the logarithm of the number of elements). Since elements are taken in order and not ordered afterwards, you can also get ranges by score or by rank (position) in a very fast way. Accessing the middle of a sorted set is also very fast, so you can use Sorted Sets as a smart list of non repeating elements where you can quickly access everything you need: elements in order, fast existence test, fast access to elements in the middle!
 
 .. seealso:: `The full list of Sorted Set commands <http://redis.io/commands#sorted_set>`_
+
+------
+
+**Redis Persistence**
+
+Redis provides a different range of persistence options:
+
+- The RDB persistence performs point-in-time snapshots of your dataset at specified intervals.
+- The AOF persistence logs every write operation recevied by the server, that will be played again at server startup, reconstructing the original dataset. Commands are logged using the same format as the Redis protocol itself, in an append-only fashion. Redis is able to rewrite the log on background when it gets too big.
+- If you wish, you can disable persistence at all, if you want your data to just exist as long as the server is running.
+- It is possible to combine both AOF and RDB in the same instance.
+
+The most important thing to understand is the different trade-offs between the RDB and AOF persistence.
+
+*RDB advantages*
+
+- RDB is a very compact single-file point-in-time representation of your Redis data. RDB files are perfect for backups.
+- RDB is very good for disaster recovery, being a single compact file can be transfered to far data centers.
+- RDB maximizes Redis performances since the only work the Redis parent process needs to do in order to persist is forking a child that will do all the rest. The parent instance will never perform disk I/O or alike.
+- RDB allows faster restarts with big datasets compared to AOF.
+
+*RDB disadvantages*
+
+- RDB is NOT good if you need to minimize the chance of data loss in case Redis stops working (for example after a power outage). You can configure different save points where an RDB is produced (for instance after at least five minutes and 100 writes against the data set, but you can have multiple save points).
+- RDB needs to fork() often in order to persist on disk using a child process. Fork() can be time consuming if the dataset is big, and may result in Redis to stop serving clients for some millisecond or even for one second if the dataset is very big and the CPU performance not great. AOF also needs to fork() but you can tune how often you want to rewrite your logs without any trade-off on durability.
+
+*AOF adavantages*
+
+- Using AOF Redis is much more durable: you can have different fsync policies: no fsync at all, fsync every second, fsync at every query.
+- The AOF log is an append only log, so there are no seeks, nor corruption problems if there is a power outage. Even if the log ends with an half-written command for some reason (disk full or other reasons) the redis-check-aof tool is able to fix it easily.
+- Redis is able to automatically rewrite the AOF in background when it gets too big. The rewrite is completely safe as while Redis continues appending to the old file, a completely new one is produced with the minimal set of operations needed to create the current data set, and once this second file is ready Redis switches the two and starts appending to the new one.
+- AOF contains a log of all the operations one after the other in an easy to understand and parse format. You can even easily export an AOF file. For instance even if you flushed everything for an error using a FLUSHALL command, if no rewrite of the log was performed in the meantime you can still save your data set just stopping the server, removing the latest command, and restarting Redis again.
+
+*AOF disadvantages*
+
+- AOF files are usually bigger than the equivalent RDB files for the same dataset.
+- AOF can be slower then RDB depending on the exact fsync policy.
+
+------
+
+*Snapshotting*
+
+By default Redis saves snapshots of the dataset on disk, in a binary file called dump.rdb. You can configure Redis to have it save the dataset every N seconds if there are at least M changes in the dataset, or you can manually call the SAVE or BGSAVE commands.
+
+*How it works*
+
+Whenever Redis needs to dump the dataset to disk, this is what happens:
+
+- Redis forks. We now have a child and a parent process.
+- The child starts to write the dataset to a temporary RDB file.
+- When the child is done writing the new RDB file, it replaces the old one.
+
+------
+
+*Append-only file*
+
+The append-only file is an alternative, fully-durable strategy for Redis.
+
+You can turn on the AOF in your configuration file:::
+
+    appendonly yes
+
+From now on, every time Redis receives a command that changes the dataset (e.g. SET) it will append it to the AOF. When you restart Redis it will re-play the AOF to rebuild the state.
+
+------
+
+*Log rewriting*
+
+As you can guess, the AOF gets bigger and bigger as write operations are performed. For example, if you are incrementing a counter 100 times, you'll end up with a single key in your dataset containing the final value, but 100 entries in your AOF. 99 of those entries are not needed to rebuild the current state.
+
+So Redis supports an interesting feature: it is able to rebuild the AOF in the background without interrupting service to clients. Whenever you issue a BGREWRITEAOF Redis will write the shortest sequence of commands needed to rebuild the current dataset in memory.
+
+------
+
+.. seealso:: `Redis Persistence <http://redis.io/topics/persistence>`_
 
 《Redis设计与实现》读书笔记
 ------------------------------
