@@ -1,6 +1,17 @@
 Redis
 ===========
 
+self-contained documents of redis.conf
+-----------------------------------------
+
+By default Redis asynchronously dumps the dataset on disk. Tnis mode is good enough in many application, but an issue with the Redis process or a power outage may result into a few minutes of writes lost (depending on th configured save points).
+
+The Append Only File is an alternative persistence mode that provides much better durability. For instance using the default data fsync policy Redis can lose just one second of writes in a dramatic event like a server power outage, or a single write if something wrong with the Redis process itself happens, but the operating system is still running correctly.
+
+AOF and RDB persistence can be enabled at the same time without problems. If the AOF is enabled on startup Redis will load the AOF, that is the file with the better durability guarantees.
+
+The fsync() call tells the Operating System to actually write data on disk instead to wait for more data in the output buffer. Some OS will really flush data on disk, some other OS will just try to do it ASAP.
+
 官网资料学习
 -----------------
 
