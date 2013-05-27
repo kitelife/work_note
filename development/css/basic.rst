@@ -238,3 +238,5 @@ The first two values specify the length of the shadow offset. The first value sp
 
 1. `Alice---写样式的更好方式 <http://aliceui.org/>`_
 2. `20 Very Useful CSS Stylesheet Tips & Tricks <http://viralpatel.net/blogs/20-very-useful-css-stylesheet-tips-tricks/>`_
+3. `CSS Architecture <http://engineering.appfolio.com/2012/11/16/css-architecture/>`_
+4. `50 Useful CSS Snippets Every Designer Should Have <http://www.hongkiat.com/blog/css-snippets-for-designers/>`_
