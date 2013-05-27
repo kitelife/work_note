@@ -290,3 +290,6 @@ Redis 有四个命令可以设置键的生存时间（可以存活多久）和�
 -------
 
 - `Redis设计与实现 <http://www.redisbook.com/en/latest/index.html>`_
+- `Redis 常见的性能问题和解决方法 <http://zhupan.iteye.com/blog/1576108>`_
+- `Redis几个认识误区 <http://timyang.net/data/redis-misunderstanding/>`_
+- `Redis经验谈 <http://www.programmer.com.cn/14577/>`_
