@@ -7,3 +7,4 @@
     db/memcached
     db/redis
     db/mysql
+    db/mongo
