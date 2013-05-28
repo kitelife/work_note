@@ -51,7 +51,7 @@ Behind the load-balancer, Nginx is used as a reverse-proxy server onto the web-s
 Pylons And Paste
 --------------------
 
-Pylons, a lightweight web framework, is used as their main web-server behind Nginx. The use the default `Pylons + Paste stack <http://spacepants.org/blog/pylons-paste-stack>`
+Pylons, a lightweight web framework, is used as their main web-server behind Nginx. The use the default `Pylons + Paste stack <http://spacepants.org/blog/pylons-paste-stack>`_
 
 Python
 ---------
