@@ -12,7 +12,8 @@ xiayf的学习笔记
 .. toctree::
     :maxdepth: 2
 
-    architecture/read-high-scalability
+    architecture/read_high_scalability
+    architecture/Quora_technology_examined
 
 
 二. 运维
