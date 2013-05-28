@@ -75,9 +75,45 @@ The Tornado web framework is used for live updating. This is their Comet server,
 Long Polling (Comet)
 -------------------------
 
-Quora does not display just static web pages. Each page will updates new content as questions, answers and comments are submitted by other others. As Adam D'Angelo points out, one of the best ways to do this currently is with "long polling"
+Quora does not display just static web pages. Each page will updates new content as questions, answers and comments are submitted by other others. As Adam D'Angelo points out, one of the best ways to do this currently is with "long polling". This is different to "polling".
 
+Long polling, also known as `Comet <http://en.wikipedia.org/wiki/Comet_(programming)>`_ , puts the server in control, by making the client wait for responses.
+
+The benefit to long-polling is that there is less back-and-forth between the client and server. The server is in control of the timing, so updates to the browser can be made within milliseconds. This makes it ideal for chat applications or applications that want really snappy updates for their users.
+
+The down-side is that you are going have lots of open connections between the clients and your servers.
+
+The good news is that there are technologies specifically designed for this. It costs very little to hold open connections in memory if you free up all the resources used for that connection. For instance, Nginx (Quora uses this for proxying requests) is a single-threaded event-based application and uses very little memory for each connection. Each Nginx process is actively dealing with only one connection at a time. This means it can scale to tens of thousands of concurrent connections.
+
+.. seealso:: `How do you push messages back to a web-browser client through AJAX?  Is there any way to do this without having the client constantly polling the server for updates? <http://www.quora.com/How-do-you-push-messages-back-to-a-web-browser-client-through-AJAX-Is-there-any-way-to-do-this-without-having-the-client-constantly-polling-the-server-for-updates>`_
 
 .. seealso:: `Browser和Server持续同步的几种方式（jQuery+tornado演示） <http://qinxuye.me/article/ways-to-continual-sync-browser-and-server/>`_
+
+MySQL
+-----------
+
+The basic advice is to only partition data if necessary, keep data on one machine if possible and use a hash of the primary key to partition larger datasets across multiple databases. Joins must be avoided.
+
+.. seealso:: `How FriendFeed uses MySQL to store schema-less data <http://backchannel.org/blog/friendfeed-schemaless-mysql>`_ , `How does one evaluate if a database is efficient enough to not crash as it's put under increasing load? <http://www.quora.com/How-does-one-evaluate-if-a-database-is-efficient-enough-to-not-crash-as-its-put-under-increasing-load>`_
+
+Memcached
+------------
+
+Memcached is used as a caching layer in front of MySQL.
+
+Git
+-----
+
+JavaScript Placement
+----------------------
+
+To place JavaScript at the end of the page will give the feeling of a quicker loading page, since the browser has content to display before the JavaScript has be seen.
+
+Charlie Cheever Follows "14 Rules for Faster-Loading Web Sites"
+-------------------------------------------------------------------
+
+.. seealso:: `14 Rules for Faster-Loading Web Sites <http://stevesouders.com/hpws/rules.php>`_
+
+------
 
 .. seealso:: `原文 <http://www.bigfastblog.com/quoras-technology-examined>`_
