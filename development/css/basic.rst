@@ -240,3 +240,4 @@ The first two values specify the length of the shadow offset. The first value sp
 2. `20 Very Useful CSS Stylesheet Tips & Tricks <http://viralpatel.net/blogs/20-very-useful-css-stylesheet-tips-tricks/>`_
 3. `CSS Architecture <http://engineering.appfolio.com/2012/11/16/css-architecture/>`_
 4. `50 Useful CSS Snippets Every Designer Should Have <http://www.hongkiat.com/blog/css-snippets-for-designers/>`_
+5. `Pure-A set of small, responsive CSS modules that you can use in every web project <http://purecss.io/>`_ (看起来挺不错，有时间看看)

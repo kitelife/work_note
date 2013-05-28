@@ -87,7 +87,7 @@ The good news is that there are technologies specifically designed for this. It 
 
 .. seealso:: `How do you push messages back to a web-browser client through AJAX?  Is there any way to do this without having the client constantly polling the server for updates? <http://www.quora.com/How-do-you-push-messages-back-to-a-web-browser-client-through-AJAX-Is-there-any-way-to-do-this-without-having-the-client-constantly-polling-the-server-for-updates>`_
 
-.. seealso:: `Browser和Server持续同步的几种方式（jQuery+tornado演示） <http://qinxuye.me/article/ways-to-continual-sync-browser-and-server/>`_
+.. seealso:: `Browser和Server持续同步的几种方式（jQuery+tornado演示） <http://qinxuye.me/article/ways-to-continual-sync-browser-and-server/>`_ , `WebSocket实战 <http://ued.sina.com.cn/?p=900>`_
 
 MySQL
 -----------
