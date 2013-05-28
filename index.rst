@@ -6,13 +6,22 @@
 xiayf的学习笔记
 ================================
 
-一. 运维
+一. 架构
+-------------
+
+.. toctree::
+    :maxdepth: 2
+
+    architecture/read-high-scalability
+
+
+二. 运维
 ------------
 
 .. toctree::
     :maxdepth: 2
-    
-    operations/index   
+
+    operations/index
     operations/os
     operations/nginx
     operations/db
@@ -26,7 +35,7 @@ xiayf的学习笔记
     operations/gunicorn
 
 
-二. 开发
+三. 开发
 -----------
 
 .. toctree::
@@ -40,7 +49,7 @@ xiayf的学习笔记
     development/go
     development/web
 
-三. 根基
+四. 根基
 -----------
 
 .. toctree::
@@ -51,7 +60,7 @@ xiayf的学习笔记
     base/algorithm
     base/network
 
-四. 其他
+五. 其他
 --------------
 
 .. toctree::
