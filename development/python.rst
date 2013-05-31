@@ -10,3 +10,4 @@ Python
     python/Celery
     python/gunicorn
     python/eventlet
+    python/paramiko
