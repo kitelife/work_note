@@ -4,6 +4,7 @@ Python
 .. toctree::
     :maxdepth: 2
 
+    python/basic
     python/best-practices
     python/libs
     python/django
