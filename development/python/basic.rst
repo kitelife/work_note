@@ -17,3 +17,10 @@
 ----------
 
 .. seealso:: 1. `Python装饰器入门 <http://youngsterxyf.github.io/2012/07/30/a-primer-on-python-decorators/>`_ , 2. `装饰器与函数式Python <http://youngsterxyf.github.io/2013/01/04/Decorators-and-Functional-Python/>`_
+
+
+参考资料
+------------
+
+- `Python入门指南(2.7) <http://www.pythontab.com/html/pythonshouce27/index.html>`_ ， `英文版 <http://docs.python.org/2/tutorial/>`_
+- `PythonTab <http://www.pythontab.com/>`_
