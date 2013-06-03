@@ -1,6 +1,12 @@
 基础知识
 ============
 
+反射机制
+-----------
+
+.. seealso:: `了解下PHP的Reflection反射机制 <http://www.nowamagic.net/php/php_Reflection.php>`_ , `PHP手册：ReflectionClass类 <http://php.net/manual/zh/class.reflectionclass.php>`_
+
+
 参考资料
 ----------
 
