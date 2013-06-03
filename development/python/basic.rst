@@ -4,7 +4,7 @@
 反射
 -----------
 
-.. seealso:: `Python自省（反射）指南 <http://www.cnblogs.com/huxi/archive/2011/01/02/1924317.html>`
+.. seealso:: `Python自省（反射）指南 <http://www.cnblogs.com/huxi/archive/2011/01/02/1924317.html>`_
 
 
 魔术方法
