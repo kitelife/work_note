@@ -13,3 +13,9 @@ PostgreSQL has traditionally had a stronger focus on data integrity and complian
 Over time, these differences have diminished. PostgreSQL´s replication options have expanded dramatically in the last three releases, and its performance on simple queries has greatly improved in the most recent release (9.2). On the other hand, MySQL and MariaDB have both done significant recent work on their query optimizers. So each product is learning from the strengths of the other.
 
 .. seealso:: `On PostgreSQL. Interview with Tom Kincaid. <http://www.odbms.org/blog/2013/05/on-postgresql-interview-with-tom-kincaid/>`_
+
+
+推荐阅读
+---------------
+
+- `PostgreSQL 与 MySQL 相比，优势何在？ <http://www.zhihu.com/question/20010554>`_
