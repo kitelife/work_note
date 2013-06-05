@@ -16,6 +16,16 @@ MySQL
 
 为数据库添加字段的SQL语句： ``ALTER TABLE `serverinfo` ADD COLUMN processlist varchar(1024) DEFAULT NULL COMMENT '进程列表' AFTER `alias`;``
 
+
+Sharding
+-----------
+
+.. seealso:: `开源数据库 Sharding 技术 (Share Nothing) <http://dbanotes.net/database/database_sharding-2.html>`_
+.. seealso:: `Google Code: shard-query <https://code.google.com/p/shard-query/>`_
+.. seealso:: `An Unorthodox Approach To Database Design : The Coming Of The Shard <http://highscalability.com/unorthodox-approach-database-design-coming-shard>`_
+.. seealso:: `Scaling Web Databases: Auto-Sharding with MySQL Cluster <https://blogs.oracle.com/MySQL/entry/scaling_web_databases_auto_sharding>`_
+
+
 资源
 --------
 
