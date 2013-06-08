@@ -128,3 +128,4 @@ jQuery的jQuery.parseJSON方法，但jQuery没有stringify方法。
 
 - `浏览器的渲染原理简介 <http://coolshell.cn/articles/9666.html>`_
 - `Introduction to Layout in Mozilla <https://developer.mozilla.org/en-US/docs/Introduction_to_Layout_in_Mozilla>`_
+- `前端知识体系 <http://fe.adbeginner.com/>`_
