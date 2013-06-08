@@ -339,3 +339,4 @@ JavaScript中的所有作用域，包括全局作用域，都有一个特别的�
 - 高性能网站建设指南
 - `21 JavaScript Tips And Tricks For JavaScript Developers <http://viralpatel.net/blogs/javascript-tips-tricks/>`_
 - `JavaScript: The Important Parts <http://benlakey.com/2013/05/26/javascript-the-important-parts/>`_
+- `The race for speed part 1: The JavaScript engine family tree <http://creativejs.com/2013/06/the-race-for-speed-part-1-the-javascript-engine-family-tree/>`_ , `The race for speed part 2: How JavaScript compilers work <http://creativejs.com/2013/06/the-race-for-speed-part-2-how-javascript-compilers-work/>`_
