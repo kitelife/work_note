@@ -11,3 +11,4 @@ JavaScript
     js/mootools
     js/underscorejs
     js/d3js
+    js/emberjs
