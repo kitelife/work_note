@@ -69,3 +69,4 @@ xiayf的学习笔记
 
     others/quotes
     others/data-visual
+    others/git
