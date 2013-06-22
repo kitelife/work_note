@@ -23,7 +23,7 @@ Peity
 
 http://benpickles.github.io/peity
 
-Peity is a simple jQuery plugin that converts an element's content into a simple 
+Peity is a simple jQuery plugin that converts an element's content into a simple
 <canvas> mini pie, line or bar chart, and is compatible with any browser that
 supports <canvas>.
 
@@ -101,3 +101,4 @@ attractive looks and interactive features.
 
 - `前端数据可视化库大搜罗 <http://www.ituring.com.cn/article/40497>`_
 - `精心挑选的数据可视化工具推荐列表 <http://youngsterxyf.github.io/2013/01/15/a-carefully-selected-list-of-recommended-tools/>`_
+- `15 个构建交互式图表的最佳 jQuery 插件 <http://www.oschina.net/news/41645/best_jquery_chart_libraries_for_interactive_charts>`_
