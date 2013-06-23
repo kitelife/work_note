@@ -8,3 +8,4 @@ PHP
     php/manual
     php/zf
     php/builtin_functions
+    php/php-internal
