@@ -231,3 +231,50 @@ Git基础
 
 远程仓库的使用
 ^^^^^^^^^^^^^^^^^^
+
+**查看当前的远程库**
+
+要查看当前配置有哪些远程仓库，可以用 ``git remote``
+命令，它会列出每个远程库的简短名字。在克隆完某个项目后，至少可以看到一个名为origin的远程库，
+Git默认使用这个名字来标识你所克隆的原始仓库。
+
+也可以加上 ``-v`` 选项，显示对应的克隆地址：
+
+::
+
+    $ git remote -v
+    origin  git://github.com/schacon/ticgit.git
+
+**添加远程仓库**
+
+要添加一个新的远程仓库，可以指定一个简单的名字，以便将来引用，运行 ``git remote
+add [shortname] [url]`` 。
+
+**查看远程仓库信息**
+
+我们可以使用命令 ``git remote show <remote-name>``
+来查看某个远程仓库的详细信息。
+
+**远程仓库的删除和重命名**
+
+在新版Git中可以用 ``git remote rename`` 命令修改某个远程仓库在本地的简称，
+比如想把 ``pb`` 改成 ``paul`` ，可以这么运行：
+
+::
+
+    $ git remote rename pb paul
+    $ git remote
+    origin
+    paul
+
+
+碰到远端仓库服务器迁移，或者原来的克隆镜像不再使用，又或者某个参与者不再贡献代码，
+那么需要移除对应的远端仓库，可以运行 ``git remote rm`` 命令：
+
+::
+
+    $ git remote rm paul
+    $ git remote
+    origin
+
+
