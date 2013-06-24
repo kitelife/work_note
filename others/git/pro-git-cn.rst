@@ -440,3 +440,167 @@ Git分支
 现在，Git仓库中有五个对象：三个表示文件快照内容的blob对象；一个记录着目录树内容及其中各个文件对应blob对象索引的tree对象；
 以及一个包含指向tree对象（根目录）的索引和其他提交信息元数据的commit对象。
 
+.. image:: /_static/pics/commit-ds.png
+
+作些修改后再次提交，那么这次的提交对象会包含一个指向上次提交对象的指针。两次提交后，
+仓库历史会变成如下图所示的样子：
+
+.. image:: /_static/pics/commit-links.png
+
+Git 中的分支，其实本质上仅仅是个指向 commit 对象的可变指针。Git 会使用 master
+作为分支的默认名字。在若干次提交后，你其实已经有了一个指向最后一次提交对象的
+master 分支，它在每次提交的时候都会自动向前移动。
+
+.. image:: /_static/pics/master-pointer.png
+
+那么，Git 又是如何创建一个新的分支的呢？答案很简单，创建一个新的分支指针。
+比如新建一个 testing 分支，可以使用 ``git branch`` 命令：
+
+::
+
+    $ git branch testing
+
+这会在当前commit对象上新建一个分支指针。
+
+.. image:: /_static/pics/branch-master.png
+
+那么，Git是如何知道你当前在哪个分支上工作的呢？其实答案很简单，它保存着一个名为
+HEAD的特别指针。请注意它和你熟知的许多其他版本控制系统（比如Subversion）里的HEAD
+概念大不相同。在Git中，它是一个指向你正在工作中的本地分支的指针（将HEAD想象为当前
+分支的别名）。运行 ``git branch`` 命令仅仅是建立了一个新的分支，但不会自动切换到
+这个分支中去。
+
+.. image:: /_static/pics/HEAD-point-current.png
+
+要切换到其他分支，可以执行 ``git checkout`` 命令。如切换到新建的testing分支：
+
+::
+
+    $ git checkout testing
+
+这样HEAD就指向了testing分支。
+
+.. image:: /_static/pics/HEAD-point-testing.png
+
+由于Git中的分支实际上仅是一个包含所指对象校验和（40个字符长度SHA-1字串）的文件，
+所以创建和销毁一个分支就变得非常廉价。说白了，新建一个分支就是向一个文件写入41个
+字节（外加一个换行符）。
+
+因为每次提交时都记录了祖先信息（即 ``parent``
+对象），将来要合并分支时，寻找恰当的合并基础（即共同祖先）的工作其实已经自然而然
+地摆在那里了，所以实现起来非常容易。Git鼓励开发者频繁使用分支，正是因为有着这些
+特性作保障。
+
+分支的新建与合并
+^^^^^^^^^^^^^^^^^^
+
+**分支的新建与切换**
+
+要新建并切换到该分支，运行 ``git checkout`` 并加上 ``-b`` 参数：
+
+::
+
+    $ git checkout -b iss53
+    Switched to a new branch "iss53"
+
+这相当于执行下面这两条命令：
+
+::
+
+    $ git branch iss53
+    $ git checkout iss53
+
+如果当你在分支iss53中工作时，因为突发原因需要fix其他bug，唯一需要的仅仅是先切换回
+master分支。
+    
+在切换分支之前，留心你的暂存区或者工作目录里，那些还没有提交的修改，它会和你即将
+检出的分支产生冲突从而阻止Git为你切换分支。切换分支的时候最好保持一个清洁的工作
+区域。目前已经提交了所有的修改，所以接下来可以正常转换到 master分支：
+
+::
+
+    $ git checkout master
+    Switched to branch "master"
+
+此时工作目录中的内容和你在解决问题 #53 之前一模一样。有牢记：Git会把工作目录的
+内容恢复为检出某分支时它所指向的那个提交对象的快照。它会自动添加、删除和修改文件
+以确保目录的内容和你当时提交时完全一样。
+
+接下来创建一个紧急修补分支 ``hotfix`` 来开展fix工作，直到搞定：
+
+::
+
+    $ git checkout -b 'hotfix'
+    Switched to a new branch "hotfix"
+    $ vim index.html
+    $ git commit -a -m 'fixed the broken email address'
+    [hotfix]: created 3a0874c: "fixed the broken email address"
+    1 files changed, 0 insertions(+), 1 deletions(-)
+
+.. image:: /_static/pics/hotfix-branch.png
+
+有必要作些测试，确保修补是成功的，然后回到 ``master`` 分支并把它合并进来，然后
+发布到生产服务器。用 ``git merge`` 命令来进行合并：
+
+::
+
+    $ git checkout master
+    $ git merge hotfix
+    Updating f42c576..3a0874c
+    Fast forward
+     README |    1 -
+     1 files changed, 0 insertions(+), 1 deletions(-)
+
+请注意，合并时出现了“Fast forward”的提示。由于当前 master 分支所在的提交对象是
+要并入的 hotfix 分支的直接上游，Git 只需把 master 分支指针直接右移。换句话说，
+如果顺着一个分支走下去可以到达另一个分支的话，那么 Git 在合并两者时，只会简单地
+把指针右移，因为这种单线的历史分支不存在任何需要解决的分歧，所以这种合并过程可以
+称为快进（Fast forward）。
+
+.. image:: /_static/pics/master-hotfix-same.png
+
+在那个超级重要的修补发布以后，你想要回到被打扰之前的工作。由于当前hotfix分支和
+master都指向相同的提交对象，所以hotfix已经完成了历史使命，可以删掉了。
+使用 ``git branch`` 的 ``-d`` 选项执行删除操作：
+
+::
+
+    $ git branch -d hotfix
+    Deleted branch hotfix (3a0874c)
+
+现在回到之前未完成的 #53 问题修复分支上继续工作。
+
+不用担心之前hotfix分支的修改内容尚未包含到iss53中来。如果确实需要纳入此次修补，
+可以用 ``git merge master`` 把master分支合并到iss53；或者等iss53完成之后，
+再将iss53分支中的更新并入master。
+
+**分支的合并**
+
+在问题#53相关的工作完成之后，可以合并回master分支。实际操作同前面合并hotfix分支
+差不多，只需回到master分支，运行 ``git merge`` 命令指定要合并进来的分支：
+
+::
+
+    $ git checkout master
+    $ git merge iss53
+    Merge made by recursive.
+     README |    1 +
+     1 files changed, 1 insertions(+), 0 deletions(-)
+
+但是这次合并操作的底层实现，并不同于之前hotfix的并入方式。因为这次你的开发历史
+是从更早的地方开始分叉的。由于当前master分支所指向的提交对象（C4）并不是iss53
+分支的直接祖先，Git不得不进行一些额外处理。就此例而言，Git会用两个分支的末端（C4
+和C5）以及它们的共同祖先（C2）进行一次简单的三方合并计算。下图用红框标出了Git
+用于合并的三个提交对象：
+
+.. image:: /_static/pics/merge-three-part.png
+
+这次，Git没有简单地把分支指针右移，而是对三方合并后的结果重新做一个新的快照，
+并自动创建一个指向它的提交对象（C6）（见图 3-17）。这个提交对象比较特殊，它有
+两个祖先（C4 和 C5）。
+
+.. image:: /_static/pics/after-merge-three-part.png
+
+**遇到冲突时的分支合并**
+
+
