@@ -649,13 +649,13 @@ Git作了合并，但没有提交，它会停下来等你解决冲突。要看�
 ``origin`` 仓库通讯时 ``master`` 分支的样子，就应该查看 ``origin/master`` 分支。
 如果你和同伴一起修复某个问题，但他们先推送了一个 ``iss53`` 分支到远程仓库，
 虽然你可能也有一个本地的 ``iss53`` 分支，但指向服务器上最新更新的却应该是
- ``origin/iss53`` 分支。
+``origin/iss53`` 分支。
 
 举例说明：假设你们团队有个地址为 ``git.ourcompany.com`` 的Git服务器。如果你从
 这里克隆，Git会自动为你将此远程仓库命名为 ``origin`` ，并下载其中所有的数据，
 建立一个指向它的 ``master`` 分支的指针，在本地命名为 ``origin/master`` ，但你无法
 在本地更改其数据。接着，Git建立一个属于你自己的本地 ``master`` 分支，始于
- ``origin`` 上 ``master`` 分支相同的位置，你可以就此开始工作：
+``origin`` 上 ``master`` 分支相同的位置，你可以就此开始工作：
 
 .. image:: /_static/pics/clone-details.png
 
@@ -667,8 +667,8 @@ Git作了合并，但没有提交，它会停下来等你解决冲突。要看�
 .. image:: /_static/pics/different-move.png
 
 可以运行 ``git fetch origin`` 来同步远程服务器上的数据到本地。该命令首先找到
- ``origin`` 是哪个服务器（本例为 ``git.ourcompany.com`` ），从上面获取你尚未拥有
- 的数据，更新你本地的数据库，然后把 ``origin/master`` 的指针移到它最新的位置上：
+``origin`` 是哪个服务器（本例为 ``git.ourcompany.com`` ），从上面获取你尚未拥有
+的数据，更新你本地的数据库，然后把 ``origin/master`` 的指针移到它最新的位置上：
 
 .. image:: /_static/pics/git-fetch.png
 
@@ -679,7 +679,7 @@ Git作了合并，但没有提交，它会停下来等你解决冲突。要看�
 你需要明确地执行推送分支的操作。
 
 如果你有个叫 ``serverfix`` 的分支需要和他人一起开发，可以运行
- ``git push (远程仓库名) (分支名)`` ：
+``git push (远程仓库名) (分支名)`` ：
 
 ::
 
@@ -694,10 +694,10 @@ Git作了合并，但没有提交，它会停下来等你解决冲突。要看�
 也可以运行 ``git push origin serverfix:serverfix`` 来实现相同的效果，它的意思
 是“上传我本地的 serverfix 分支到远程仓库中去，仍旧称它为serverfix分支”。通过
 此语法，你可以把本地分支推送到某个命名不同的远程分支：若想把远程分支叫作
- ``awesomebranch`` ，可以用 ``git push origin serverfix:awesomebranch`` 来推送数据。
+``awesomebranch`` ，可以用 ``git push origin serverfix:awesomebranch`` 来推送数据。
 
 接下来，当你的协作者再次从服务器上获取数据时，他们将得到一个新的远程分支
- ``origin/serverfix`` ，并指向服务器上 ``serverfix`` 所指向的版本：
+``origin/serverfix`` ，并指向服务器上 ``serverfix`` 所指向的版本：
 
 ::
 
@@ -731,16 +731,16 @@ Git作了合并，但没有提交，它会停下来等你解决冲突。要看�
 从远程分支 ``checkout`` 出来的本地分支，称为 *跟踪分支* (tracking branch)。
 跟踪分支是一种和某个远程分支有直接联系的本地分支。在跟踪分支里输入 ``git push`` ，
 Git会自行推断应该向哪个服务器的哪个分支推送数据。同样，在这些分支里运行
- ``git pull`` 会获取所有远程索引，并把它们的数据都合并到本地分支中来。
+``git pull`` 会获取所有远程索引，并把它们的数据都合并到本地分支中来。
 
 在克隆仓库时，Git通常会自动创建一个名为 ``master`` 的分支来跟踪 ``origin/master`` 。
 这正是 ``git push`` 和 ``git pull``
 一开始就能正常工作的原因。当然，你可以像上例那样随心
 所欲地设定为其它跟踪分支，比如 ``origin`` 上除了 ``master`` 之外的其它分支：
- ``git checkout -b [分支名] [远程名]/[分支名]`` 。如果你有1.6.2以上版本的Git，
- 还可以用 ``--track`` 选项简化：
+``git checkout -b [分支名] [远程名]/[分支名]`` 。如果你有1.6.2以上版本的Git，
+还可以用 ``--track`` 选项简化：
 
- ::
+::
 
     $ git checkout --track origin/serverfix
     Branch serverfix set up to track remote branch refs/remotes/origin/serverfix.
@@ -750,10 +750,10 @@ Git会自行推断应该向哪个服务器的哪个分支推送数据。同样�
 
 如果不再需要某个远程分支了，比如搞定了某个特性并把它合并进了远程的 ``master`` 分支
 （或任何其他存放稳定代码的分支），可以用这个非常无厘头的语法来删除它：
- ``git push [远程名] :[分支名]`` 。如果想在服务器上删除 ``serverfix`` 分支，
- 运行下面的命令：
+``git push [远程名] :[分支名]`` 。如果想在服务器上删除 ``serverfix`` 分支，
+运行下面的命令：
 
- ::
+::
 
     $ git push origin :serverfix
     To git@github.com:schacon/simplegit.git
