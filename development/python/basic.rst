@@ -1,10 +1,15 @@
 基础知识
 ===============
 
+对于元组、列表、字符串等类型的变量，在其上面加上星号（*）然后传递，其效果是将该变量数据进行unpack（解包）后在传递。
+
+.. seealso:: `知乎：元组的reference前加个星号是什么意思？ <http://www.zhihu.com/question/20801578>`_
+
 反射
 -----------
 
 .. seealso:: `Python自省（反射）指南 <http://www.cnblogs.com/huxi/archive/2011/01/02/1924317.html>`_
+.. seealso:: `stackoverflow - Python: Once and for all. What does the Star operator mean in Python? <http://stackoverflow.com/questions/2921847/python-once-and-for-all-what-does-the-star-operator-mean-in-python>`_
 
 
 魔术方法
