@@ -19,3 +19,6 @@ htop
 
 原理篇
 ----------
+
+
+.. seealso:: `Linux Filesystem Hierarchy <http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/`_
