@@ -29,3 +29,4 @@
 
 - `Python入门指南(2.7) <http://www.pythontab.com/html/pythonshouce27/index.html>`_ ， `英文版 <http://docs.python.org/2/tutorial/>`_
 - `PythonTab <http://www.pythontab.com/>`_
+- `Python's Hardest Problem <http://www.jeffknupp.com/blog/2012/03/31/pythons-hardest-problem/>`_
