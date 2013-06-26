@@ -462,7 +462,7 @@ master 分支，它在每次提交的时候都会自动向前移动。
 
 这会在当前commit对象上新建一个分支指针。
 
-.. image:: /_static/pics/branch-master.png
+.. image:: /_static/pics/branch-pointer.png
 
 那么，Git是如何知道你当前在哪个分支上工作的呢？其实答案很简单，它保存着一个名为
 HEAD的特别指针。请注意它和你熟知的许多其他版本控制系统（比如Subversion）里的HEAD
