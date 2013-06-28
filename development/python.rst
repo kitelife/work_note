@@ -12,3 +12,4 @@ Python
     python/gunicorn
     python/eventlet
     python/paramiko
+    python/sentry
