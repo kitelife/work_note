@@ -9,9 +9,9 @@ Web开发问题记录
 `http://blog.jobbole.com/22065/ <Chrome Dev Tools 浅析：成为更高效的开发人员>`_
 
 
-从这里查看各种浏览器对于某些CSS、JS、SVG、HTML5特性的支持情况：http://caniuse.com
+2. 从这里查看各种浏览器对于某些CSS、JS、SVG、HTML5特性的支持情况：http://caniuse.com
 
-2. Firebug调试IE调试
+3. Firebug调试IE调试
 
 IE 8没有内置好用的前端调试工具，可以通过在待调试的页面中引入Firebug Lite来调试。::
 
@@ -116,6 +116,22 @@ IE 8(在iframe中无法正常使用json)以及更早版本对于JSON没有原生
 考虑如何根据条件加载该文件。若仅需要解析JSON字符串返回JavaScript对象，也可以使用
 jQuery的jQuery.parseJSON方法，但jQuery没有stringify方法。
 
+6.
+IE下，button元素内如果加超链接，点击该button，不会发生通常的超链接跳转。如：
+
+::
+
+    <button type="button" class="btn btn-info"><a href="/curl/view_log_list?id=2">查看日志</a></button>
+
+点击该按钮并不会跳转到 ``/curl/view_log_list?id=2`` 所指向的页面。
+
+可修改为：
+
+::
+
+    <button type="button" class="btn btn-info" onClick="javascript:location.href='/curl/view_log_list?id=2'">查看日志</button>
+
+来实现。
 
 最佳实践
 ------------
