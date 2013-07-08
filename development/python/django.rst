@@ -25,11 +25,13 @@ To create your app, make sure you're in the same directory as manage.py and type
 this command:
 
 ::
+
     python manage.py startapp polls
 
 That'll create a directory polls, which is laid out like this:
 
 ::
+
     polls/
         __init__.py
         models.py
@@ -94,12 +96,12 @@ All Django wants is that HttpResponse. Or an exception.
     from polls.models import Poll
 
     def index(request):
-    latest_poll_list = Poll.objects.order_by('-pub_date')[:5]
-    template = loader.get_template('polls/index.html')
-    context = RequestContext(request, {
-        'latest_poll_list': latest_poll_list,
-    })
-    return HttpResponse(template.render(context))
+        latest_poll_list = Poll.objects.order_by('-pub_date')[:5]
+        template = loader.get_template('polls/index.html')
+        context = RequestContext(request, {
+            'latest_poll_list': latest_poll_list,
+        })
+        return HttpResponse(template.render(context))
 
 A shortcut: **render()**
 
@@ -155,19 +157,19 @@ if the list is empty.
     from polls.models import Choice, Poll
 
     def vote(request, poll_id):
-    p = get_object_or_404(Poll, pk=poll_id)
-    try:
-        selected_choice = p.choice_set.get(pk=request.POST['choice'])
-    except (KeyError, Choice.DoesNotExist):
-        return render(request, 'polls/detail.html', {
-            'poll': p,
-            'error_message': "You didn't select a choice.",
-        })
-    else:
-        selected_choice.votes += 1
-        selected_choice.save()
+        p = get_object_or_404(Poll, pk=poll_id)
+        try:
+            selected_choice = p.choice_set.get(pk=request.POST['choice'])
+        except (KeyError, Choice.DoesNotExist):
+            return render(request, 'polls/detail.html', {
+                'poll': p,
+                'error_message': "You didn't select a choice.",
+            })
+        else:
+            selected_choice.votes += 1
+            selected_choice.save()
 
-        return HttpResponseRedirect(reverse('polls.results', args=(p.id,)))
+            return HttpResponseRedirect(reverse('polls.results', args=(p.id,)))
 
 
 **Use generic views: Less code is better**
