@@ -2,6 +2,12 @@
 ===============
 
 
+Envoy: Python Subprocesses for Humans
+---------------------------------------
+
+A convenience wrapper around the subprocess module.
+
+
 Celery: Distributed Task Queue
 -----------------------------------
 
