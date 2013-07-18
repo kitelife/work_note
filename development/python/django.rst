@@ -216,3 +216,8 @@ if the list is empty.
     def vote(request, poll_id):
         ...
 
+
+The Django template language
+--------------------------------
+
+
