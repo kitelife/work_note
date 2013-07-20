@@ -116,9 +116,11 @@ DOCTYPE当前有两种风格， *严格*(strict)和 *过渡*(transitional)。顾
         padding-left: 20px;
     }
 
-IE 7和更高版本都支持子选择器。但是，在IE
-7中有一个小bug，如果父元素和子元素之间有HTML注释，就会出问题。
+IE 7和更高版本都支持子选择器。但是，在IE 7中有一个小bug，如果父元素和子元素之间有HTML注释，就会出问题。
 
+
+第三章：可视化格式模型
+--------------------------
 
 **相对定位**
 
@@ -240,3 +242,133 @@ CSS使我们能够在页面上显示图像，而不需要让图像成为标记�
         background-color: #ccc;
     }
 
+**多个背景图像**
+
+::
+
+    .box {
+        background-image: url(/img/top-left.gif),
+                                                    url(/img/top-right.gif),
+                                                    url(/img/bottom-left.gif),
+                                                    url(/img/bottom-right.gif);
+        background-repeat: no-repeat,
+                                        no-repeat,
+                                        no-repeat,
+                                        no-repeat;
+        background-position: top left,
+                                        top right,
+                                        bottom left,
+                                        bottom right;
+    }
+
+    <div class="box">
+        <h2>Headline</h2>
+        <p>content</p>
+    </div>
+
+**border-radius**
+
+利用CSS3的border-radius属性，只需设置边框角的半径，浏览器就会实现圆角效果。
+
+::
+
+    .box {
+        border-radius: 1em;
+    }
+
+这是一个新属性，需要使用与浏览器相关的扩展调用它。当前，Firefox和Safari支持这个属性，使用-moz和-webkit前缀。
+
+::
+
+    .box {
+        -moz-border-radius: 1em;
+        -webkit-border-radius: 1em;
+        border-radius: 1em;
+    }
+
+4.4 不透明度
+^^^^^^^^^^^^^^
+
+适当地使用不透明度可以让设计的效果更丰富。对于相互重叠的元素，还可以用它显露下面的元素。
+
+**CSS不透明度**
+
+举例：假设要弹出一个警告消息，它应该覆盖在现有文档上面，同时你仍然可以看到下面的东西。
+
+::
+
+    .alert {
+        background-color: #000;
+        border-radius: 2em;
+        opacity: 0.8;
+        filter: alpha(opacity=80);  /*proprietary IE code*/
+    }
+
+CSS不透明度主要问题是，除了对背景生效之外，应用它的元素的内容页会继承它。因此，对于上例，能够透过警告文本看到页面上的
+文本。如果使用非常高的不透明度和高对比度的文本，这可能不是问题。但是，如果不透明度低，框的内容就会难以辨认。RGBa就是为了
+解决这个问题而设计的。
+
+**RGBa**
+
+RGBa是一种同时设置颜色和不透明度的机制。RGB代表红色、绿色和蓝色，a代表alpha透明度。在前一个示例中使用RGBa的方法如下：
+
+::
+
+    .alert {
+        background-color: rgba(0, 0, 0, 0.8);
+        border-radius: 2em;
+    }
+
+前三个数字表示颜色的红、绿和蓝值。在这里，警告框是黑色的，所以这3个值都设置为0。与不透明度一样，最后一个数字是十进制的
+不透明度值，所以0.8表示这个背景的不透明度是80%。
+
+**PNG透明度**
+
+PNG文件格式最大的优点之一是它支持alpha透明度。但是，IE6不直接支持PNG透明度，而IE 7和IE 8支持。对于IE的老版本，有两种解决方法。
+
+在IE 6中支持PNG透明度的方法是使用专有的AlphaImageLoader过滤器。为此，需要在CSS中包含以下代码行。
+
+::
+
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/img/my-image.png', sizingMethod='crop');
+
+但是，使用这行代码会导致CSS无效，所以最好把它放在IE 6专用的样式表中。
+
+::
+
+    .img-wrapper div {
+        filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/img/shadow2.png', sizingMethod='crop');
+        background: none;
+    }
+
+第一个规则使用专有的过滤器加载PNG并应用alpha透明度。原来的背景图像仍然会显示，所以第二个规则隐藏原来的背景图像。
+
+IE还有另一种称为“有条件注释”的专有代码，这让我们可以向IE的特定版本提供特定的样式表。这里希望只让IE 6看到这个新的样式表，
+所以可以在页面顶部添加以下代码：
+
+::
+
+    <!-- [if ie 6]>
+    <link rel="stylesheet" type="text/css" href="ie6.css" />
+    <! [endif] -->
+
+另一种方法是使用IE PNG fix技术。
+
+
+第五章：对链接应用样式
+-------------------------
+
+
+第六章：对列表应用样式和创建导航栏
+-------------------------------------
+
+
+第七章：对表单和数据表格应用样式
+------------------------------------
+
+第八章：布局
+---------------
+
+
+第九章：bug和修复bug
+------------------------
