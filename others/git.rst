@@ -9,4 +9,4 @@ Git学习笔记
     git/pro-git-cn
 
 
-.. seealso:: `版本控制最佳实践 <http://www.oschina.net/translate/version-control-best-practices>`_
+.. seealso:: `版本控制最佳实践 <http://www.oschina.net/translate/version-control-best-practices>`_ ，`Git Reference <http://gitref.org/index.html>`_
