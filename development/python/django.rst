@@ -274,3 +274,7 @@ if the list is empty.
     def vote(request, poll_id):
         ...
 
+
+参考资料
+===========
+- `Scaling Disqus <http://www.slideshare.net/zeeg/djangocon-2010-scaling-disqus>`_
