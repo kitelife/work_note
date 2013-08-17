@@ -47,3 +47,6 @@ Web框架
 -----------
 
 - `一步一步学习Revel Web开源框架 <http://www.cnblogs.com/ztiandan/archive/2013/01/17/2864498.html>`_
+- `build-web-application-with-golang <https://github.com/astaxie/build-web-application-with-golang>`_
+- `gopkg <https://github.com/astaxie/gopkg>`_
+- `Network programming with Go <http://jan.newmarch.name/go/>`_
