@@ -168,3 +168,4 @@ Web框架
 - `build-web-application-with-golang <https://github.com/astaxie/build-web-application-with-golang>`_
 - `gopkg <https://github.com/astaxie/gopkg>`_
 - `Network programming with Go <http://jan.newmarch.name/go/>`_
+- `A Introduction to Programming in Go <http://www.golang-book.com/>`_
