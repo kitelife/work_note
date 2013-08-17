@@ -160,6 +160,27 @@ Go语言实现了反射，所谓反射就是动态运行时的状态。我们一
 
 `The Laws of Reflection <http://golang.org/doc/articles/laws_of_reflection.html>`_
 
+并发
+^^^^^^^
+
+**goroutine**
+
+goroutine是Go语言并行设计的核心。goroutine说到底就是线程，但是它比线程更小，十几个goroutine可能体现在底层就是五六个线程，Go语言内部帮你实现了这些goroutine之间的内存共享。
+
+**channels**
+
+goroutine运行在相同的地址空间，因此访问共享内存必须做好同步。goroutine之间如何进行数据的通信？Go语言提供了一个很好的通信机制channel。channel可以与Unix shell中的双向管道做类比，通过它发送或接收值。这些值只能是特定的类型：channel类型。定义一个channel时，也需要定义发送到channel的值的类型。注意，必须使用make创建channel。
+::
+
+    ci := make(chan int)
+    cs := make(chan string)
+    cf := make(chan interface{})
+
+channel通过操作符<-来接收和发送数据。
+::
+
+    ch <- v    // 发送v到channel ch。
+    v := <-ch    // 从ch中接收数据，并赋值给v
 
 标准库
 ---------
