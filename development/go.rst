@@ -161,6 +161,9 @@ Web框架
 推荐阅读
 -----------
 
+- `Golang标准库 <https://github.com/polaris1119/The-Golang-Standard-Library-by-Example>`_
+- `Go步行者 <http://gowalker.org/>`_
+- `GoDoc <http://godoc.org/>`_
 - `一步一步学习Revel Web开源框架 <http://www.cnblogs.com/ztiandan/archive/2013/01/17/2864498.html>`_
 - `build-web-application-with-golang <https://github.com/astaxie/build-web-application-with-golang>`_
 - `gopkg <https://github.com/astaxie/gopkg>`_
