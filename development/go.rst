@@ -89,6 +89,13 @@ method的语法如下：
 	  	fmt.Println("Area of c2 is: ", c2.area())
   	}
   
+使用method的时候重要注意以下几点：
+
+- 虽然method的名字一模一样，但是如果接收者不一样，那么method就不一样。
+- method里面可以访问接收者的字段
+- 调用method，就像struct里面访问字段一样。
+
+.. note:: method的Receiver是以值传递还是以指针（引用）传递，两者的差别在于，指针作为Receiver会对实例对象的内容发生操作，而普通类型作为Receiver仅仅是以副本作为操作对象，并不对原实例对象发生操作。
 
 标准库
 ---------
