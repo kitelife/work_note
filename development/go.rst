@@ -137,6 +137,12 @@ method可以定义在任何你自定义的类型、内置类型、struct等各�
 		sam.SayHi()
 	}
 
+**method重写**
+
+interface
+^^^^^^^^^^^^
+
+
 
 标准库
 ---------
