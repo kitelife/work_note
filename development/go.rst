@@ -1,8 +1,11 @@
-# Go语言
+Go语言
+=========
 
-## 语言基础
+语言基础
+-------------
 
-### Go语言程序设计的一些规则
+Go语言程序设计的一些规则
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Go语言之所以简洁，是因为它有一些默认的行为。
 
@@ -11,7 +14,8 @@ Go语言之所以简洁，是因为它有一些默认的行为。
 - 大写字母开头的函数也是一样，相当于class中带public关键词的公有函数；小写字母开头就是有private关键词的私有函数。
 
 
-### Panic和Recover
+Panic和Recover
+^^^^^^^^^^^^^^^^^^^
 
 Go语言没有像Java那样的异常机制，它不能抛出异常，而是使用了panic和recover机制。一定要记住，你应当把它作为最后的手段来使用，也就是说，你的代码中应当没有，或者很少有panic的东西。
 
@@ -27,7 +31,8 @@ recover是一个内建函数，可以让进入令人恐慌的流程中的gorouti
 效果。如果当前的goroutine陷入恐慌，调用recover可以捕获到panic的输入值，并且恢复正常的执行。
 
 
-### `main`函数和`init`函数
+`main`函数和`init`函数
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Go里面有两个保留的函数：`init`函数（能够应用于所有的`package`）和`main`函数（只能应用于`package main`）。这两个函数在定义时不能有任何的参数和返回值。虽然一个`package`里面可以写任意多个`init`函数，但这无论是对于可读性还是以后的可维护性来说，我们都强烈建议用户在一个`package`中每个文件只写一个`init`函数。
 
@@ -35,23 +40,27 @@ Go程序会自动调用`init()`和`main()`，所以你不需要在任何地方�
 
 程序的初始化和执行都起始于`main`包。如果`main`包还导入了其它的包，那么就会在编译时将它们依次导入。有时一个包会被多个包同时导入，那么它只会被导入一次（例如很多包可能都会用到`fmt`包，但它只会被导入一次，因为没有必要导入多次）。当一个包被导入时，如果该包还导入了其它的包，那么会先将其它包导入进来，然后再对这些包中的包级常量和变量进行初始化，接着执行`init`函数（如果有的话），依次类推。等所有被导入的包都加载完毕了，就会开始对`main`包中的包级常量和变量进行初始化，然后执行`main`包中的`init`函数（如果存在的话），最后执行`main`函数。下图详细地解释了整个执行过程：
 
-![](https://raw.github.com/astaxie/build-web-application-with-golang/master/ebook/images/2.3.init.png)
+.. image:: https://raw.github.com/astaxie/build-web-application-with-golang/master/ebook/images/2.3.init.png
 
 图2.6 main函数引入包初始化流程图
 
 
-## 标准库
+标准库
+---------
 
 
-## 第三方库
+第三方库
+-----------
 
 
-## Web框架
+Web框架
+------------
 
 - `Revel <http://robfig.github.io/revel/>`_
 - `beego <http://beego.me/>`_
 
-## 推荐阅读
+推荐阅读
+-----------
 
 - `一步一步学习Revel Web开源框架 <http://www.cnblogs.com/ztiandan/archive/2013/01/17/2864498.html>`_
 - `build-web-application-with-golang <https://github.com/astaxie/build-web-application-with-golang>`_
