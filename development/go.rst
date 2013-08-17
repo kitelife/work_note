@@ -42,8 +42,6 @@ Go程序会自动调用 ``init()`` 和 ``main()`` ，所以你不需要在任何
 
 .. image:: https://raw.github.com/astaxie/build-web-application-with-golang/master/ebook/images/2.3.init.png
 
-图2.6 main函数引入包初始化流程图
-
 
 标准库
 ---------
