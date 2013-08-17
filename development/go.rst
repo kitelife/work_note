@@ -142,6 +142,23 @@ method可以定义在任何你自定义的类型、内置类型、struct等各�
 interface
 ^^^^^^^^^^^^
 
+简单地说，interface是一组method的组合，我们通过interface来定义对象的一组行为。
+
+interface类型定义了一组方法，如果某个对象实现了某个接口的所有方法，则此对象就实现了此接口。
+
+空interface（interface{}）不包含任何的method，正因为如此，所有的类型都实现了空interface。空interface对于描述起不到任何的作用（因为它不包含任何的method），但是空interface在我们需要存储任意类型的数值时相当有用，因为它可以存储任意类型的数值，有点类似于C语言的 ``void *`` 类型。
+
+一个函数把interface{}作为参数，那么它可以接受任意类型的值作为参数，如果一个函数返回interface{}，就可以返回任意类型的值。非常有用！
+
+**嵌入interface**
+
+如果一个interface1作为interface2的一个嵌入字段，那么interface2隐式地包含了interface1里面的method。
+
+**反射**
+
+Go语言实现了反射，所谓反射就是动态运行时的状态。我们一般用到的包是reflect包。
+
+`The Laws of Reflection <http://golang.org/doc/articles/laws_of_reflection.html>`_
 
 
 标准库
