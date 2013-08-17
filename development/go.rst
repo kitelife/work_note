@@ -41,6 +41,7 @@ Web框架
 -----------
 
 - `Revel <http://robfig.github.io/revel/>`_
+- `beego <http://beego.me/>`_
 
 推荐阅读
 -----------
