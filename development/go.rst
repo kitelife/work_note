@@ -34,7 +34,7 @@ recover是一个内建函数，可以让进入令人恐慌的流程中的gorouti
 ``main`` 函数和 ``init`` 函数
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Go里面有两个保留的函数：``init`` 函数（能够应用于所有的 ``package`` ）和 ``main`` 函数（只能应用于 ``package main`` ）。这两个函数在定义时不能有任何的参数和返回值。虽然一个 ``package`` 里面可以写任意多个 ``init`` 函数，但这无论是对于可读性还是以后的可维护性来说，我们都强烈建议用户在一个 ``package`` 中每个文件只写一个`init`函数。
+Go里面有两个保留的函数： ``init`` 函数（能够应用于所有的 ``package`` ）和 ``main`` 函数（只能应用于 ``package main`` ）。这两个函数在定义时不能有任何的参数和返回值。虽然一个 ``package`` 里面可以写任意多个 ``init`` 函数，但这无论是对于可读性还是以后的可维护性来说，我们都强烈建议用户在一个 ``package`` 中每个文件只写一个 ``init`` 函数。
 
 Go程序会自动调用 ``init()`` 和 ``main()`` ，所以你不需要在任何地方调用这两个函数。每个 ``package`` 中的 ``init`` 函数都是可选的，但 ``package main`` 就必须包含一个 ``main`` 函数。
 
@@ -42,6 +42,16 @@ Go程序会自动调用 ``init()`` 和 ``main()`` ，所以你不需要在任何
 
 .. image:: https://raw.github.com/astaxie/build-web-application-with-golang/master/ebook/images/2.3.init.png
 
+面向对象
+^^^^^^^^^^^
+
+method附属在一个给定的类型上，它的语法和函数的声明语法几乎一样，只是在func后面增加了一个receiver（也就是method所依从的主体）。
+
+method的语法如下：
+::
+
+  func (r ReceiverType) funcName(parameters) (results)
+  
 
 标准库
 ---------
