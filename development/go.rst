@@ -5,7 +5,7 @@ Go语言
 -------------
 
 Go语言程序设计的一些规则
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Go语言之所以简洁，是因为它有一些默认的行为。
 
@@ -209,6 +209,47 @@ channel通过操作符<-来接收和发送数据。
     }
 
 默认情况下，channel接收和发送数据都是阻塞的，除非另一端已经准备好，这样就使得Goroutines同步变得更加简单，而不需要显式地lock。所谓阻塞，也就是如果读取（value := <-ch），它将会被阻塞，直到有数据接收。另外，任何发送（ch<-5）将会被阻塞，直到数据被读出。无缓冲channel是在多个goroutine之间同步很棒的工具。
+
+**select**
+
+**超时**
+
+::
+
+    package main
+
+    import(
+	    "fmt"
+	    "time"
+    )
+
+    func main() {
+	    c := make(chan int)
+	    o := make(chan bool)
+	    go func(){
+		    for {
+			    select {
+			    case v := <- c:
+				    fmt.Println(v)
+			    case <- time.After(5 * time.Second):
+				    fmt.Println("timeout")
+				    o <- true
+				    break
+			    }
+		    }
+	    }()
+	    <- o
+    }
+
+**runtime goroutine**
+
+runtime包中有几个处理goroutine的函数。
+
+- Goexit：退出当前执行的goroutine，但是defer函数还会继续调用
+- Gosched：让出当前goroutine的执行权限，调度器安排其他等待的任务运行，并在下次某个时候从该位置恢复执行
+- NumCPU：返回CPU核数量
+- NumGoroutine：返回正在执行和排队的任务总数
+- GOMAXPROCS：用来设置可以运行的CPU核数
 
 标准库
 ---------
