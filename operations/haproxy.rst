@@ -3,6 +3,8 @@ HAProxy
 
 官网：http://haproxy.1wt.eu
 
+`HAProxy文档精简翻译版 <haproxy/haproxy-configuration-manual.html>`_
+
 HAProxy源码编译安装
 ^^^^^^^^^^^^^^^^^^^^^^^
 
