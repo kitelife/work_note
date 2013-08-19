@@ -12,3 +12,4 @@ JavaScript
     js/underscorejs
     js/d3js
     js/emberjs
+    js/nodejs
