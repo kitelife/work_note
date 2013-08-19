@@ -3,6 +3,15 @@ HAProxy
 
 官网：http://haproxy.1wt.eu
 
+HAProxy源码编译安装
+^^^^^^^^^^^^^^^^^^^^^^^
+
+HAProxy的源码没有提供configure文件，而是直接 ``make`` 然后 ``make install`` 。但 ``make`` 有一些参数，具体信息阅读 ``Makefile`` 文件。
+
+``make`` 有一个必须提供值的参数 ``TARGET`` ，该参数用于指定内核版本；如果要指定HAProxy的安装目录，则可以通过 ``PREFIX`` 参数来设置。
+
+``make TARGET=linux26 PREFIX=/usr/local/haproxy``
+
 HAProxy的syslog-ng日志配置
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -11,12 +20,18 @@ http://haproxy.1wt.eu/download/contrib/ 中有两个文件 **syslog-ng.conf** �
 - 将syslog-ng.conf文件内容添加到/etc/syslog-ng/syslog-ng.conf中
 - 在/etc/logrotate.d目录下新建文件haproxy，将haproxy.logrotate文件内容写入其中。
 
-HAProxy重启
+HAProxy命令
 ^^^^^^^^^^^^^^^^
 
+重启：
 ::
 
     /usr/local/haproxy/sbin/haproxy -f /usr/local/haproxy/conf/haproxy.cfg -st `cat /var/run/haproxy.pid`
+
+检查配置文件有效性：
+::
+
+    /usr/local/haproxy/sbin/haproxy -f /usr/local/haproxy/conf/haproxy.cfg -c
 
 HAProxy配置文件示例（来自 `HAProxy的安装和部署 <http://lam.iteye.com/blog/990796>`_ ）
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
