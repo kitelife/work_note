@@ -194,3 +194,11 @@ HAProxy的配置过程包含3个主要的参数来源：
 
 3.2 性能调优
 ^^^^^^^^^^^^^^^^^^
+
+**maxconn <number>**
+
+将单个进程的最大并发连接数目设置为<number>。该选项等价于命令行参数“-n”。当达到该限制时，代理会停止接受连接。“ulimit-n”参数的值会根据该值自动调整。
+
+**maxpipes <number>**
+
+将单个进程可持有管道的最大数目设置为<number>。目前，管道仅用于基于内核的TCP粘合（tcp splicing，参考阅读： `TCP Splicing <http://kb.linuxvirtualserver.org/wiki/TCP_Splicing>`_ ）。由于每个管道包含两个文件描述符，“ulimit-n”的值也会相应地增大。默认值为maxconn/4，对于大多数任务繁重的使用情况似乎已远远够用了。粘合的代码会动态分配和释放管道，也可以回退为标准拷贝，因此将该值设置得过低应该仅会影响性能。
