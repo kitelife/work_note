@@ -34,6 +34,7 @@ xiayf的学习笔记
     operations/fabric
     operations/supervisor
     operations/gunicorn
+    operations/openvpn
 
 
 三. 开发
