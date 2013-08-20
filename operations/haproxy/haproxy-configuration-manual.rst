@@ -83,6 +83,7 @@ HAProxy的配置过程包含3个主要的参数来源：
 “global”部分支持以下关键词：
 
 - 进程管理与安全
+
   - chroot
   - daemon
   - gid
@@ -99,6 +100,7 @@ HAProxy的配置过程包含3个主要的参数来源：
   - description
 
 - 性能调优
+
   - maxconn
   - maxpipes
   - noepoll
