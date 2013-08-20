@@ -145,3 +145,5 @@ HAProxy配置文件示例（来自 `HAProxy的安装和部署 <http://lam.iteye.
 ============
 - `基于Keepalived+Haproxy搭建四层负载均衡器 <http://blog.liuts.com/post/223/>`_
 - `HAProxy的安装和部署 <http://lam.iteye.com/blog/990796>`_
+- `HAProxy架构 <http://haproxy.1wt.eu/download/1.2/doc/architecture.txt>`_
+- `Making Applications Scalable with Load Balancing <http://www.exceliance.fr/sites/default/files/biblio/art-2006-making_applications_scalable_with_lb.pdf>`_
