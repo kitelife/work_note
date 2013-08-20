@@ -10,7 +10,7 @@ HAProxy配置文档（精简版）
 HAProxy的配置过程包含3个主要的参数来源：
 
 - 来自命令行的参数，始终是优先的
-- 配置文件的“global”部分，设置整个过程有效的参数
+- 配置文件的“global”部分，设置进程全局范围有效的参数
 - 配置文件的代理部分，以“defaults”、“listen”、“frontend”和“backend”的形式出现
 
 配置文件的语法是：一行一行的配置信息，每行以本手册涉及的关键词开始；跟随一个或多个可选参数，以空格分隔。如果空格必须出现在字符串中，则空格必须前置一个反斜杠（\\）进行转义。反斜杠自己如果要出现在字符串中，也需要写两遍来转义。
@@ -78,4 +78,48 @@ HAProxy的配置过程包含3个主要的参数来源：
 3. 全局参数
 ---------------
 
+“global”部分的参数是进程全局范围有效的，通常也和操作系统相关。这些参数通常设置一次就一劳永逸了。其中某些参数具有等价的命令行选项。
 
+“global”部分支持以下关键词：
+
+- 进程管理与安全
+  - chroot
+  - daemon
+  - gid
+  - group
+  - log
+  - log-send-hostname
+  - nbproc
+  - pidfile
+  - uid
+  - ulimit-n
+  - user
+  - stats
+  - node
+  - description
+
+- 性能调优
+  - maxconn
+  - maxpipes
+  - noepoll
+  - nokqueue
+  - nopoll
+  - nosepoll
+  - nosplice
+  - spread-checks
+  - tune.bufsize
+  - tune.chksize
+  - tune.maxaccept
+  - tune.maxpollevents
+  - tune.maxrewrite
+  - tune.rcvbuf.client
+  - tune.rcvbuf.server
+  - tune.sndbuf.client
+  - tune.sndbuf.server
+
+- 调试
+  - debug
+  - quiet
+
+3.1 进程管理与安全
+^^^^^^^^^^^^^^^^^^^^^^^^^^
