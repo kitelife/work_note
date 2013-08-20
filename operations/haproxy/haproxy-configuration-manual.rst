@@ -246,3 +246,12 @@ HAProxy的配置过程包含3个主要的参数来源：
 
 4. 代理
 --------------
+
+代理配置可以位于以下部分中：
+
+- defaults <name>
+- frontend <name>
+- backend <name>
+- listen <name>
+
+
