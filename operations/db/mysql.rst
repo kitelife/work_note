@@ -16,6 +16,17 @@ MySQL
 
 为数据库添加字段的SQL语句： ``ALTER TABLE `serverinfo` ADD COLUMN processlist varchar(1024) DEFAULT NULL COMMENT '进程列表' AFTER `alias`;``
 
+显示创建的SQL语句：
+
+- ``SHOW CREATE DATABASE db_name``
+- ``SHOW CREATE TABLE table_name``
+
+服务器状态信息： ``SHOW STATUS``
+
+显示授权用户： ``SHOW GRANTS``
+
+显示服务器错误或警告信息： ``SHOW ERRORS/SHOW WARNINGS``
+
 
 Sharding
 -----------
