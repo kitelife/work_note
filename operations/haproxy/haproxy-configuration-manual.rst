@@ -120,8 +120,44 @@ HAProxy的配置过程包含3个主要的参数来源：
   - tune.sndbuf.server
 
 - 调试
+
   - debug
   - quiet
 
 3.1 进程管理与安全
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**chroot <jail dir>**
+
+将当前目录修改为 ``<jail dir>`` ，并在失去权限之前在该目录下执行一次chroot()。这能够在某些不明漏洞被攻击的情况下提高安全级别，因为这会使得骇客很难攻击系统。但这仅在进程以超级用户权限启动时才有效。一定要确保<jail dir>目录为空且任何人都不可写。
+
+**daemon**
+
+使进程fork为守护进程。生产运营环境（operation）下的推荐模式，等价于命令行的“-D”选项。也可以通过命令行“-db”选项来禁用。
+
+**log <address> <facility> [max level [min level]]**
+
+添加一个全局syslog服务器。可以定义多达两个的全局服务器。它们会收到进程启动和退出时的日志，还有配置有“log global”的代理的所有日志。
+
+<address>可以以下两者之一：
+
+- 一个IPv4地址，可选跟随一个冒号和一个UDP端口。如果未指定端口，则默认使用514（标准syslog端口）。
+- 一个UNIX域套接字（socket）的文件系统路径，留意chroot（确保在chroot中可以访问该路径）和uid/gid（确保该路径相应地可写）。
+
+<facility>必须是24个标准syslog设备（facilities）之一：
+
+::
+
+    kern    user    mail    daemon  auth    syslog  lpr     news
+    uucp    cron    auth2   ftp     ntp     audit   alert   cron2
+    local0  local1  local2  local3  local4  local5  local6  local7
+
+可以指定一个可选的级别来过滤输出的信息。默认情况下会发送所有信息。如果指定了一个最大级别，那么仅有严重性至少同于该级别的信息才会被发送。也可以指定一个可选的最小级别，如果设置了，则以比该级别更严重的级别发送的日志会被覆盖到该级别。这样能避免一些默认syslog配置将“emerg”信息发送到所有终端。八个级别如下所示：
+
+::
+
+    emerg   alert   crit    err     warning     notice  info    debug
+
+**log-send-hostname [<string>]**
+
+设置syslog头部的主机名称（hostname）字段。如果设置了可选的“string”参数，那么头部主机名称字段会被设置为string内容，否则使用系统的主机名。
