@@ -270,3 +270,52 @@ HAProxy的配置过程包含3个主要的参数来源：
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 （仅对部分关键词进行说明）
+
+**acl <aclname> <criterion> [flags] [operator] <value> ...**
+
+可用于：frontend、listen、backend
+
+“ACL”：Access Control List
+
+声明或添加一个访问控制列表。其他地方根据<aclname>调用该acl进行条件判断做出不同的行为。
+
+------
+
+**appsession <cookie> len <length> timeout <holdtime> [request-learn] [prefix] [mode <path-parameters|query-string>]**
+
+可用于：listen、backend
+
+参考文章： `haproxy 解决集群session 共享问题方法 <http://chenwenming.blog.51cto.com/327092/841043>`_
+
+------
+
+**balance <algorithm> [ <arguments> ]**
+
+**balance url_param <param> [check_post [<max_wait>]]**
+
+可用于：defaults、listen、backend
+
+定义用于后端的负载均衡算法。
+
+参考文章： `HAProxy 配置手册 4.2 balance 相关 <http://hi.baidu.com/maiyudaodao/item/cf01041b5162764a6926bbe8>`_
+
+------
+
+**block { if | unless } <condition>**
+
+可用于：frontend、listen、backend
+
+如果/除非匹配到某条件，则阻止一个7层协议的请求。
+
+如果/除非匹配到<condition>，HTTP请求在7层处理中很早就会被阻止掉。如果请求被阻止，则返回一个403错误。条件参考ACL。这一般用于拒绝对某些敏感资源的访问，如果符合/不符合某些条件。每个实例中“block”语句的数量并没有一个固定的限制。
+
+示例：
+
+::
+
+    acl invalid_src src         0.0.0.0/7 224.0.0.0/3
+    acl invalid_src src_port    0:1023
+    acl local_dst   hdr(host) -i localhost
+    block if invalid_src | local_dst
+
+
