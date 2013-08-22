@@ -517,4 +517,80 @@ The files are read at the same time as the configuration and kept in memory. For
 
 **mode { tcp|http|health }**
 
+可用于：defaults、frontend、listen、backend
+
+设置HAProxy实例的运行模式或协议。
+
+*参数* :
+
+    tcp 实例将以纯TCP模式工作。在客户端与服务器之间会建立一个全双工的连接，也不会执行7层的检查。默认模式，应用于SSL、SSH、SMTP、...
+
+    http 实例将以HTTP模式工作。在连接到任何服务器之前，客户端请求会经过深度的分析。任何非RFC兼容的请求都会被拒绝。7层过滤、处理和转换都可能发生。该模式也是HAProxy的最大价值所在。
+
+    health 实例将以“health”模式工作。对进入的连接仅回复“OK”并关闭连接。不会记录任何东西。该模式用于回复外部组件的健康监测。该模式已过时，不应该再使用，因为结合TCP或HTTP模式与“monitor”关键词可以实现同样的功能甚至做得更好。
+
+------
+
+**monitor fail { if | unless } <condition>**
+
+可用于：frontend、listen
+
+添加一个条件用于向一个监控HTTP请求报告一个失败。
+
+*示例* :
+
+::
+
+    frontend www:
+        mode http
+        acl site_dead nbsrv(dynamic) lt 2
+        acl site_dead nbsrv(static) lt 2
+        monitor-uri /site_alive
+        monitor fail if site_dead
+
+------
+
+**monitor-net <source>**
+
+可用于：defaults、frontend、listen
+
+声明一个仅可发送监控请求的源网络地址段。
+
+*参数* ：
+
+    <source> 源IPv4地址或网络地址段，来自该地址或网络的请求仅能得到监控响应。可以是一个IPv4地址、主机名、或一个地址跟随一个斜杠（'/'）以及一个掩码。
+
+Monitor requests are processed very early. It is not possible to block nor divert them using ACLs. They cannot be logged either, and it is the intended purpose. They are only used to report HAProxy's health to an upper component, nothing more. Right now, it is not possible to set failure conditions on requests caught by "monitor-net".
+
+please note that only one "monitor-net" statement can be specified in a frontend. If more than one is found, only the last one will be considered.
+
+*示例* ：
+
+::
+
+    # address .252 and .253 are just probing us.
+    frontend www
+        monitor-net 192.168.0.252/31
+
+------
+
+**monitor-uri <uri>**
+
+可用于：defaults、frontend、listen
+
+拦截一个外部组件监控请求的URI。
+
+*参数* ：
+
+    <uri> 我们想要拦截的确切的URI，向其返回HAProxy的监控状态而不是转发该请求。
+
+*示例* ：
+
+::
+
+    # Use /haproxy_test to report haproxy's status
+    frontend www
+        mode http
+        monitor-uri /haproxy_test
+
 
