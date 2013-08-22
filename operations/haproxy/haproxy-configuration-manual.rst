@@ -318,4 +318,187 @@ HAProxy的配置过程包含3个主要的参数来源：
     acl local_dst   hdr(host) -i localhost
     block if invalid_src | local_dst
 
+------
+
+**capture cookie <name> len <length>**
+
+可用于：frontend、listen
+
+捕获并记录请求或相应中的cookie。
+
+*参数* ：
+
+    <name> 是所要捕获cookie的名称的开始部分。若想精确匹配名称，只需为名称添加一个等于号的后缀即可。完整的名称会出现在日志中。
+
+    <length> 是能在日志中记录的字符最大长度，包括cookie名称，等于号和值，以“名称=值”的形式出现。如果字符串长度超过了<length>，则会截掉右边部分。
+
+*示例* ：
+
+::
+    
+    capture cookie ASPSESSION len 32
+
+------
+
+**capture request header <name> len <length>**
+
+可用于：frontend、listen
+
+捕获记录指定请求头首次出现的值。
+
+*示例* :
+
+::
+
+    capture request header Host len 15
+    capture request header X-Forwarded-For len 15
+    capture request header Referrer len 15
+
+------
+
+**capture response header <name> len <length>**
+
+可用于：frontend、listen
+
+捕获记录指定响应头首次出现的值。
+
+*示例* ：
+
+::
+
+    capture response header Content-length len 9
+    capture response header Location len 15
+
+------
+
+**cookie <name> [ rewrite | insert | prefix ] [ indirect ] [ nocache ] [ postonly ] [ preserve ] [ httponly ] [ secure ] [ domain <domain> ]\* [ maxidle <idle> ] [ maxlife <life> ]**
+
+可用于：defaults、listen、backend
+
+在后端（backend）启用基于cookie的持久性。
+
+*HAProxy在WEB服务端发送给客户端的cookie中插入(或添加加前缀)haproxy定义的后端的服务器COOKIE ID。*
+
+------
+
+**default-server [param\*]**
+
+可用于：defaults、listen、backend
+
+修改后端服务器的默认参数。
+
+*参数* :
+
+    <param*> 提供给服务器的一个参数列表。
+
+*示例* :
+
+::
+
+    default-server inter 1000 weight 13
+
+------
+
+**default_backend <backend>**
+
+可用于：defaults、frontend、listen
+
+为没有匹配到“use_backend”规则的情况指定使用的后端。
+
+在使用关键词“use_backend”实现前端后端之间内容转换时，指明未匹配到规则时使用的后端通常比较有用。一般该后端是动态后端，用于接收所有不确定的请求。
+
+*示例* :
+
+::
+
+    use_backend     dynamic if  url_dyn
+    use_backend     static  if  url_css url_img extension_img
+    default_backend dynamic
+
+------
+
+**errorfile <code> <file>**
+
+可用于：defaults、frontend、listen、backend
+
+以一个文件的内容替换HAProxy生成的错误信息，返回给请求客户端。
+
+*参数* ：
+
+    <code> HTTP状态码。目前，HAProxy支持产生200、400、403、408、500、502、503以及504的状态信息。
+
+    <file> 指定一个包含完整HTTP响应的文件。建议在文件名后加“.http”后缀，这样别人就不会将该响应内容与HTML错误页面相混淆。也建议使用绝对路径，因为是在执行任何chroot之前读取文件的。
+
+需要理解的是该关键词的功能并不是改写服务器返回的错误信息，而是检测错误信息并由HAProxy返回响应。这也就是为什么仅支持一小部分的错误状态码。
+
+Code 200 is emitted in response to requests matching a "monitor-uri" rule.
+
+The files are read at the same time as the configuration and kept in memory. For this reason, the errors continue to be returned even when the process is chrooted, and no file change is considered while the process is running. A simple method for developing those files consists in associating them to the
+403 status code and interrogating a blocked URL.
+
+*示例* :
+
+::
+
+    errorfile 400 /etc/haproxy/errorfiles/400badreq.http
+    errorfile 403 /etc/haproxy/errorfiles/403forbid.http
+    errorfile 503 /etc/haproxy/errorfiles/503sorry.http
+
+------
+
+**errorloc303 <code> <url>**
+
+可用于：defaults、frontend、listen、backend
+
+返回一个HTTP重定向到一个URL，而不是返回HAProxy生成的错误信息。
+
+*参数* ：
+
+    <code> HTTP状态码。目前，HAProxy支持状态码400、403、408、500、502、503和504。
+
+    <url> 响应头字段“Location”的确切内容。可能包含一个到相同站点上错误信息页面的相对URI，或一个到另一站点上错误信息页面的绝对URI。特别要注意的是使用相对URI要避免该URI自己也产生相同的错误（如：500）从而造成重定向成环。
+
+------
+
+**hash-type <method>**
+
+可用于：defaults、listen、backend
+
+指定一种方法用于将哈希值映射到服务器。
+
+------
+
+**http-request { allow | deny | auth [realm <realm>] } [ { if | unless } <condition> ]**
+
+可用于：frontend、listen、backend
+
+7层请求的访问控制。
+
+这些选项允许精细地控制对一个frontend/listen/backend的访问。每个选项都可能跟随一个if/unless和acl。如果一个选项的条件被匹配到，则不再继续往后匹配。
+
+每个实例的http-request语句的数量并没有固定的限制。
+
+*示例* :
+
+::
+
+    acl nagios src 192.168.129.3
+    acl local_net src 192.168.0.0/16
+    acl auth_ok http_auth(L1)
+
+    http-request allow if nagios
+    http-request allow if local_net auth_ok
+    http-request auth realm Gimme if local_net auth_ok
+    http-request deny
+
+*示例* ：
+
+::
+
+    acl auth_ok http_auth_group(L1) G1
+    
+    http-request auth unless auth_ok
+
+------
+
 
