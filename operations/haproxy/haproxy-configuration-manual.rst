@@ -593,4 +593,14 @@ please note that only one "monitor-net" statement can be specified in a frontend
         mode http
         monitor-uri /haproxy_test
 
+------
 
+**option allbackups**
+
+**no option allbackups**
+
+可用于：defaults、listen、backend
+
+一次性使用所有备份服务器或仅使用第一个备份服务器。
+
+默认情况下，当常规服务器都宕掉后，第一台可使用的备份服务器会接收所有流量。有时，
