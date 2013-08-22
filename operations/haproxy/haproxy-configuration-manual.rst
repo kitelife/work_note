@@ -501,4 +501,20 @@ The files are read at the same time as the configuration and kept in memory. For
 
 ------
 
+**ignore-persist { if | unless } <condition>**
+
+可用于：frontend、listen、backend
+
+声明一个忽略持久性的条件。
+
+默认情况下，当启用cookie持久性，每个包含该cookie的请求都是无条件地持久的（假设目标服务器是启动运行的）。
+
+“ignore-persist”语句允许我们声明各种基于ACL的条件，当条件匹配时，会导致一个请求忽略持久性。对于静态文件请求的负载均衡（通常不要求持久性）有时是有用的。也经常用于针对某个特定User-Agent完全禁用持久性（例如，一些网络抓取机器人）。
+
+与“appsession”结合使用，也有助于减少HAProxy内存使用，因为如果持久性被忽略，appsession表就不会增大。
+
+------
+
+**mode { tcp|http|health }**
+
 
