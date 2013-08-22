@@ -603,4 +603,38 @@ please note that only one "monitor-net" statement can be specified in a frontend
 
 一次性使用所有备份服务器或仅使用第一个备份服务器。
 
-默认情况下，当常规服务器都宕掉后，第一台可使用的备份服务器会接收所有流量。有时，
+默认情况下，当常规服务器都宕掉后，第一台可使用的备份服务器会接收所有流量。有时，可能一次性使用多台备份机器会更好，因为一台机器不够用啊。启用了“option allbackups”之后，当所有常规服务器都不可用时，就会在所有备份服务器上进行负载均衡。使用相同的负载均衡算法并考虑服务器的权重。因此，在备份服务器之间不再有任何优先顺序。
+
+该选项多数时候用于静态服务器群，当一个应用完全下线时返回一个“抱歉”页面。
+
+如果该选项在一个“defaults”部分启用了，则可以在某个具体实例中通过前置一个“no”关键词来禁用它。
+
+------
+
+**option checkcache**
+
+**no option checkcache**
+
+可用于：defaults、listen、backend
+
+分析服务的所有响应并阻塞带有可缓存cookie的请求。
+
+------
+
+**option clitcpka**
+
+**no option clitcpka**
+
+可用于：defaults、frontend、listen
+
+启用或禁用客户端TCP keepalive数据包的发送。
+
+------
+
+**option contstats**
+
+可用于：defaults、frontend、listen
+
+启用持续性的流量统计更新。
+
+默认情况下，用于统计计算的计数器仅当一个会话结束时才增加。当服务小数据对象时，这样的工作效果相当不错，当对于大的数据对象（例如：大的图片或归档文件）或A/V流，haproxy计数器生成的统计图形看起来就像一个刺猬。启用该选项后，在整个会话期间计数器都会持续地增加。
