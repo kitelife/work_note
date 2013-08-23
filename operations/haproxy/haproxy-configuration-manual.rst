@@ -731,3 +731,59 @@ This option does not necessarily require an HTTP backend, it also works with pla
         server apache1 192.168.1.1:443 check port 80
 
 ------
+
+**option httpclose**
+
+**no option httpclose**
+
+可用于：defaults、frontend、listen、backend
+
+启用或禁用被动HTTP连接关闭。
+
+------
+
+**option httplog [ clf ]**
+
+可用于：defaults、frontend、listen、backend
+
+启用日志记录HTTP请求、会话状态以及定时器（timers）。
+
+*参数* ：
+
+    clf 若添加了“clf”参数，则输出格式为CLF格式而不是HAProxy的默认HTTP格式。当你需要将HAProxy的日志用于一个特定的日志分析器，而该分析器仅支持CLF格式且不可扩展，那就用这种格式。
+
+默认情况下，日志输出格式非常简单，仅包含源地址和目的地址，以及实例名称。通过指定“option httplog”，每行日志就会转换为一种更加丰富的格式，包括但不限于：HTTP请求，连接定时器（connection timers），会话状态，连接数，捕获的数据包头部以及cookie，frontend、backend和服务器名称，当然还包括源地址和端口。
+
+该选项可以在frontend或backend部分设置。
+
+如果该选项在“defaults”部分启用，则可以在某个具体的实例中通过前置一个“no”关键词来禁用它。
+
+------
+
+**option ldap-check**
+
+可用于：defaults、listen、backend
+
+使用LDAPv3健康检测来测试服务器。
+
+The server is considered valid only when the LDAP response contains success resultCode (http://tools.ietf.org/html/rfc4511#section-4.1.9).
+
+*示例* ：
+
+::
+
+    option ldap-check
+
+------
+
+**option mysql-check [ user <username> ]**
+
+可用于：defaults、listen、backend
+
+使用MySQL健康检测来测试服务器。
+
+*参数* ：
+
+    <username> 用户名，用于连接到MySQL服务器。
+
+------
