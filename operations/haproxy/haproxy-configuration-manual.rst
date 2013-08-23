@@ -638,3 +638,96 @@ please note that only one "monitor-net" statement can be specified in a frontend
 启用持续性的流量统计更新。
 
 默认情况下，用于统计计算的计数器仅当一个会话结束时才增加。当服务小数据对象时，这样的工作效果相当不错，当对于大的数据对象（例如：大的图片或归档文件）或A/V流，haproxy计数器生成的统计图形看起来就像一个刺猬。启用该选项后，在整个会话期间计数器都会持续地增加。
+
+------
+
+**option dontlog-normal**
+
+**no option dontlog-normal**
+
+可用于：defaults、frontend、listen
+
+启用或禁用对正常、成功连接的日志记录。
+
+有些大型网站每秒要处理几千个连接，日志记录这些连接压力是很大的。其中有些网站被迫关闭日志记录，也就无法调试生产环境中的问题。设置该选项则haproxy不再日志记录正常的连接，即那些没有错误、没有超时、没有重试也没有重新分发的连接。这样硬盘空间不会出现异常情况。在HTTP模式中，会检测响应状态码，返回5xx状态码的连接还是会被日志记录的。
+
+大多数时间强烈不推荐使用该选项，复杂问题的突破口往往是在常规的日志里，如果启用该选项，这些关键信息就不会被记录了。如果需要分离日志，可替代之使用“log-separate-errors”选项。
+
+------
+
+**option dontlognull**
+
+**no option dontlognull**
+
+可用于：defaults、frontend、listen
+
+启用或禁用对空（null）连接的日志记录。
+
+------
+
+**option forwardfor [ except <network> ] [ header <name> ] [ if-none ]**
+
+可用于：defaults、frontend、listen、backend
+
+启用向发往服务器的请求中插入X-Forwarded-For请求头字段。
+
+*参数* ：
+
+    <network> 可选参数用于为匹配<network>的来源禁用该选项。
+
+    <name> 可选参数指定一个不同的“X-Forwarded-For”头名称。
+
+由于HAProxy工作在反向代理模式，服务器将它的IP地址当做请求的客户端地址。当期望服务器日志中有客户端IP地址时有时会令人烦恼。为了解决该问题，HAProxy可以向发往服务器的所有请求中添加众所周知的HTTP头部字段“X-Forwarded-For”。该头部字段的值代表客户端的IP地址。
+
+*示例* ：
+
+::
+
+    # Public HTTP address also used by stunnel on the same machine
+    frontend www
+        mode http
+        option forwardfor except 127.0.0.1  # stunnel already adds the header
+
+    # Those servers want the IP Address in X-Client
+    backend www
+        mode http
+        option forwardfor header X-Client
+
+------
+
+**option httpchk**
+
+**option httpchk <uri>**
+
+**option httpchk <method> <uri>**
+
+**option httpchk <method> <uri> <version>**
+
+可用于：defaults、listen、backend
+
+启用HTTP检测服务器的健康状态。
+
+*参数* :
+
+    <method> 可选的HTTP方法用于请求。若未设置，则使用“OPTIONS”方法，因为它通常只需要简单的服务器处理，也易于从日志中过滤掉。可以使用任意方法，但不推荐发明使用非标准方法。
+
+    <uri> HTTP请求中引用的URI。默认为“/”，因为几乎任何服务器默认都可以访问，但也可以修改为任何其他URI，查询字符串（Query string）也是允许的。
+
+    <version> 可选的HTTP版本字符串。默认为“HTTP/1.0”，但某些服务器对于HTTP 1.0的行为可能不正确，所以切换成HTTP/1.1有时可能会有帮助。注意Host头部字段在HTTP/1.1中是必须的。
+
+默认情况下，服务器健康检测仅是建立一个TCP连接。当指定了“option httpchk”，一旦建立了TCP连接，就会发送一个完整的HTTP请求，并认为2xx和3xx响应是有效的，而其他的响应状态码都表示服务器挂了，包括没有任何响应。
+
+This option does not necessarily require an HTTP backend, it also works with plain TCP backends. This is particularly useful to check simple scripts bound to some dedicated ports using the inetd daemon.
+
+*示例* ：
+
+::
+
+    # Relay HTTPS traffic to Apache instance and check service availability
+    # Using HTTP request "OPTIONS * HTTP/1.1" on port 80
+    backend https_relay
+        mode tcp
+        option httpchk OPTIONS * HTTP/1.1\r\nHost:\ www
+        server apache1 192.168.1.1:443 check port 80
+
+------
