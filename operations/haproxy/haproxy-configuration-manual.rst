@@ -884,4 +884,36 @@ The server is considered valid only when the LDAP response contains success resu
 
 ------
 
+**option ssl-hello-chk**
+
+可用于：defaults、listen、backend
+
+使用SSLv3客户端hello健康检测来测试服务器。
+
+------
+
+**option tcpka**
+
+可用于：defaults、frontend、listen、backend
+
+启用或禁用在连接的两端发送TCP保活数据包的发送。
+
+------
+
+**option tcplog**
+
+可用于：defaults、frontend、listen、backend
+
+启用高级的日志记录TCP连接，带有会话状态和定时器。
+
+-----
+
+**option transparent**
+
+**no option transparent**
+
+可用于：defaults、listen、backend
+
+启用客户端透明代理。
+
 
