@@ -35,6 +35,7 @@ xiayf的学习笔记
     operations/supervisor
     operations/gunicorn
     operations/openvpn
+    operations/ganglia
 
 
 三. 开发
@@ -61,6 +62,7 @@ xiayf的学习笔记
     base/compiler
     base/algorithm
     base/network
+    base/security
 
 五. 其他
 --------------
