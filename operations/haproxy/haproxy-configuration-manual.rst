@@ -787,3 +787,13 @@ The server is considered valid only when the LDAP response contains success resu
     <username> 用户名，用于连接到MySQL服务器。
 
 ------
+
+**option nolinger**
+
+**no option nolinger**
+
+可用于：defaults、frontend、listen、backend
+
+启用或禁用连接关闭后立即清空会话资源。
+
+
