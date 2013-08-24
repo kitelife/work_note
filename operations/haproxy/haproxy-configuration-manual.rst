@@ -796,4 +796,92 @@ The server is considered valid only when the LDAP response contains success resu
 
 启用或禁用连接关闭后立即清空会话资源。
 
+------
+
+**option redispatch**
+
+**no option redispatch**
+
+可用于：defaults、listen、backend
+
+启用或禁用连接失败之时重新分发会话。
+
+------
+
+**option smtpchk**
+
+**option smtpchk <hello> <domain>**
+
+可用于：defaults、listen、backend
+
+使用SMTP健康检测来测试服务器。
+
+*参数* :
+
+    <hello> 可选参数。即使用“hello”命令。可以是“HELO”（SMTP）或“EHLO”（ESTMP）。任何其他的值都会被转换成默认命令（“HELO”）。
+
+    <domain> 发送给服务器的域名。若指定了hello命令才需指定（也必须指定）。默认使用“localhost”。
+
+------
+
+**option splice-auto**
+
+**no option splice-auto**
+
+可用于：defaults、frontend、listen、backend
+
+启用或禁用对于套接字双向地自动内核加速。
+
+在frontend或backend中启用该选项后，haproxy会自动评估使用内核TCP拼接在客户端与服务器端间任一方向转发数据的可能性。
+
+注意：基于内核的TCP拼接是一个Linux特有的特性，首次出现在内核2.6.25中。为套接字之间的数据传输提供基于内核的加速，无需将这些数据拷贝到用户空间，因此性能得到显著提升，节省了大量CPU时钟周期。
+
+*示例* :
+
+::
+
+    option splice-auto
+
+------
+
+**option splice-request**
+
+**no option splice-request**
+
+可用于：defaults、frontend、listen、backend
+
+对请求启用或禁用套接字上的自动内核加速。
+
+------
+
+**option splice-response**
+
+**no option splice-response**
+
+可用于：defaults、frontend、listen、backend
+
+对于响应启用或禁用套接字上的自动内核加速。
+
+------
+
+**option srvtcpka**
+
+**no option srvtcpka**
+
+可用于：defaults、listen、backend
+
+启用或禁用服务器端发送TCP keepalive数据包。
+
+当客户端与服务器之间有防火墙或其他会话相关的组件，当协议包含时间非常长的会话，并有较长的空闲期（如：远程桌面），那么中间组件可能会将长时间空闲的会话做过期处理。
+
+启用套接字级别的TCP保活（keep-alives）使得系统定期发送数据包到连接的另一端，让其保持活跃。keep-alive探针（数据包）之间的延迟/间隔仅由系统控制，依赖于操作系统和调优参数。
+
+关键要理解保活数据包不是在应用层面收发的。仅网络协议栈可以看到它们。因此，即使代理的一方已经使用保活数据包来维持连接的活跃，那些保活数据包不会被转发到代理的另一方。
+
+注意这与HTTP keep-alive无关。
+
+“srvtcpka”选项启用连接的服务器端发送TCP保活探针数据包，当HAProxy与服务器之间对于session过期比较敏感，该选项能提供帮助。
+
+------
+
 
