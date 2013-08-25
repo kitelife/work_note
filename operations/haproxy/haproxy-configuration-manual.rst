@@ -955,3 +955,202 @@ Header transformations only apply to traffic which passes through HAProxy, and n
 When "option redispatch" is set, the last retry may be performed on another server even if a cookie references a different server.
 
 ------
+
+**stats admin { if | unless } <cond>**
+
+可用于：listen、backend
+
+启用统计管理级别，如果/除非达到某个条件。
+
+管理级别允许通过web界面启用/禁用后端服务器。默认情况下，统计页面考虑到安全问题是只读的。
+
+Currently, the POST request is limited to the buffer size minus the reserved buffer space, which means that if the list of servers is too long, the request won't be processed. It is recommended to alter few servers at a time.
+
+*示例* ：
+
+::
+
+    # statistics admin level only for localhost
+    backend stats_localhost
+        stats enable
+        stats admin if LOCALHOST
+
+::
+
+    # statistics admin level always enabled because of the authentication
+    backend stats_auth
+        stats enable
+        stats auth admin:AdMiN123
+        stats admin if TRUE
+
+::
+
+    # statistics admin level depends on the authenticated user
+    userlist stats-auth
+        group admin users admin
+        user admin insecure-password AdMiN123
+        group readonly users haproxy
+        user haproxy insecure-password haproxy
+
+    backend stats_auth
+        stats enable
+        acl AUTH        http_auth(stats-auth)
+        acl AUTH_ADMIN  http_auth_group(stats-auth) admin
+        stats http-request auth unless AUTH
+        stats admin if AUTH_ADMIN
+
+------
+
+**stats auth <user>:<passwd>**
+
+可用于：defaults、listen、backend
+
+启用带身份认证的统计信息页面，并赋予某账户访问权限。
+
+*示例* ：
+
+::
+
+    # public access (limited to this backend only)
+    backend public_www
+        server srv1 192.168.0.1:80
+        stats enable
+        stats hide-version
+        stats scope   .
+        stats uri     /admin?stats
+        stats realm   Haproxy\ Statistics
+        stats auth    admin1:AdMiN123
+        stats auth    admin2:AdMiN321
+
+    # internal monitoring access (unlimited)
+    backend private_monitoring
+        stats enable
+        stats uri     /admin?stats
+        stats refresh 5s
+
+------
+
+**stats enable**
+
+可用于：defaults、listen、backend
+
+以默认设置启用统计报告。
+
+This statement enables statistics reporting with default settings defined
+at build time. Unless stated otherwise, these settings are used :
+
+- stats uri   : /haproxy?stats
+- stats realm : "HAProxy Statistics"
+- stats auth  : no authentication
+- stats scope : no restriction
+
+------
+
+**stats hide-version**
+
+可用于：defaults、listen、backend
+
+启用统计并隐藏HAProxy版本报告。
+
+------
+
+**stats http-request { allow | deny | auth [realm <realm>] } [ { if | unless } <condition> ]**
+
+可用于：listen、backend
+
+统计（页面）访问控制。
+
+As "http-request", these set of options allow to fine control access to statistics. Each option may be followed by if/unless and acl. First option with matched condition (or option without condition) is final. For "deny" a 403 error will be returned, for "allow" normal processing is performed, for "auth" a 401/407 error code is returned so the client should be asked to enter a username and password.
+
+There is no fixed limit to the number of http-request statements per instance.
+
+------
+
+**stats scope { <name> | "." }**
+
+可用于：defaults、listen、backend
+
+启用统计并限制访问范围。
+
+*参数* ：
+
+    <name> 被报告的一个listen、frontend或backend部分的名称。特殊名称“.”指派该语句出现的部分。
+
+When this statement is specified, only the sections enumerated with this statement will appear in the report. All other ones will be hidden. This statement may appear as many times as needed if multiple sections need to be reported. Please note that the name checking is performed as simple string comparisons, and that it is never checked that a give section name really exists.
+
+------
+
+**stats show-desc [ <description> ]**
+
+可用于：defaults、listen、backend
+
+在统计页面上显示一段描述语句。
+
+------
+
+**stats show-legends**
+
+Enable reporting additional informations on the statistics page :
+
+- cap: capabilities (proxy)
+- mode: one of tcp, http or health (proxy)
+- id: SNMP ID (proxy, socket, server)
+- IP (socket, server)
+- cookie (backend, server)
+
+------
+
+**tcp-request content accept [{if | unless} <condition>]**
+
+可用于：frontend、listen
+
+如果/除非满足一个内容检查条件，则接受一个连接。
+
+Note that the "if/unless" condition is optional. If no condition is set on the action, it is simply performed unconditionally.
+
+If no "tcp-request content" rules are matched, the default action already is "accept". Thus, this statement alone does not bring anything without another "reject" statement.
+
+------
+
+**tcp-request content reject [{if | unless} <condition>]**
+
+------
+
+**timeout http-keep-alive <timeout>**
+
+可用于：defaults、frontend、listen、backend
+
+设置等待出现一个新的HTTP请求的最大允许时间。
+
+By default, the time to wait for a new request in case of keep-alive is set by "timeout http-request". However this is not always convenient because some people want very short keep-alive timeouts in order to release connections
+faster, and others prefer to have larger ones but still have short timeouts once the request has started to present itself.
+
+The "http-keep-alive" timeout covers these needs. It will define how long to wait for a new HTTP request to start coming after a response was sent. Once the first byte of request has been seen, the "http-request" timeout is used
+to wait for the complete request to come. Note that empty lines prior to a new request do not refresh the timeout and are not counted as a new request.
+
+There is also another difference between the two timeouts : when a connection expires during timeout http-keep-alive, no error is returned, the connection just closes. If the connection expires in "http-request" while waiting for a
+connection to complete, a HTTP 408 error is returned.
+
+In general it is optimal to set this value to a few tens to hundreds of milliseconds, to allow users to fetch all objects of a page at once but without waiting for further clicks. Also, if set to a very small value (eg: 1 millisecond) it will probably only accept pipelined requests but not the non-pipelined ones. It may be a nice trade-off for very large sites running with tens to hundreds of thousands of clients.
+
+------
+
+**timeout http-request <timeout>**
+
+可用于：defaults、frontend、listen、backend
+
+设置等待一个完整的HTTP请求的最大允许时间。
+
+------
+
+**use_backend <backend> if <condition>**
+
+**use_backend <backend> unless <condition>**
+
+可用于：frontend、listen
+
+若满足某个基于ACL的条件，则切换到某个特定的backend。
+
+
+5. server和default-server选项
+-----------------------------------
