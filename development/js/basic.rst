@@ -331,6 +331,7 @@ JavaScript中的所有作用域，包括全局作用域，都有一个特别的�
 材料
 ---------
 
+- `JavaScript 标准教程 <http://javascript.ruanyifeng.com/>`_ （阮一峰）
 - Learning from jQuery
 - JavaScript DOM编程艺术
 - High Performance JavaScript

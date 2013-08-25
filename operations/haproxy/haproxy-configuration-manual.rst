@@ -1154,3 +1154,15 @@ In general it is optimal to set this value to a few tens to hundreds of millisec
 
 5. server和default-server选项
 -----------------------------------
+
+    server <name> <address>[:port] [settings ...]
+    
+    default-server [settings ...]
+
+**backup**
+
+当“backup”出现在server行中，则该服务器在负载均衡中仅当所有其他非备份服务器都不可用时才会被使用。
+
+------
+
+
