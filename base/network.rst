@@ -5,3 +5,4 @@
     :maxdepth: 2
 
     network/sdn
+    network/rsync
