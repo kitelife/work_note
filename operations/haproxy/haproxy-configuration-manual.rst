@@ -1165,4 +1165,51 @@ In general it is optimal to set this value to a few tens to hundreds of millisec
 
 ------
 
+**weight <weight>**
 
+“weight”参数用于调整服务器相对于其他服务器的权重。所有服务器根据它们的权重比上所有权重之和得到一个负载比例，因此权重越高，负载越高。默认权重是1，权重最大值是256。零值意味着该服务器将不参与负载均衡，但仍接受持久连接。如果该参数用于根据服务器的能力分布负载，推荐开始设置为一个可以伸缩的值，例如10到100之间的某个值，为之后向上向下调整留出足够的空间。
+
+
+7. 使用访问控制列表（ACL）和模式抽取
+--------------------------------------------
+
+访问控制列表（ACL）的使用为执行内容转换以及基于从请求、响应或任何环境状态中抽取的内容作决策提供了一种灵活的解决方案。
+
+原理很简单：
+
+    - 使用一些值来定义测试条件
+
+    - 仅当一组测试通过才执行动作
+
+动作通常包括阻塞请求，或选择一个backend。
+
+为了定义一个测试，需使用“acl”关键词。语法为：
+
+    acl <aclname> <criterion> [flags] [operator] <value> ...
+
+*示例* ：
+
+::
+
+    # Match any negative Content-Length header
+    acl negative-length hdr_val(content-length) lt 0
+
+::
+
+    # Match SSL versions between 3.0 and 3.1(inclusive)
+    acl sslv3 req_ssl_ver 3:3.1
+
+::
+
+    # To select a different backend for requests to static contents 
+    # on the "www" site and to every request on the "img", "video",
+    # "download" and "ftp" hosts
+    acl url_static  path_beg             /static /imags/ /img /css
+    acl url_static  path_end             .gif .png .jpg .css .js
+    acl host_www    hdr_beg(host) -i www
+    acl host_static hdr_beg(host) -i img. video. download. ftp.
+
+    # now use backend "static" for all static-only hosts, and for static urls
+    # of host "www". Use backend "www" for the rest.
+    use_backend     static  if host_static or host_www url_static
+    use_backend     www     if host_www
