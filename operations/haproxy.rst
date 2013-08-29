@@ -10,9 +10,11 @@ HAProxy源码编译安装
 
 HAProxy的源码没有提供configure文件，而是直接 ``make`` 然后 ``make install`` 。但 ``make`` 有一些参数，具体信息阅读 ``Makefile`` 文件。
 
-``make`` 有一个必须提供值的参数 ``TARGET`` ，该参数用于指定内核版本；如果要指定HAProxy的安装目录，则可以通过 ``PREFIX`` 参数来设置。
+``make`` 有一个必须提供值的参数 ``TARGET`` ，该参数用于指定内核版本；
 
-``make TARGET=linux26 PREFIX=/usr/local/haproxy``
+如果要指定HAProxy的安装目录，则可以通过修改Makefile文件中 ``PREFIX`` 参数的值来设置。
+
+``make TARGET=linux26``
 
 HAProxy的syslog-ng日志配置
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
