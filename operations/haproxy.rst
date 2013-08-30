@@ -24,6 +24,31 @@ http://haproxy.1wt.eu/download/contrib/ 中有两个文件 **syslog-ng.conf** �
 - 将syslog-ng.conf文件内容添加到/etc/syslog-ng/syslog-ng.conf中
 - 在/etc/logrotate.d目录下新建文件haproxy，将haproxy.logrotate文件内容写入其中。
 
+HAProxy的rsyslogd日志配置
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+在 ``/etc/rsyslog.conf`` 中取消如下两行的注释：
+
+::
+
+    #$ModLoad imudp.so
+    #$UDPServerRun 514
+
+并添加一行：
+
+::
+
+    local3.*                                /var/log/haproxy.log
+
+那么在haproxy配置文件的global段中需配置：
+
+::
+    
+    log 127.0.0.1 local3
+
+然后将前一节中提及的haproxy.logrotate一样保存到/etc/logrotate.d目录中，只是需要根据日志文件名称将其中第一行的 ``/var/log/haproxy`` 修改为 ``/var/log/haproxy.log`` 。
+
+
 HAProxy命令
 ^^^^^^^^^^^^^^^^
 
