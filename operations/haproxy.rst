@@ -169,7 +169,7 @@ HAProxy配置文件示例（来自 `HAProxy的安装和部署 <http://lam.iteye.
     
 
 参考材料
---------------
+^^^^^^^^^^^
 
 - `基于Keepalived+Haproxy搭建四层负载均衡器 <http://blog.liuts.com/post/223/>`_
 - `HAProxy的安装和部署 <http://lam.iteye.com/blog/990796>`_
