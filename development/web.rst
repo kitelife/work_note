@@ -19,6 +19,8 @@ IE 8没有内置好用的前端调试工具，可以通过在待调试的页面�
 
 http://getfirebug.com/firebuglite
 
+4. `浏览器开发工具的秘密 <http://jinlong.github.io/blog/2013/08/29/devtoolsecrets/>`_
+
 浏览器兼容问题
 ----------------
 
