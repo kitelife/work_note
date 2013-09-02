@@ -10,3 +10,5 @@ Git学习笔记
 
 
 .. seealso:: `版本控制最佳实践 <http://www.oschina.net/translate/version-control-best-practices>`_ ， `Git Reference <http://gitref.org/index.html>`_
+
+- `Git参考手册 <http://gitref.org/zh/index.html>`_
