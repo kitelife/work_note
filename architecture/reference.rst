@@ -43,3 +43,9 @@ YouPorn
 -------------
 
 - `YouPorn - Targeting 200 Million Views A Day And Beyond <http://highscalability.com/blog/2012/4/2/youporn-targeting-200-million-views-a-day-and-beyond.html>`_
+
+
+Reddit
+-------------
+
+- `Reddit: Lessons Learned From Mistakes Made Scaling To 1 Billion Pageviews A Month <http://highscalability.com/blog/2013/8/26/reddit-lessons-learned-from-mistakes-made-scaling-to-1-billi.html>`_
