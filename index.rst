@@ -14,7 +14,7 @@ xiayf的学习笔记
 
     architecture/read_high_scalability
     architecture/Quora_technology_examined
-    architecure/reference
+    architecture/reference
 
 
 二. 运维
