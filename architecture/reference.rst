@@ -12,7 +12,7 @@ Heroku
 ---------
 
 - `学习HeroKu的架构设计 <http://dbanotes.net/arch/heroku_architecture.html>`_
-- `Ruby Cloud Platform Service <http://www.slideshare.net/yinhm/heroku-4428760>`
+- `Ruby Cloud Platform Service <http://www.slideshare.net/yinhm/heroku-4428760>`_
 
 
 YouTube
