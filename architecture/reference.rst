@@ -31,3 +31,15 @@ StackOverflow
 ----------------
 
 - `Stack Overflow Network Configuration <http://blog.stackoverflow.com/2010/01/stack-overflow-network-configuration/>`_
+
+
+Instagram
+--------------
+
+- `Scaling Instagram <http://www.slideshare.net/iammutex/scaling-instagram>`_
+
+
+YouPorn
+-------------
+
+- `YouPorn - Targeting 200 Million Views A Day And Beyond <http://highscalability.com/blog/2012/4/2/youporn-targeting-200-million-views-a-day-and-beyond.html>`_
