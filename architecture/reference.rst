@@ -119,3 +119,4 @@ Reddit
 --------
 
 - `分享D瓜哥最近攒的资料（架构方面） <http://www.diguage.com/archives/41.html>`_
+- Shelly Cloud: `Life of an HTTP Request <https://shellycloud.com/blog/2013/09/life-of-an-http-request>`_ , `Architecture <https://shellycloud.com/documentation/architecture>`_
