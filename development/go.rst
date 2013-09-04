@@ -364,3 +364,4 @@ Web框架
 - `gopkg <https://github.com/astaxie/gopkg>`_
 - `Network programming with Go <http://jan.newmarch.name/go/>`_
 - `A Introduction to Programming in Go <http://www.golang-book.com/>`_
+- `Learn Go in Y Minutes <http://learnxinyminutes.com/docs/go/>`_
