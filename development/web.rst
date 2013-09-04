@@ -141,9 +141,10 @@ IE下，button元素内如果加超链接，点击该button，不会发生通常
 1.
 外部CSS文件在<head>中引入，外部JS文件在<body>的最后位置引入。
 
-原理
--------
+推荐阅读
+----------
 
 - `浏览器的渲染原理简介 <http://coolshell.cn/articles/9666.html>`_
 - `Introduction to Layout in Mozilla <https://developer.mozilla.org/en-US/docs/Introduction_to_Layout_in_Mozilla>`_
 - `前端知识体系 <http://fe.adbeginner.com/>`_
+- `https://github.com/audreyr/favicon-cheat-sheet <favicon-cheat-sheet>`_
