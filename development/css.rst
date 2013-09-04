@@ -7,3 +7,9 @@ CSS
     css/basic
     css/bootstrap
     css/css-mastery
+    
+    
+推荐阅读
+-----------
+
+- `CSS Wikidot <http://css3.wikidot.com/>`_
