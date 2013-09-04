@@ -147,4 +147,4 @@ IE下，button元素内如果加超链接，点击该button，不会发生通常
 - `浏览器的渲染原理简介 <http://coolshell.cn/articles/9666.html>`_
 - `Introduction to Layout in Mozilla <https://developer.mozilla.org/en-US/docs/Introduction_to_Layout_in_Mozilla>`_
 - `前端知识体系 <http://fe.adbeginner.com/>`_
-- `https://github.com/audreyr/favicon-cheat-sheet <favicon-cheat-sheet>`_
+- `favicon-cheat-sheet <https://github.com/audreyr/favicon-cheat-sheet>`_
