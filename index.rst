@@ -36,7 +36,7 @@ xiayf的学习笔记
     operations/supervisor
     operations/gunicorn
     operations/openvpn
-    operations/ganglia
+    operations/docker
 
 
 三. 开发
