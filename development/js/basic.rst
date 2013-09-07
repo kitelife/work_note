@@ -331,6 +331,8 @@ JavaScript中的所有作用域，包括全局作用域，都有一个特别的�
 材料
 ---------
 
+- `JSHint <http://www.jshint.com/>`_
+- `How to Use Closure Linter <https://developers.google.com/closure/utilities/docs/linter_howto?hl=zh-CN&csw=1>`_
 - `JavaScript 标准教程 <http://javascript.ruanyifeng.com/>`_ （阮一峰）
 - Learning from jQuery
 - JavaScript DOM编程艺术
