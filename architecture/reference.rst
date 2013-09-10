@@ -123,7 +123,7 @@ Reddit
 -------------
 
 - `Reddit: Lessons Learned From Mistakes Made Scaling To 1 Billion Pageviews A Month <http://highscalability.com/blog/2013/8/26/reddit-lessons-learned-from-mistakes-made-scaling-to-1-billi.html>`_
-
+- `Reddit月浏览量从百万扩容到十亿的陷阱和教训 <http://blog.jobbole.com/47630/>`_
 
 其他
 --------
