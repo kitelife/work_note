@@ -1,6 +1,11 @@
 参考资料
 ============
 
+Google
+-----------
+
+- `Lessons Learned While Building Infrastructure Software at Google <https://conf-slac.stanford.edu/xldb-2013/sites/conf-slac.stanford.edu.xldb-2013/files/JDean.pdf>`_
+
 大众点评网
 --------------
 
