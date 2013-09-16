@@ -37,6 +37,7 @@ xiayf的学习笔记
     operations/gunicorn
     operations/openvpn
     operations/docker
+    operations/dns
 
 
 三. 开发
