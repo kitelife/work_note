@@ -97,3 +97,4 @@ BIND还提供了工具rndc来管理DNS服务器，命令工具为 `/usr/local/bi
 - `第二十二章 DNS服务器 <http://man.ddvip.com/os/freebsd_book_chs/ch22.htm>`_
 - TCP/IP详解（卷一）第14章 DNS:域名系统
 - `Wikipedia-Domain Name System <http://en.wikipedia.org/wiki/Domain_Name_System>`_
+- `bind使用rndc <http://xjsunjie.blog.51cto.com/999372/379245>`_
