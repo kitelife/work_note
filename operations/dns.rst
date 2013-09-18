@@ -98,3 +98,4 @@ BIND还提供了工具rndc来管理DNS服务器，命令工具为 `/usr/local/bi
 - TCP/IP详解（卷一）第14章 DNS:域名系统
 - `Wikipedia-Domain Name System <http://en.wikipedia.org/wiki/Domain_Name_System>`_
 - `bind使用rndc <http://xjsunjie.blog.51cto.com/999372/379245>`_
+- `配置域从DNS服务器以及缓存DNS服务器 <http://www.cnblogs.com/xiaoluo501395377/archive/2013/06/07/3123079.html>`_
