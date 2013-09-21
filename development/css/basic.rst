@@ -242,3 +242,4 @@ The first two values specify the length of the shadow offset. The first value sp
 4. `50 Useful CSS Snippets Every Designer Should Have <http://www.hongkiat.com/blog/css-snippets-for-designers/>`_
 5. `Pure-A set of small, responsive CSS modules that you can use in every web project <http://purecss.io/>`_ (看起来挺不错，有时间看看)
 6. `Github CSS StyleGuide <https://github.com/styleguide/css>`_
+7. `学习CSS布局 <http://zh.learnlayout.com/>`_
