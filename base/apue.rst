@@ -4,6 +4,10 @@
 第一章：UNIX基础知识
 -------------------------
 
+1.2 UNIX体系结构
+^^^^^^^^^^^^^^^^^^^
+
+.. image:: https://raw.github.com/yongfengxia/work_note/master/base/pics/unix-arch.png
 
 第二章：UNIX标准化及实现
 ------------------------------
