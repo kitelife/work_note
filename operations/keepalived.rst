@@ -69,3 +69,5 @@ Keepalived是模块化设计的，不同模块负责不同的功能，下面是K
 
 - `VRRP协议介绍 <http://bbs.ywlm.net/thread-790-1-1.html>`_
 - `Keepalived原理与实战精讲 <http://bbs.ywlm.net/thread-845-1-1.html>`_
+- `VRRP故障处理手册 <http://www.h3c.com.cn/Products___Technology/Technology/Dependability/Other_technology/Malfunction_manage_enchiridion/200803/600642_30003_0.htm#_Toc189477082>`_
+- `华为VRRP技术白皮书 <https://raw.github.com/youngsterxyf/work_note/master/operations/files/VRRP技术白皮书.pdf>`_
