@@ -34,6 +34,97 @@
 
 *文件描述符（file descriptor）* 通常是一个小的非负整数，内核用它来标识一个特定进程正在访问的文件。当内核打开一个已有文件或创建一个新文件时，它返回一个文件描述符。
 
+1.6 程序和进程
+^^^^^^^^^^^^^^^^^^^
+
+有三个用于进程控制的主要函数：fork、exec和waitpid。（exec函数有六种变体，但经常把它们统称为exec函数。）
+
+::
+    // 从标准输入读命令并执行
+
+    #include "apue.h"
+    #include <sys/wait.h>
+
+    int
+    main(void)
+    {
+        char    buf[MAXLINE];
+        pid_t   pid;
+        int     status;
+
+        printf("%% ");      /* print prompt (printf requires %% to print %) */
+        while (fgets(buf, MAXLINE, stdin) != NULL) {
+            if (buf[strlen(buf) - 1] == '\n')
+                buf[strlen(buf) - 1] = 0;   /* replace newline with null */
+
+            if ((pid = fork()) < 0) {
+                err_sys("fork error");
+            } else if (pid == 0) {  // child
+                execlp(buf, buf, (char *)0);
+                err_ret("couldn't execute: %s", buf);
+                exit(127);
+            }
+            /* parent */
+            if ((pid = waitpid(pid, &status, 0)) < 0)
+                err_sys("waitpid error");
+            printf("%% ");
+        }
+        exit(0);
+    }
+
+在一个进程内的所有线程共享同一个地址空间、文件描述符、栈以及与进程相关的属性。因为它们能访问同一存储区，所以各线程在访问共享数据时需要采取同步措施以避免不一致性。
+
+与进程相同，线程也用ID标识。但是，线程ID只在它所属进程内起作用。一个进程中的线程ID在另一个进程中并无意义。
+
+1.7 出错处理
+^^^^^^^^^^^^^^^^^
+
+当UNIX函数出错时，常常返回一个负值，而且整型变量errno通常被设置为含有附加信息的一个值。例如，open函数如成功执行则返回一个非负文件描述符，如出错则返回-1。在open出错时，有大约15种不同的errono值（文件不存在、权限问题等）。
+
+文件<errno.h>中定义了符号errno以及可以赋予它的各种常量，这些常量都以字符E开头。
+
+对于errno应当知道两条规则。第一条规则是： **如果没有出错，则其值不会被一个例程清除。因此，仅当函数的返回值指明出错时，才检验其值** 。第二条是： **任一函数都不会将errno值设置为0，在<errno.h>中定义的所有常量都不为0** 。
+
+C标准定义了两个函数，帮助打印出错信息。
+
+::
+
+    #include <string.h>
+    char *strerror(int errnum);     // 返回值：指向消息字符串的指针
+
+此函数将errnum（它通常就是errno值）映射为一个出错信息字符串。
+
+**perror** 函数基于errno的当前值，在标准出错上产生一条出错信息，然后返回。
+
+::
+
+    #include <stdio.h>
+    void perror(const char *msg);
+
+它首先 **输出由msg指向的字符串，然后是一个冒号，一个空格，接着是对应于errno值的出错信息，最后是一个换行符** 。
+
+1.8 用户标识
+^^^^^^^^^^^^^^^^
+
+组文件/etc/group将组名映射为数字组ID。
+
+::
+
+    // 打印用户ID和组ID
+    #include "apue.h"
+
+    int
+    main(void)
+    {
+        printf("uid = %d, gid = %d\n", getuid(), getgid());
+        exit(0);
+    }
+
+1.9 信号
+^^^^^^^^^^^^^
+
+终端键盘上有两种产生信号的方法，分别称为 *中断键* （interrupt key，通常是Delete键或Ctrl+C）和退出键（quit key，通常是Ctrl+\），它们被用于中断当前运行的进程。另一种产生信号的方法是调用名为kill的函数。在一个进程中调用此函数就可向另一个进程发送一个信号。当然这样做也有些限制： **当向一个进程发送信号时，我们必须是该进程的所有者或是超级用户** 。
+
 第二章：UNIX标准化及实现
 ------------------------------
 
