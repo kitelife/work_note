@@ -85,6 +85,8 @@ Github
 - `How We Made Github Fast <https://github.com/blog/530-how-we-made-github-fast>`_
 - `How we keep Github fast <https://github.com/blog/1252-how-we-keep-github-fast>`_
 - `Analyzing Millions of GitHub Commits: what makes developers happy, angry, and everything in between? <http://www.igvita.com/slides/2012/bigquery-github-strata.pdf>`_
+- `How to build a github <https://speakerdeck.com/holman/how-to-build-a-github>`_
+- `Scaling GitHub <https://speakerdeck.com/holman/scaling-github>`_
 
 
 Disqus
