@@ -94,6 +94,7 @@ Disqus
 - `Scaling Django to 8 Billion Page Views <http://blog.disqus.com/post/62187806135/scaling-django-to-8-billion-page-views>`_
 - `HTTP for Great Good <https://speakerdeck.com/mattrobenolt/http-for-great-good>`_
 - `Caching is Hard: Varnish @ Disqus <https://speakerdeck.com/mattrobenolt/caching-is-hard-varnish-at-disqus>`_
+- `Trying out this Go thing… <http://blog.disqus.com/post/51155103801/trying-out-this-go-thing>`_
 
 
 Twitter
