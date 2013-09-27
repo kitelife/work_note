@@ -139,5 +139,6 @@ Reddit
 其他
 --------
 
+- `Salesforce Architecture - How They Handle 1.3 Billion Transactions A Day <http://highscalability.com/blog/2013/9/23/salesforce-architecture-how-they-handle-13-billion-transacti.html>`_
 - `分享D瓜哥最近攒的资料（架构方面） <http://www.diguage.com/archives/41.html>`_
 - Shelly Cloud: `Life of an HTTP Request <https://shellycloud.com/blog/2013/09/life-of-an-http-request>`_ , `Architecture <https://shellycloud.com/documentation/architecture>`_
