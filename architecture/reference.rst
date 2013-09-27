@@ -1,6 +1,12 @@
 参考资料
 ============
 
+Pinterest
+------------
+
+- `Using Redis at Pinterest for Billions of Relationships <http://blog.gopivotal.com/case-studies-2/using-redis-at-pinterest-for-billions-of-relationships>`_
+- `Building a follower model from scratch <http://engineering.pinterest.com/post/55272557617/building-a-follower-model-from-scratch>`_
+
 Google
 -----------
 
