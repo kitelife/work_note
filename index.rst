@@ -38,6 +38,7 @@ xiayf的学习笔记
     operations/openvpn
     operations/docker
     operations/dns
+    operations/zookeeper
 
 
 三. 开发
