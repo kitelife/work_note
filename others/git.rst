@@ -13,3 +13,4 @@ Git学习笔记
 
 - `Git参考手册 <http://gitref.org/zh/index.html>`_
 - `Learning Git Internals by Example <http://teohm.github.io/blog/2011/05/30/learning-git-internals-by-example/>`_
+- `Git Internals <https://github.com/pluralsight/git-internals-pdf>`_
