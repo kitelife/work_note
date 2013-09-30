@@ -27,6 +27,7 @@ MySQL
 
 显示服务器错误或警告信息： ``SHOW ERRORS/SHOW WARNINGS``
 
+修改MySQL数据库默认编码为UTF-8：在MySQL配置文件my.cnf中找到mysqld部分，在这部分中添加一句 ``character_set_server=utf8``，重启MySQL服务即可。
 
 Sharding
 -----------
