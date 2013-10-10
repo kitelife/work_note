@@ -366,3 +366,4 @@ Web框架
 - `A Introduction to Programming in Go <http://www.golang-book.com/>`_
 - `Learn Go in Y Minutes <http://learnxinyminutes.com/docs/go/>`_
 - `dl.google.com: Powered by Go <http://talks.golang.org/2013/oscon-dl.slide#1>`_
+- `Profiling Go Programs <http://blog.golang.org/profiling-go-programs>`_
