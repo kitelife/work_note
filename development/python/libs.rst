@@ -69,3 +69,9 @@ web.py
 web.py is a web framework for Python that is as simple as it is powerful
 
 
+Vincent
+--------------
+
+https://github.com/wrobstory/vincent
+
+Vincent allows you to build Vega specifications in a Pythonic way, and performs type-checking to help ensure that your specifications are correct. It also has a number of convenience chart-building methods that quickly turn Python data structures into Vega visualization grammar, enabling graphical exploration. It allows for quick iteration of visualization designs via getters and setters on grammar elements, and outputs the final visualization to JSON.
