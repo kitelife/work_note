@@ -145,6 +145,7 @@ Reddit
 其他
 --------
 
+- `Travis CI - The Smallest Distributed System <http://www.paperplanes.de/2013/10/18/the-smallest-distributed-system.html>`_
 - `scaling-database-with-django-and-haproxy <http://engineering.hackerearth.com/2013/10/07/scaling-database-with-django-and-haproxy/>`_
 - `Salesforce Architecture - How They Handle 1.3 Billion Transactions A Day <http://highscalability.com/blog/2013/9/23/salesforce-architecture-how-they-handle-13-billion-transacti.html>`_
 - `分享D瓜哥最近攒的资料（架构方面） <http://www.diguage.com/archives/41.html>`_
