@@ -11,3 +11,14 @@
 "人活着要追求极致，并分享给每一个人，这样人类才能共同进步，学会欣赏更美的东西。"
 
 --- 乔布斯 `乔布斯：遗失的访谈（1995） <http://3g.163.com/ntes/special/0034073A/iframe.html?url=http://v.163.com/movie/2013/5/N/R/M8TBJIK7D_M8TBLIINR.html>`_
+
+"Those that can, do. Those that can’t, complain.
+有能力的人一直在干活，没能力的人一直在抱怨。"
+
+"Talk is cheap. Show me the code.
+空谈是不值钱的。给我看你的代码就好。"
+
+"If you need more than 3 levels of indentation, you’re screwed anyway, and should fix your program.
+如果你的代码里需要有超过三层的缩进，那么你已经搞砸了，应该修改你的代码。"
+
+--- Linus Torvalds
