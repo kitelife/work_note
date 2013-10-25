@@ -95,6 +95,10 @@ http://www.flotcharts.org/
 Flot is a pure JavaScript plotting library for jQuery, with a focus on simple usage,
 attractive looks and interactive features.
 
+JavaScript InfoVis Toolkit
+---------------------------------
+
+http://philogb.github.io/jit/index.html
 
 参考资料
 ----------
