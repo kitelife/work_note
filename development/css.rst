@@ -6,8 +6,8 @@ CSS
 
     css/basic
     css/bootstrap
-    css/css-mastery
     css/semantic-ui
+    css/css-mastery
     
     
 推荐阅读
