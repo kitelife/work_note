@@ -7,5 +7,6 @@ PHP
     php/basic
     php/manual
     php/zf
+    php/laravel
     php/builtin_functions
     php/php-internal
