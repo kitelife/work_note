@@ -1,6 +1,22 @@
 基础知识
 ============
 
+- 设置表格列的最大宽度：::
+
+    max-width:  max-width: 300px;
+
+- 表格单元格的内容长度超过单元格的宽度时，如何让其自动换行：::
+
+    word-wrap: break-word;
+
+- `text-aligin: center;` 和 `margin: 0 auto;` 的异同：
+  
+text-align:center设置文本或img标签等一些内联对象（或与之类似的元素）的居中。margin:0 auto是设置块元素（或与之类似的元素）的居中。但这两个属性IE与FF的理解也有所不同。
+
+.. seealso:: `正确的使用margin:0 auto与body{text-align:center;}实现元素居中 <http://www.52css.com/article.asp?id=505>`_
+
+------
+
 20 Very Useful CSS Stylesheet Tips & Tricks
 -----------------------------------------------
 
@@ -39,8 +55,7 @@ Create a separate stylesheet altogether and include it in the webpage whenever t
 
 .. seealso:: `How To: Create An IE Specific Stylesheet <http://viralpatel.net/blogs/how-to-create-ie-specific-css-stylesheet/>`_
 
-3. Background Image of Textbox
-::
+3. Background Image of Textbox::
 
     input#sometextbox {
         background-image:url('back-image.gif');
