@@ -81,3 +81,10 @@ ggplot
 -------------
 
 https://github.com/yhat/ggplot/
+
+seaborn
+-----------
+
+Improved matplotlib for statistical data visualization
+
+https://github.com/mwaskom/seaborn
