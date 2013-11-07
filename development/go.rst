@@ -367,3 +367,4 @@ Web框架
 - `Learn Go in Y Minutes <http://learnxinyminutes.com/docs/go/>`_
 - `dl.google.com: Powered by Go <http://talks.golang.org/2013/oscon-dl.slide#1>`_
 - `Profiling Go Programs <http://blog.golang.org/profiling-go-programs>`_
+- `Go for Pythonistas <http://talks.golang.org/2013/go4python.slide#1>`_
