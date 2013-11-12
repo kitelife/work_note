@@ -31,3 +31,4 @@
 - `PythonTab <http://www.pythontab.com/>`_
 - `Python's Hardest Problem <http://www.jeffknupp.com/blog/2012/03/31/pythons-hardest-problem/>`_
 - `The Hitchhiker’s Guide to Packaging <http://guide.python-distribute.org/index.html>`_
+- `Unofficial Windows Binaries for Python Extension Packages <http://www.lfd.uci.edu/~gohlke/pythonlibs/>`_
