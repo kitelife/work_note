@@ -77,4 +77,5 @@ xiayf的学习笔记
     others/quotes
     others/data-visual
     others/git
+    others/message_queue
     others/other
