@@ -31,7 +31,6 @@ xiayf的学习笔记
     operations/varnish
     operations/haproxy
     operations/keepalived
-    operations/puppet
     operations/fabric
     operations/supervisor
     operations/gunicorn
@@ -39,6 +38,7 @@ xiayf的学习笔记
     operations/docker
     operations/dns
     operations/zookeeper
+    operations/saltstack
 
 
 三. 开发

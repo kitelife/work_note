@@ -1,4 +1,4 @@
-Salt Stack
+SaltStack
 ==============
 
 https://github.com/saltstack/salt

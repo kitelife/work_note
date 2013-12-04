@@ -13,3 +13,4 @@ JavaScript
     js/d3js
     js/emberjs
     js/nodejs
+    js/requirejs
