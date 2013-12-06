@@ -39,6 +39,8 @@ xiayf的学习笔记
     operations/dns
     operations/zookeeper
     operations/saltstack
+    operations/ganglia
+    operations/zabbix
 
 
 三. 开发
