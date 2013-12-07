@@ -24,4 +24,7 @@ htop
 原理篇
 ----------
 
+- `章炎的主页-Linux <http://dirlt.com/linux.html>`_
+
 .. seealso:: `Linux Filesystem Hierarchy <http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/>`_
+
