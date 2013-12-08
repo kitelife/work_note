@@ -41,7 +41,7 @@ xiayf的学习笔记
     operations/saltstack
     operations/ganglia
     operations/zabbix
-
+    operations/buildbot
 
 三. 开发
 -----------
