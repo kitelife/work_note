@@ -25,6 +25,7 @@ htop
 ----------
 
 - `章炎的主页-Linux <http://dirlt.com/linux.html>`_
+- `Linux下高并发socket最大连接数所受的各种限制 <http://blog.sae.sina.com.cn/archives/1988>`_
 
 .. seealso:: `Linux Filesystem Hierarchy <http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/>`_
 
