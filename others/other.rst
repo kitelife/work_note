@@ -6,3 +6,5 @@
 - `Teach, Don’t Tell <http://stevelosh.com/blog/2013/09/teach-dont-tell/>`_
 - `Designing Disqus Gravity <http://blog.disqus.com/post/50029992486/designing-disqus-gravity>`_
 - `Disqus Gravity: Picturing the Web of Discussion <http://blog.disqus.com/post/49221647726/disqus-gravity-picturing-the-web-of-discussion>`_
+- `pandoc <http://johnmacfarlane.net/pandoc/>`_
+- `Markdown+Pandoc→HTML幻灯片速成 <http://www.soimort.org/posts/165/>`_
