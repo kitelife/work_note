@@ -42,6 +42,7 @@ xiayf的学习笔记
     operations/ganglia
     operations/zabbix
     operations/buildbot
+    operations/coreos
 
 三. 开发
 -----------
