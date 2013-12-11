@@ -81,4 +81,5 @@ xiayf的学习笔记
     others/data-visual
     others/git
     others/message_queue
+    others/storage
     others/other
