@@ -41,7 +41,9 @@ Sharding
 ------------
 
 `MySQL 5.1参考手册 :: 20. 存储程序和函数 <http://dev.mysql.com/doc/refman/5.1/zh/stored-procedures.html>`_
+
 `[PDF]Stored Procedures - MySQL <http://dev.mysql.com/tech-resources/articles/mysql-storedprocedures.pdf>`_
+
 `MySQL Stored Procedure Tutorial <http://www.mysqltutorial.org/mysql-stored-procedure-tutorial.aspx>`_
 
 资源
