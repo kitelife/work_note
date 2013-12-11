@@ -37,6 +37,12 @@ Sharding
 .. seealso:: `An Unorthodox Approach To Database Design : The Coming Of The Shard <http://highscalability.com/unorthodox-approach-database-design-coming-shard>`_
 .. seealso:: `Scaling Web Databases: Auto-Sharding with MySQL Cluster <https://blogs.oracle.com/MySQL/entry/scaling_web_databases_auto_sharding>`_
 
+存储过程
+------------
+
+`MySQL 5.1参考手册 :: 20. 存储程序和函数 <http://dev.mysql.com/doc/refman/5.1/zh/stored-procedures.html>`_
+`[PDF]Stored Procedures - MySQL <http://dev.mysql.com/tech-resources/articles/mysql-storedprocedures.pdf>`_
+`MySQL Stored Procedure Tutorial <http://www.mysqltutorial.org/mysql-stored-procedure-tutorial.aspx>`_
 
 资源
 --------
