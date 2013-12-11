@@ -368,3 +368,4 @@ Web框架
 - `dl.google.com: Powered by Go <http://talks.golang.org/2013/oscon-dl.slide#1>`_
 - `Profiling Go Programs <http://blog.golang.org/profiling-go-programs>`_
 - `Go for Pythonistas <http://talks.golang.org/2013/go4python.slide#1>`_
+- `Go数据结构 <http://mikespook.com/2013/12/%E7%BF%BB%E8%AF%91go-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84>`_
