@@ -46,6 +46,14 @@ Sharding
 
 `MySQL Stored Procedure Tutorial <http://www.mysqltutorial.org/mysql-stored-procedure-tutorial.aspx>`_
 
+计划任务
+------------
+
+`Using the Event Scheduler <http://dev.mysql.com/doc/refman/5.1/en/events.html>`_
+
+`[PDF]MySQL 5.1 Event Scheduler <http://assets.en.oreilly.com/1/event/21/Using%20the%20Event%20Scheduler_%20The%20Friendly%20Behind-the-Scenes%20Helper%20Presentation.pdf>`_
+
+
 资源
 --------
 
