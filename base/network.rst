@@ -7,6 +7,7 @@
     network/sdn
     network/rsync
     network/oauth2
+    network/read_hpbn
 
 推荐阅读
 ------------
