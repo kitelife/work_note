@@ -6,6 +6,7 @@
 
     network/sdn
     network/rsync
+    network/oauth2
 
 推荐阅读
 ------------
