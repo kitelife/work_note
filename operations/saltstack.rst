@@ -34,7 +34,9 @@ IP address is used, if there is one. Otherwise, the first privately-routable IP 
 
 If all else fails, then ``localhost`` is used as a fallback.
 
-..note:: The minion id can be manually specified using the ``id`` parameter in the minion config file. If this configuration value is specified, it will override all other sources for the ``id`` .
+..note:: 
+
+    The minion id can be manually specified using the ``id`` parameter in the minion config file. If this configuration value is specified, it will override all other sources for the ``id`` .
 
 ------
 
@@ -120,8 +122,10 @@ Salt States
 
 Salt ``States`` , or the ``State System`` is the component of Salt made for configuration management.
 
-..note:: Salt states are based on data modeling, and build on a low level data structure that is used to execute each state function. Then more logical layers are built on top of each other. The high 
-layers of the state system which this tutorial will cover consists of everything that needs to be known to use states, the two high layers covered here are the *sls* layer and the highest layer *highstate* .
+..note::
+    
+    Salt states are based on data modeling, and build on a low level data structure that is used to execute each state function. Then more logical layers are built on top of each other. The high 
+    layers of the state system which this tutorial will cover consists of everything that needs to be known to use states, the two high layers covered here are the *sls* layer and the highest layer *highstate* .
 
 **The First SLS Formula**
 
@@ -185,8 +189,10 @@ way, make an nginx subdirectory and add an init.sls file:
 A few things are introduced in this sls formula, first is the service statement which ensures that the nginx service is running, but the nginx service can't be started unless the package is installed, 
 hence the ``require`` . The ``require`` statement makes sure that the required component is executed before and that it results in success.
 
-..note:: The *require* option belongs to a family of options called *requisites* .Requisites are a powerful component of Salt States, for more information on how requisites work and what is available 
-see: `Requisites <https://salt.readthedocs.org/en/latest/ref/states/requisites.html>`_ Also evaluation ordering is available in Salt as well: `Ordering States <https://salt.readthedocs.org/en/latest/ref/states/ordering.html>`_
+..note::
+
+    The *require* option belongs to a family of options called *requisites* .Requisites are a powerful component of Salt States, for more information on how requisites work and what is available 
+    see: `Requisites <https://salt.readthedocs.org/en/latest/ref/states/requisites.html>`_ Also evaluation ordering is available in Salt as well: `Ordering States <https://salt.readthedocs.org/en/latest/ref/states/ordering.html>`_
 
 Now this new sls formula has a special name, ``init.sls`` , when an sls formula is named ``init.sls`` it inherits the name of the directory path that contains it, so this formula can be referenced via 
 the following command:
