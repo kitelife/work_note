@@ -171,7 +171,7 @@ to understand when arranging top files in different environments.
             - match: ipcidr
             - deployments.dev.site2
     
-..note::
+.. note::
 
     The rules below assume that the environments being discussed were not defined in the base ``top`` file.
 
@@ -237,4 +237,70 @@ to understand when arranging top files in different environments.
             - webserver
         'db*qa*':
             - db
+
+Default Data - YAML
+------------------------
+
+::
+
+    apache:
+        pkg:
+            - installed
+        service:
+            - running
+            - require:
+                - pkg: apache
+
+Adding Configs and Users
+-----------------------------
+
+When setting up a service like an Apache web server, many more components may need to be added. The Apache configuration file will most likely be managed, and a user and group may need to be set up.
+
+::
+
+    apache:
+      pkg:
+        - installed
+      service:
+        - running
+        - watch:
+          - pkg: apache
+          - file: /etc/httpd/conf/httpd.conf
+          - user: apache
+      user.present:
+        - uid: 87
+        - gid: 87
+        - home: /var/www/html
+        - shell: /bin/nologin
+        - require:
+          - group: apache
+      group.present:
+        - gid: 87
+        - require:
+          - pkg: apache
     
+    /etc/httpd/conf/httpd.conf:
+      file.managed:
+        - source: salt://apache/httpd.conf
+        - user: root
+        - group: root
+        - mode: 644
+
+The ``require`` statement under service was changed to watch, and is now watching 3 states instead of just one. The watch statement does the same thing as require, making sure that the other states run 
+before running the state with a watch, but it adds an extra component. The ``watch`` statement will run the state's watcher function for any changes to the watched states. So if the package was updated, 
+the config file changed, or the user uid modified, then the service state's watcher will be run. The service state's watcher just restarts the service, so in this case, a change in the config file 
+will also trigger a restart of the respective service.
+
+Moving Beyond a Single SLS
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When setting up Salt States in a scalable manner, more than one SLS will need to be used.
+
+Understanding the Render System
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Since SLS data is simply that (data), it does not need to be represented with YAML. Salt defaults to YAML because it is very straightforward and easy to learn and use. But the SLS files can be rendered 
+from almost any imaginable medium, so long as a renderer module is provided.
+
+The default rendering system is the ``yaml_jinja`` renderer. The ``yaml_jinja`` renderer will first pass the template through the `Jinja2 <http://jinja.pocoo.org/>`_ templating system, and then through the YAML parser. 
+The benefit here is that full programming constructs are available when creating SLS files.
