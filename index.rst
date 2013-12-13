@@ -43,6 +43,7 @@ xiayf的学习笔记
     operations/zabbix
     operations/buildbot
     operations/coreos
+    operations/ntp
 
 三. 开发
 -----------
