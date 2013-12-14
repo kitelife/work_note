@@ -13,3 +13,4 @@ Python
     python/eventlet
     python/paramiko
     python/sentry
+    python/virtualenv
