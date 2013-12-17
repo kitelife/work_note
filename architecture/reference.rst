@@ -5,6 +5,7 @@ LinkedIn
 --------------
 
 - `Quick Deploy: a distributed systems approach to developer productivity <http://engineering.linkedin.com/developer-productivity/quick-deploy-distributed-systems-approach-developer-productivity>`_
+- `The Log: What every software engineer should know about real-time data's unifying abstraction <http://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying>`_
 
 Pinterest
 ------------
