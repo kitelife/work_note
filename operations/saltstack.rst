@@ -38,6 +38,7 @@ If all else fails, then ``localhost`` is used as a fallback.
 
     The minion id can be manually specified using the ``id`` parameter in the minion config file. If this configuration value is specified, it will override all other sources for the ``id`` .
 
+
 ------
 
 Salt authenticates minions using public key encryption and authentication. For a minion to start accepting commands from the master the minion keys need to be accepted. The ``salt-key`` command is used to manage all of the keys on the master.
@@ -123,9 +124,10 @@ Salt States
 Salt ``States`` , or the ``State System`` is the component of Salt made for configuration management.
 
 .. note::
-    
+
     Salt states are based on data modeling, and build on a low level data structure that is used to execute each state function. Then more logical layers are built on top of each other. The high 
     layers of the state system which this tutorial will cover consists of everything that needs to be known to use states, the two high layers covered here are the *sls* layer and the highest layer *highstate* .
+
 
 **The First SLS Formula**
 

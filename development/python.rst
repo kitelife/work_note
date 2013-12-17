@@ -14,3 +14,4 @@ Python
     python/paramiko
     python/sentry
     python/virtualenv
+    python/scipy
