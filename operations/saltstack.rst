@@ -226,6 +226,9 @@ Now the formula is referenced as ``edit.vim`` because it resides in the edit sub
     saltstack/starting_states
     saltstack/pillar_walkthrough
     saltstack/getting_deeper_into_states
+    saltstack/scheduling
+    saltstack/modules
+    saltstack/returner
 
 
 相关链接
