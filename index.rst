@@ -59,6 +59,9 @@ xiayf的学习笔记
     development/go
     development/web
     development/make
+    development/r
+    development/octave
+    development/matlab
 
 四. 根基
 -----------
