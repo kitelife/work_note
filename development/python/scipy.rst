@@ -12,6 +12,8 @@ Sympy
 SciPy library
 ---------------
 
+- `scikit learn <http://scikit-learn.org/stable/index.html>`_
+
 Matplotlib
 -------------
 
