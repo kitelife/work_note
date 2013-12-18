@@ -18,3 +18,5 @@
 `ZeroMQ的学习和研究 <http://www.searchtb.com/2012/08/zeromq-primer.html>`_
 
 `ZeroMQ研究与应用分析 <http://blog.chinaunix.net/uid-22312037-id-3556937.html>`_
+
+`开源软件架构-ZeroMQ <http://www.ituring.com.cn/article/details/4669>`_ , `The Architecture of Open Source Applications-ZeroMQ <http://www.aosabook.org/en/zeromq.html>`_
