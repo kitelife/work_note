@@ -20,3 +20,11 @@
 `ZeroMQ研究与应用分析 <http://blog.chinaunix.net/uid-22312037-id-3556937.html>`_
 
 `开源软件架构-ZeroMQ <http://www.ituring.com.cn/article/details/4669>`_ , `The Architecture of Open Source Applications-ZeroMQ <http://www.aosabook.org/en/zeromq.html>`_
+
+`ØMQ: The Theoretical Foundation <http://250bpm.com/concepts>`_
+
+`Scalability Layer Hits the Internet Stack <http://250bpm.com/hits>`_
+
+`Design of PUB/SUB subsystem in ØMQ <http://250bpm.com/pubsub>`_
+
+`Multiplexing on top of TCP <http://250bpm.com/multiplexing>`_
