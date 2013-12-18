@@ -28,3 +28,5 @@
 `Design of PUB/SUB subsystem in ØMQ <http://250bpm.com/pubsub>`_
 
 `Multiplexing on top of TCP <http://250bpm.com/multiplexing>`_
+
+`ZeroMQ-The Guide <http://zguide.zeromq.org/page:all>`_
