@@ -100,6 +100,13 @@ JavaScript InfoVis Toolkit
 
 http://philogb.github.io/jit/index.html
 
+Rickshaw
+--------------
+
+http://code.shutterstock.com/rickshaw/
+
+Rickshaw is a JavaScript toolkit for creating interactive time series graphs.
+
 参考资料
 ----------
 
