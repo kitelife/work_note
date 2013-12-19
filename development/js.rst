@@ -14,3 +14,4 @@ JavaScript
     js/emberjs
     js/nodejs
     js/requirejs
+    js/backbonejs
