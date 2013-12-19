@@ -44,6 +44,8 @@ xiayf的学习笔记
     operations/buildbot
     operations/coreos
     operations/ntp
+    operations/influxdb
+    operations/heka
 
 三. 开发
 -----------
