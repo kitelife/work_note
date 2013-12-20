@@ -46,6 +46,7 @@ xiayf的学习笔记
     operations/ntp
     operations/influxdb
     operations/heka
+    operations/rethinkdb
 
 三. 开发
 -----------
