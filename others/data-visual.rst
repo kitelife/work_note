@@ -115,6 +115,14 @@ Graph-tool is an efficient Python module for manipulation and statistical analys
 Contrary to most other python modules with similar functionality, the core data structures and algorithms are 
 implemented in C++, making extensive use of template metaprogramming, based heavily on the `Boost Graph Library <http://www.boost.org/doc/libs/1_55_0/libs/graph/doc/index.html>`_. 
 
+CHAP Links Library
+-------------------------
+
+http://almende.github.io/chap-links-library/
+
+CHAP Links Library is a web based visualization library for displaying graphs, networks, and timelines. 
+
+
 参考资料
 ----------
 
