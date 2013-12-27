@@ -104,4 +104,4 @@ Linux的网络校时
 
 在Linux的环境中可利用NTP的客户端程序，即ntpdate程序进行时间同步。因为NTP服务器本来就会与上层时间服务器进行时间同步，所以在默认情况下，NTP服务器不可以使用ntpdate，也就是说ntpdate与ntpd不能同时启用。
 
-.. image:: https://raw.github.com/youngsterxyf/work_note/master/operations/pics/network_time_async.png
+.. image:: https://raw.github.com/youngsterxyf/work_note/master/operations/pics/network_time_asyc.png
