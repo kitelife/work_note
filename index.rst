@@ -86,6 +86,7 @@ xiayf的学习笔记
     others/git
     others/message_queue
     others/storage
+    others/distributed-system
     others/quora-collection
     others/stackoverflow-collection
     others/other
