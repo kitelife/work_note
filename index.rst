@@ -39,14 +39,12 @@ xiayf的学习笔记
     operations/dns
     operations/zookeeper
     operations/saltstack
-    operations/ganglia
     operations/zabbix
     operations/buildbot
     operations/coreos
     operations/ntp
     operations/influxdb
     operations/heka
-    operations/rethinkdb
 
 三. 开发
 -----------
@@ -64,7 +62,6 @@ xiayf的学习笔记
     development/make
     development/r
     development/octave
-    development/matlab
 
 四. 根基
 -----------
@@ -89,4 +86,6 @@ xiayf的学习笔记
     others/git
     others/message_queue
     others/storage
+    others/quora-collection
+    others/stackoverflow-collection
     others/other
