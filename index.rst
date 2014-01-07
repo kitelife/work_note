@@ -39,7 +39,6 @@ xiayf的学习笔记
     operations/dns
     operations/zookeeper
     operations/saltstack
-    operations/ganglia
     operations/zabbix
     operations/buildbot
     operations/coreos
@@ -63,7 +62,6 @@ xiayf的学习笔记
     development/make
     development/r
     development/octave
-    development/matlab
 
 四. 根基
 -----------
@@ -88,4 +86,7 @@ xiayf的学习笔记
     others/git
     others/message_queue
     others/storage
+    others/distributed-system
+    others/quora-collection
+    others/stackoverflow-collection
     others/other

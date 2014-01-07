@@ -58,3 +58,4 @@ Sharding
 --------
 
 - 《高性能MySQL》
+- `MySQL Internals Manual <http://dev.mysql.com/doc/internals/en/>`_

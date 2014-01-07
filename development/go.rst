@@ -1,6 +1,12 @@
 Go语言
 =========
 
+.. toctree::
+    :maxdepth: 2
+
+    golang/go-web-programming
+
+
 语言基础
 -------------
 
@@ -51,44 +57,44 @@ method的语法如下：
 ::
 
   func (r ReceiverType) funcName(parameters) (results)
-  
+
 ::
 
 	package main
-	
+
 	import (
 		"fmt"
 		"math"
   	)
-  	
+
   	type Rectangle struct {
 		width, height float64
   	}
-  	
+
   	type Circle struct {
 	  	radius float64
   	}
-  	
+
   	func (r Rectangle) area() float64 {
 	  	return r.width * r.height
   	}
-  	
+
   	func (c Circle) area() float64 {
 	  	return c.radius * c.radius * math.Pi
   	}
-  	
+
   	func main() {
 		r1 := Rectangle{12, 2}
 	  	r2 := Rectangle{9, 4}
 	  	c1 := Circle{10}
 	  	c2 := Circle{25}
-    
+
 	  	fmt.Println("Area of r1 is: ", r1.area())
 	  	fmt.Println("Area of r2 is: ", r2.area())
 	  	fmt.Println("Area of c1 is: ", c1.area())
 	  	fmt.Println("Area of c2 is: ", c2.area())
   	}
-  
+
 使用method的时候重要注意以下几点：
 
 - 虽然method的名字一模一样，但是如果接收者不一样，那么method就不一样。
@@ -107,32 +113,32 @@ method可以定义在任何你自定义的类型、内置类型、struct等各�
 	package main
 
 	import "fmt"
-	
+
 	type Human struct {
 		name  string
 		age   int
 		phone string
 	}
-	
+
 	type Student struct {
 		Human  // 匿名字段
 		school string
 	}
-	
+
 	type Employee struct {
 		Human   // 匿名字段
 		company string
 	}
-	
+
 	// 在Human上面定义了一个method
 	func (h *Human) SayHi() {
 		fmt.Printf("Hi, I am %s you can call me on %s\n", h.name, h.phone)
 	}
-	
+
 	func main() {
 		mark := Student{Human{"Mark", 25, "222-222-YYYY"}, "MIT"}
 		sam := Employee{Human{"Sam", 45, "111-888-XXXX"}, "Golang Inc"}
-		
+
 		mark.SayHi()
 		sam.SayHi()
 	}
@@ -288,7 +294,7 @@ Cookie是有时间限制的，根据生命期不同分成两种：会话Cookie�
 	func main(){
 		db, err := sql.Open("mysql", "astaxie:astaxie@/test?charset=utf8")
 		checkErr(err)
-		
+
 		stmt, err := db.Prepare("INSERT userinfo SET username=?, departname=?, created=?")
 		checkErr(err)
 
@@ -340,7 +346,7 @@ Cookie是有时间限制的，根据生命期不同分成两种：会话Cookie�
 
 		db.Close()
 	}
-	
+
 	func checkErr(err error){
 		if err != nil {
 			panic(err)
@@ -369,3 +375,4 @@ Web框架
 - `Profiling Go Programs <http://blog.golang.org/profiling-go-programs>`_
 - `Go for Pythonistas <http://talks.golang.org/2013/go4python.slide#1>`_
 - `Go数据结构 <http://mikespook.com/2013/12/%E7%BF%BB%E8%AF%91go-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84>`_
+- `Code to Read When Learning Go <http://www.somethingsimilar.com/2013/12/27/code-to-read-when-learning-go/>`_
