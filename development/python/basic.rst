@@ -33,3 +33,4 @@
 - `The Hitchhiker’s Guide to Packaging <http://guide.python-distribute.org/index.html>`_
 - `Unofficial Windows Binaries for Python Extension Packages <http://www.lfd.uci.edu/~gohlke/pythonlibs/>`_
 - `Python modules you should know <https://devcharm.com/pages/11-python-modules-you-should-know>`_
+- `Python Central <http://www.pythoncentral.io/>`_
