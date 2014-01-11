@@ -7,7 +7,7 @@
 
 ------
 
-根据字符串获取某对象已该字符串命名的属性/方法:
+根据字符串获取某对象以该字符串命名的属性/方法:
 
 ::
 
@@ -19,6 +19,20 @@
     When a default argument is given, it is returned when the attribute doesn't
     exist; without it, an exception is raised in that case.
     """
+    
+
+根据字符串查询某对象是否有以该字符串命名的属性/方法：
+
+::
+  
+  def hasattr(p_object, name): # real signature unknown; restored from __doc__
+    """
+    hasattr(object, name) -> bool
+    
+    Return whether the object has an attribute with the given name.
+    (This is done by calling getattr(object, name) and catching exceptions.)
+    """
+  
 
 反射
 -----------
