@@ -5,6 +5,21 @@
 
 .. seealso:: `知乎：元组的reference前加个星号是什么意思？ <http://www.zhihu.com/question/20801578>`_
 
+------
+
+根据字符串获取某对象已该字符串命名的属性/方法:
+
+::
+
+  def getattr(object, name, default=None): # known special case of getattr
+    """
+    getattr(object, name[, default]) -> value
+    
+    Get a named attribute from an object; getattr(x, 'y') is equivalent to x.y.
+    When a default argument is given, it is returned when the attribute doesn't
+    exist; without it, an exception is raised in that case.
+    """
+
 反射
 -----------
 
