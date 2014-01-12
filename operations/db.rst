@@ -9,3 +9,4 @@
     db/memcached
     db/redis
     db/mysql
+    db/sqlite
