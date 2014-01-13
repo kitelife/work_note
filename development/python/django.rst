@@ -278,3 +278,4 @@ if the list is empty.
 参考资料
 ===========
 - `Scaling Disqus <http://www.slideshare.net/zeeg/djangocon-2010-scaling-disqus>`_
+- `django-xadmin <http://sshwsfc.github.io/django-xadmin/>`_
