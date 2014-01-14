@@ -279,3 +279,4 @@ if the list is empty.
 ===========
 - `Scaling Disqus <http://www.slideshare.net/zeeg/djangocon-2010-scaling-disqus>`_
 - `django-xadmin <http://sshwsfc.github.io/django-xadmin/>`_
+- `Web Development with Python and Django <https://speakerdeck.com/mpirnat/web-development-with-python-and-django-2014>`_
