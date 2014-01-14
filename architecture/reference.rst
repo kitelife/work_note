@@ -128,7 +128,7 @@ StackOverflow
 ----------------
 
 - `Stack Overflow Network Configuration <http://blog.stackoverflow.com/2010/01/stack-overflow-network-configuration/>`_
-
+- `The Architecture of StackOverflow <https://speakerdeck.com/sklivvz/the-architecture-of-stackoverflow-developer-conference-2013>`_
 
 Instagram
 --------------
