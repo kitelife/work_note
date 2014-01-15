@@ -18,3 +18,4 @@
 - `Nginx和PHP配置备忘 <http://www.hjue.me/post/php-fpm-nginx>`_
 - `用sentry管理PHP错误日志 <http://www.hjue.me/post/sentry-log-php>`_
 - `Fine tuning a Linux Apache MySQL PHP (LAMP) server <http://www.hjue.me/post/old-post/2012-fine-tuning-a-linux-apache-mysql-php-lamp-server>`_
+- `phc-the open source php compiler <http://www.phpcompiler.org/index.html>`_
