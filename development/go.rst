@@ -377,3 +377,4 @@ Web框架
 - `Go数据结构 <http://mikespook.com/2013/12/%E7%BF%BB%E8%AF%91go-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84>`_
 - `Code to Read When Learning Go <http://www.somethingsimilar.com/2013/12/27/code-to-read-when-learning-go/>`_
 - `GO Essential <https://devcharm.com/pages/7-go-essential>`_
+- `Writing a Distributed Systems Library in Go <http://blog.gopheracademy.com/writing-a-distributed-system-library>`_
