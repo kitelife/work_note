@@ -379,3 +379,4 @@ Web框架
 - `GO Essential <https://devcharm.com/pages/7-go-essential>`_
 - `Writing a Distributed Systems Library in Go <http://blog.gopheracademy.com/writing-a-distributed-system-library>`_
 - `On using Go channels like Python generators <http://blog.carlsensei.com/post/72359081647>`_
+- `leveldb-go <https://code.google.com/p/leveldb-go/>`_
