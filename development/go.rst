@@ -380,3 +380,4 @@ Web框架
 - `Writing a Distributed Systems Library in Go <http://blog.gopheracademy.com/writing-a-distributed-system-library>`_
 - `On using Go channels like Python generators <http://blog.carlsensei.com/post/72359081647>`_
 - `leveldb-go <https://code.google.com/p/leveldb-go/>`_
+- `The Golang Magazine <https://flipboard.com/section/the-golang-magazine-bVP7nS>`_
