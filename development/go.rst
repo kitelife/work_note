@@ -382,3 +382,4 @@ Web框架
 - `leveldb-go <https://code.google.com/p/leveldb-go/>`_
 - `The Golang Magazine <https://flipboard.com/section/the-golang-magazine-bVP7nS>`_
 - `groupcache <https://github.com/golang/groupcache>`_
+- `Practical Cryptography With Go <https://leanpub.com/gocrypto/read>`_
