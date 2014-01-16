@@ -381,3 +381,4 @@ Web框架
 - `On using Go channels like Python generators <http://blog.carlsensei.com/post/72359081647>`_
 - `leveldb-go <https://code.google.com/p/leveldb-go/>`_
 - `The Golang Magazine <https://flipboard.com/section/the-golang-magazine-bVP7nS>`_
+- `groupcache <https://github.com/golang/groupcache>`_
