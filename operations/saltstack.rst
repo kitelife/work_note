@@ -34,8 +34,7 @@ IP address is used, if there is one. Otherwise, the first privately-routable IP 
 
 If all else fails, then ``localhost`` is used as a fallback.
 
-.. note:: 
-
+.. note::
     The minion id can be manually specified using the ``id`` parameter in the minion config file. If this configuration value is specified, it will override all other sources for the ``id`` .
 
 
