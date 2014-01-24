@@ -385,3 +385,4 @@ Web框架
 - `Practical Cryptography With Go <https://leanpub.com/gocrypto/read>`_
 - `Golang Http Server源码阅读 <http://www.cnblogs.com/yjf512/archive/2012/08/22/2650873.html>`_
 - `Code to Read When Learning Go <http://www.somethingsimilar.com/2013/12/27/code-to-read-when-learning-go/>`_
+- `go-wiki Projects <https://code.google.com/p/go-wiki/wiki/Projects>`_
