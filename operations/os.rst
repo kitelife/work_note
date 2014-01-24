@@ -8,6 +8,14 @@ Linux操作系统
 工具篇
 ----------
 
+pushd, popd, dirs
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- `Linux命令：用“dirs”、“pushd”、“popd”来操作目录栈 <http://www.itivy.com/linux/archive/2012/3/1/linux-dirs-pushd-popd-stack.html>`_
+- `Use pushd and popd for faster CLI navigation <http://www.eriwen.com/bash/pushd-and-popd/>`_
+- `Use dirs, pushd and popd to manipulate directory stack <http://linux.101hacks.com/cd-command/dirs-pushd-popd/>`_
+- `How do I use pushd and popd commands? <http://unix.stackexchange.com/questions/77077/how-do-i-use-pushd-and-popd-commands>`_
+
 iptables
 ^^^^^^^^^^^^
 
