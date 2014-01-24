@@ -64,3 +64,4 @@
 - `Python modules you should know <https://devcharm.com/pages/11-python-modules-you-should-know>`_
 - `Python Central <http://www.pythoncentral.io/>`_
 - `蟒周刊 <http://weekly.pychina.org/>`_
+- `Using Pandas and XlsxWriter to create Excel charts <http://pandas-xlsxwriter-charts.readthedocs.org/>`_
