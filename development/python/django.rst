@@ -281,3 +281,4 @@ if the list is empty.
 - `django-xadmin <http://sshwsfc.github.io/django-xadmin/>`_
 - `Web Development with Python and Django <https://speakerdeck.com/mpirnat/web-development-with-python-and-django-2014>`_
 - `Django Project Structure <http://www.deploydjango.com/django_project_structure/index.html>`_
+- `Must-have Django packages <https://devcharm.com/pages/79-must-have-django-packages>`_
