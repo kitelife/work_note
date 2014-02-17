@@ -65,3 +65,4 @@
 - `Python Central <http://www.pythoncentral.io/>`_
 - `蟒周刊 <http://weekly.pychina.org/>`_
 - `Using Pandas and XlsxWriter to create Excel charts <http://pandas-xlsxwriter-charts.readthedocs.org/>`_
+- `Parallelism in one line - A Better Model for Day to Day Threading Tasks <https://medium.com/building-things-on-the-internet/40e9b2b36148>`_ , `译文 <http://blog.jobbole.com/58700/>`_
