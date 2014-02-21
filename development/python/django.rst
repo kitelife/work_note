@@ -282,3 +282,7 @@ if the list is empty.
 - `Web Development with Python and Django <https://speakerdeck.com/mpirnat/web-development-with-python-and-django-2014>`_
 - `Django Project Structure <http://www.deploydjango.com/django_project_structure/index.html>`_
 - `Must-have Django packages <https://devcharm.com/pages/79-must-have-django-packages>`_
+- `Django Book Revival <https://github.com/mariuz/django-book>`_
+- `The Django Book <http://www.djangobook.com/en/2.0/index.html>`_
+- `Effective Django Tutorial <http://effectivedjango.com/tutorial/index.html>`_
+- `Django Best Practices <http://lincolnloop.com/django-best-practices/>`_
