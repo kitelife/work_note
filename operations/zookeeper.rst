@@ -78,3 +78,5 @@ ZooKeeper uses a custom atomic messaging protocol. Since the messaging layer is 
 - `Zookeeper研究和应用 <http://www.searchtb.com/2011/01/zookeeper-research.html>`_
 - `Zookeeper工作原理 <http://stblog.baidu-tech.com/?p=1164>`_
 - `Building a distributed concurrent queue with Apache ZooKeeper <http://blog.cloudera.com/blog/2009/05/building-a-distributed-concurrent-queue-with-apache-zookeeper/>`_
+- `ZooKeeper典型应用场景一览 <http://jm-blog.aliapp.com/?p=1232>`_
+- `ZooKeeper管理员指南——部署与管理ZooKeeper <http://jm-blog.aliapp.com/?p=2318>`_
