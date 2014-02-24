@@ -259,3 +259,4 @@ The first two values specify the length of the shadow offset. The first value sp
 6. `Github CSS StyleGuide <https://github.com/styleguide/css>`_
 7. `学习CSS布局 <http://zh.learnlayout.com/>`_
 8. 颜色选择器： `https://kuler.adobe.com/create/color-wheel/ <https://kuler.adobe.com/create/color-wheel/>`_ , `http://colorschemedesigner.com/ <http://colorschemedesigner.com/>`_
+9. `CSS动画简介 <http://www.ruanyifeng.com/blog/2014/02/css_transition_and_animation.html>`_
