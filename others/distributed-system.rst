@@ -13,4 +13,4 @@
 - `分布式系统的事务处理 <http://coolshell.cn/articles/10910.html>`_
 - `Transaction Across DataCenter <http://snarfed.org/transactions_across_datacenters_io.html>`_
 - `Distributed Systems Part-1: A peek into consistent hashing! <http://loveforprogramming.quora.com/Distributed-Systems-Part-1-A-peek-into-consistent-hashing>`_
-- `Distributed Systems Part-2: Consistency versus Availability, A Pragmatic Example! <http://loveforprogramming.quora.com/Distributed-Systems-Part-2-Consistency-versus-Availability-A-Pragmatic-Example>`_
+- `Distributed Systems Part-2: Consistency versus Availability, A Pragmatic Example! <http://loveforprogramming.quora.com/Distributed-Systems-Part-2-Consistency-versus-Availability-A-Pragmatic-Example>`_ , `Distributed Systems Part-3: Managing Anti-Entropy using Merkle Trees <http://loveforprogramming.quora.com/Distributed-Systems-Part-3-Managing-Anti-Entropy-using-Merkle-Trees>`_
