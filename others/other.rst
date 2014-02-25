@@ -15,3 +15,5 @@
 - `Disqus Gravity: Picturing the Web of Discussion <http://blog.disqus.com/post/49221647726/disqus-gravity-picturing-the-web-of-discussion>`_
 - `pandoc <http://johnmacfarlane.net/pandoc/>`_
 - `Markdown+Pandoc→HTML幻灯片速成 <http://www.soimort.org/posts/165/>`_
+- `技术人创业建站简略指南(第一季) <http://dbanotes.net/startup/tech_startup_ver_002.html>`_
+- `技术人创业建站简略指南(第二季) <http://dbanotes.net/startup/tech_startup_s2.html>`_
