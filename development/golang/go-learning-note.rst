@@ -21,4 +21,39 @@
 - 不可变类型，无法修改字节数组。
 - 字节数组尾部不包含NULL。
 
-要修改字符串，可先将其转换成`[]rune`或`[]byte`，完成后再转换为`string`。无论哪种转换，都会重新分配内存，并复制字节数组。
+要修改字符串，可先将其转换成``[]rune``或``[]byte``，完成后再转换为``string``。无论哪种转换，都会重新分配内存，并复制字节数组。
+::
+
+  s := "abcd"
+  bs := []byte(s)
+  bs[1] = 'B'
+  s2 := string(bs)
+  
+  u := "电脑"
+  us := []rune(u)
+  us[1] = '话'
+  u2 := string(us)
+  
+用for循环遍历字符串时，也有byte和rune两种方式。
+::
+
+  func main() {
+    s := "abc汉字"
+    
+    for i := 0; i < len(s); i++ { // byte
+      fmt.Printf("%c,", s[i])
+    }
+    
+    fmt.Println()
+    
+    for _, r := range s {     // rune
+      fmt.Printf("%c,", r)
+    }
+  }
+  
+输出：
+::
+
+  a,b,c,æ,±,,å,­,,
+  a,b,c,汉,字,
+  
