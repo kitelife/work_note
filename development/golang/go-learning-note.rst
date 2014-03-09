@@ -28,35 +28,35 @@
   bs := []byte(s)
   bs[1] = 'B'
   s2 := string(bs)
-  
+
   u := "电脑"
   us := []rune(u)
   us[1] = '话'
   u2 := string(us)
-  
+
 用for循环遍历字符串时，也有byte和rune两种方式。
 ::
 
   func main() {
     s := "abc汉字"
-    
+
     for i := 0; i < len(s); i++ { // byte
       fmt.Printf("%c,", s[i])
     }
-    
+
     fmt.Println()
-    
+
     for _, r := range s {     // rune
       fmt.Printf("%c,", r)
     }
   }
-  
+
 输出：
 ::
 
   a,b,c,æ,±,,å,­,,
   a,b,c,汉,字,
-  
+
 ------
 
 可以在unsafe.Pointer和任意类型指针间进行转换。
@@ -64,21 +64,21 @@
 
   func main() {
     x := 0x12345678
-    
+
     p := unsafe.Pointer(&x)   // *int -> Pointer
     n := (*[4]byte)(p)    // Pointer -> *[4]byte
-    
+
     for i := 0; i < len(n); i++ {
       fmt.Println("%X", n[i])
     }
   }
-  
-  
+
+
 输出：
 ::
 
   78 56 34 12
-  
+
 ------
 
 可将类型分为命名和未命名两大类。命名类型包括bool、int、string等，而array、slice、map等和具体元素类型、长度等有关，属于未命名类型。
@@ -93,7 +93,7 @@
 - 具有相同字段序列（字段名、类型、标签、顺序）的匿名struct。
 - 签名相同（参数和返回值，不包括参数名称）的function。
 - 方法集相同（方法名、方法签名相同、和次序无关）的interface。
-  
+
 ------
 
 第二章 表达式
@@ -104,7 +104,7 @@ switch分支表达式可以是任意类型，不限于常量。可省略break，
 
   x := []int{1, 2, 3}
   i := 2
-  
+
   switch i {
     case x[1]:
       println("a")
@@ -121,7 +121,7 @@ switch分支表达式可以是任意类型，不限于常量。可省略break，
 
   a
   b
-  
+
 省略条件表达式，可当if...else if...else使用。
 ::
 
@@ -133,7 +133,7 @@ switch分支表达式可以是任意类型，不限于常量。可省略break，
     default:
       println("c")
   }
-  
+
   switch i := x[2]; {  // 带初始化语句
     case i > 0:
       println("a")
@@ -142,7 +142,7 @@ switch分支表达式可以是任意类型，不限于常量。可省略break，
     default:
       println("c")
   }
-  
+
 支持函数内goto跳转。表签名区分大小写，未使用的标签会引发错误。
 
 break可用于for、switch、select，而continue仅能用于for循环。
@@ -164,22 +164,22 @@ break可用于for、switch、select，而continue仅能用于for循环。
   func test(fn func() int) int {
     return fn()
   }
-  
+
   type FormatFunc func(s string, x, y int) string     // 定义函数原型
   func format(fn FormatFunc, s string, x, y int) string {
     return fn(s, x, y)
   }
-  
+
   func main() {
     s1 := test(func() int { return 100 })     // 直接将匿名函数当参数
-    
+
     s2  := format(func(s string, x, y int) string {
       return fmt.Sprintf(s, x, y)
     }, " %d, %d", 10, 20)
-    
+
     println(s1, s2)
   }
-  
+
 有返回值的函数，必须有明确的终⽌语句，否则会引发编译错误。
 
 ------
@@ -199,15 +199,15 @@ break可用于for、switch、select，而continue仅能用于for循环。
     defer func() {
       z += 100
     }()
-    
+
     z = x + y
     return
   }
-  
+
   func main() {
     println(add(1, 2))    // 输出：103
   }
-  
+
 显式return返回前，会先修改命名返回参数。
 ::
 
@@ -215,11 +215,11 @@ break可用于for、switch、select，而continue仅能用于for循环。
     defer func() {
       println(z)      // 输出：203
     }()
-    
+
     z = x + y
     return z + 200        // 执行顺序：(z = z + 200) -> (call defer) -> (ret)
   }
-  
+
   func main() {
     println(add(1, 2))      // 输出：203
   }
@@ -230,32 +230,32 @@ break可用于for、switch、select，而continue仅能用于for循环。
 ::
 
   // function variable
-  
+
   fn := func() { println("Hello World!") }
   fn()
-  
+
   // function collection
   fns := [](func(x int) int){
     func(x int) int { return x + 1 },
     func(x int) int { return x + 2 },
   }
-  
+
   println(fns[0](100))
-  
+
   // function as field
   d := struct {
     fn func() string
   }{
     fn: func() string { return "Hello, World!" },
   }
-  
+
   println(d.fn())
-  
+
   // channel of function
   fc := make(chan func() string, 2)
   fc <- func() string { return "Hello, World!" }
   println((<-fc)())
-  
+
 ------
 
 闭包复制的是原对象指针，这就很容易解释延迟引用现象。
@@ -264,23 +264,23 @@ break可用于for、switch、select，而continue仅能用于for循环。
   func test() func() {
     x := 100
     fmt.Printf("x (%p) = %d\n", &x, x)
-    
+
     return func() {
       fmt.Printf("x (%p) = %d\n", &x, x)
     }
   }
-  
+
   func main() {
     f := test()
     f()
   }
-  
+
 输出：
 ::
 
   x (0x2101ef018) = 100
   x (0x2101ef018) = 100
-  
+
 ------
 
 关键字defer用于注册延迟调用。这些调用直到ret前才被执行，通常用于释放资源或错误处理。
@@ -292,15 +292,56 @@ break可用于for、switch、select，而continue仅能用于for循环。
 
   func test(x, y int) {
     var z int
-    
+
     func() {
       defer func() {
         if recover() != nil { z = 0 }
       }()
-      
+
       z = x / y
       return
     }()
-    
+
     println("x / y =", z)
   }
+
+------
+
+
+第四章 数据
+----------------
+
+Array
+^^^^^^^^
+
+和以往认知的数组有很大不同。
+
+- 数组是值类型，赋值和传参会复制整个数组，而不是指针。
+- 数组长度必须是常量，且是类型的组成部分。[2]int和[3]int是不同类型
+- 支持“==”、"!="操作符，因为内存总是被初始化过的。
+- 指针数组[n]\*T，数组指针\*[n]T。
+
+值拷贝行为会造成性能问题，通常会建议使用slice，或者数组指针。
+
+内置函数len和cap都返回数组长度（元素数量）。
+
+Slice
+^^^^^^^^^
+
+slice并不是数组或者数组指针。它通过内部指针和相关属性引用数组片段，以实现变长方案。
+::
+
+  struct Slice
+  {               // must not move anything
+    byte* array;  // actual data
+    uintgo  len;  // number of elements
+    uintgo  cap;  // allocated number of elements
+  }
+
+- 引用类型。但自身是结构体，值拷贝传递。
+- 属性len标识可用元素数量，读写操作不能超过该限制。
+- 属性cap标识最大扩张容量，不能超过数组限制。
+- 如果slice == nil，那么len、cap结果都等于0。
+
+大批量添加数据时，应该避免使用append，因为频繁创建slice对象会影响性能。**可一次性分配len足够大的slice，直接用索引号进行操作。**
+还有，**及时释放不再使用的slice对象**，避免持有过期数组，造成GC无法回收。
