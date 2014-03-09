@@ -345,3 +345,214 @@ slice并不是数组或者数组指针。它通过内部指针和相关属性引
 
 大批量添加数据时，应该避免使用append，因为频繁创建slice对象会影响性能。**可一次性分配len足够大的slice，直接用索引号进行操作。**
 还有，**及时释放不再使用的slice对象**，避免持有过期数组，造成GC无法回收。
+
+Map
+^^^^^^
+
+map是引用类型，哈希表。键必须是支持相等运算符(==、!=)类型，比如number、string、pointer、array、struct，以及对应的interface。
+值可以是任意类型，没有限制。
+
+
+Struct
+^^^^^^^^^^^
+
+值类型，赋值和传参会复制全部内容，可用“_”定义补位字段(?)，支持指向自身类型的指针成员。
+
+支持“==”、“!=”相等操作符，可用作map键类型。
+
+可定义字段标签，用反射读取。标签是类型的组成部分。
+::
+
+  var u1 struct { name string "username" }
+  var u2 struct { name string }
+
+  u2 = u1   // Error: cannot use u1 (type struct { name string "username" }) as
+            //        type struct { name string } in assignment
+
+
+**匿名字段**
+
+匿名字段不过是一种语法糖，从根本上说，就是一个与成员类型同名（不包含包名）的字段。被匿名嵌入的可以是任何类型，当然也包括指针。
+::
+
+  type User struct {
+    name string
+  }
+
+  type Manager struct {
+    User
+    title string
+  }
+
+  m := Manager{
+    User: User{"Tom"},    // 匿名字段的显式字段名，和类型名相同。
+    title: "Administrator",
+  }
+
+可以像普通字段那样访问匿名字段成员，编译器从外向内逐级查找所有层次的匿名字段，直到发现目标或出错。
+::
+
+  type Resource struct {
+    id int
+  }
+
+  type User struct {
+    Resource
+    name string
+  }
+
+  type Manager struct {
+    User
+    title string
+  }
+
+  var m Manager
+  m.id = 1
+  m.name = "Jack"
+  m.title = "Administrator"
+
+外层同名字段会遮蔽嵌入字段成员，相同层次的同名字段也会让编译器无所适从。解决⽅法是使用显式字段名。
+
+
+第五章 方法
+-----------------
+
+可以像字段成员那样访问匿名字段方法，编译器负责查找。
+::
+
+  type User struct {
+    id int
+    name string
+  }
+
+  type Manager struct {
+    User
+  }
+
+  func (self *User) ToString() string {   // receiver = &(Manager.User)
+    return fmt.Sprintf("User: %p, %v", self, self)
+  }
+
+  func main() {
+    m := Manager{User{1, "Tom"}}
+
+    fmt.Printf("Manager: %p\n", &m)
+
+    fmt.Println(m.ToString())
+  }
+
+输出：
+::
+
+  Manager: 0x2102281b0
+  User: 0x2102281b0, &{1 Tom}
+
+
+通过匿名字段，可获得和继承类似的复用能力。依据编译器查找次序，只需在外层定义同名方法，就可以实现"override"。
+::
+
+  type User struct {
+    id int
+    name string
+  }
+
+  type Manager struct {
+    User
+    title string
+  }
+
+  func (self *User) ToString() string {
+    return fmt.Sprintf("User: %p, %v", self, self)
+  }
+
+  func (self *Manager) ToString() string {
+    return fmt.Sprintf("Manager: %p, %v", self, self)
+  }
+
+  func main() {
+    m := Manager{User{1, "Tom"}, "Administrator"}
+
+    fmt.Println(m.ToString())
+    fmt.Println(m.User.ToString())
+  }
+
+输出：
+::
+
+  Manager: 0x2102271b0, &{{1 Tom} Administrator}
+  User: 0x2102271b0, &{1 Tom}
+
+
+方法集
+^^^^^^^^
+
+每个类型都有与之关联的方法集，这会影响到接口实现规则。
+
+- 类型T方法集包含全部receiver T方法
+- 类型\*T方法集包含全部receiverT + \*T方法。
+- 如类型S包含匿名字段T，则S方法集包含T方法。
+- 如类型S包含匿名方法\*T，则S方法集包含T + \*T的方法。
+- 不管嵌入T或\*T，\*S方法集总是包含T + \*T方法。
+
+
+第六章 接口
+------------------
+
+接口是一个或多个方法签名的集合，任何类型的方法集中只要拥有与之对应的全部方法，就表示它“实现”了该接口，无需在该类型上显式添加接口声明。
+
+- 接口命名习惯以er结尾，结构体。
+- 接口只有方法签名，没有实现。
+- 接口没有数据字段。
+- 可在接口中嵌入其他接口。
+- 类型可实现多个接口。
+
+空接口interface{}没有任何方法签名，也就意味着任何类型都实现了空接口。其作用类似面向对象语言中的根对象object。
+
+匿名接口可用作变量类型，或结构成员。
+::
+
+  type Tester struct {
+    s interface {
+      String() string
+    }
+  }
+
+  type User struct {
+    id int
+    name string
+  }
+
+  func (self *User) String() string {
+    return fmt.Sprintf("user %d, %s", self.id, self.name)
+  }
+
+  func main() {
+    t := Tester{&User{1, "Tom"}}
+    fmt.Println(t.s.String())
+  }
+
+输出：
+::
+
+  user 1, Tom
+
+
+某些时候，让函数直接“实现”接口能省不少事。
+::
+
+  type Tester interface {
+    Do()
+  }
+
+  type FuncDo func()
+  func (self FunDo) Do() { self() }
+
+  func main() {
+    var t Tester = FuncDo(func() { println("Hello, World!") })
+    t.Do()
+  }
+
+
+第七章 并发
+--------------
+
