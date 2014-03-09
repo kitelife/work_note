@@ -1,3 +1,8 @@
+Go学习笔记
+=============
+
+`电子书链接 <https://github.com/qyuhen/book/blob/master/Go%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20%E7%AC%AC%E4%BA%8C%E7%89%88.pdf>`_
+
 第一章 类型
 ---------------
 
@@ -556,3 +561,164 @@ Struct
 第七章 并发
 --------------
 
+调度器不能保证goroutine执行次序，且进程退出时不会等待goroutine结束。
+
+官方默认实现，进程启动后仅允许一个系统线程服务于goroutine。可使用环境变量或标准库
+函数runtime.GOMAXPROCS修改，让调度器用多个线程实现多核并行，而不仅仅是并发。
+
+::
+
+  func sum(id int) {
+    var x int64
+    for i := 0; i < math.MaxUint32; i++ {
+      x += int64(i)
+    }
+
+    println(id, x)
+  }
+
+  func main() {
+    wg := new(sync.WaitGroup)
+    wg.Add(2)
+
+    for i := 0; i < 2; i++ {
+      go func(id int) {
+        defer wg.Done()
+        sum(id)
+      }(i)
+    }
+
+    wg.Wait()
+  }
+
+调用runtime.Goexit将立即终止当前goroutine执行，调度器确保所有已注册defer延迟调用被执行。
+
+::
+
+  func main() {
+    wg := new(sync.WaitGroup)
+    wg.Add(1)
+
+    go func() {
+      defer wg.Done()
+      defer println("A.defer")
+
+
+      func() {
+        defer println("B.defer")
+        runtime.Goexit()        // 终止当前goroutine
+        println("B")            // 不会执行
+      }()
+
+      println("A")              // 不会执行
+    }()
+
+    wg.Wait()
+  }
+
+输出：
+::
+
+  B.defer
+  A.defer
+
+
+::
+
+  func main() {
+    data := make(chan int)    // 数据交换队列
+    exit := make(chan bool)   // 退出通知
+
+    go func() {
+      for d := range data {   // 从队列迭代接收数据，直到close。
+        fmt.Println(d)
+      }
+
+      fmt.Println("recv over.")
+      exit <- true              // 发出退出通知
+    }()
+
+    data <- 1                 // 发送数据
+    data <- 2
+    data <- 3
+    /*
+    The close built-in function closes a channel, which must be either bidirectional or send-only. It should be executed
+    only by the sender, never the receiver, and has the effect of shutting down the channel after the last sent value
+    is received. After the last value has been received from a closed channel c, any receive from c will succeed without blocking,
+    returning the zero value for the channel element.
+    */
+    close(data)               // 关闭队列
+
+    fmt.Println("send over.")
+    <-exit                    // 等待退出通知
+  }
+
+输出：
+::
+
+  1
+  2
+  3
+  send over.
+  recv over.
+
+
+第八章 包
+------------------
+
+可在GOPATH环境变量列表中添加多个workspace, 但不能和GOROOT相同。
+::
+
+  export GOPATH=$HOME/projects/golib:$HOME/projects/go
+
+通常go get使用第一个workspace保存下载的第三方库。
+
+.. note::
+
+  os.Args返回命令行参数，os.Exit终止进程。
+  要获取正确的可执行文件路径，可用filepath.Abs(exec.LookPath(os.Args[0]))。
+
+
+**导入包**
+
+在导入时，可指定包成员访问方式。比如对包重命名，以避免同名冲突。
+::
+
+  import "yuhen/test"     // 默认模式：test.A
+  import M "yuhen/test"   // 包重命名： M.A
+  import . "yuhen/test"   // 简便模式：A
+  import _ "yuhen/test"   // 非导入模式：仅让该包执行初始化函数。
+
+对于当前目录下的子包，除使用默认完整导入路径外，还可使用local方式。
+::
+
+  workspace
+      |
+      +--- src
+            |
+            +--- learn
+                    |
+                    +--- main.go
+                    |
+                    +--- test
+                            |
+                            +--- test.go
+
+*main.go*
+
+::
+
+  import "learn/test"     // 正常模式
+  import "./test"         // 本地模式，仅对go run main.go有效。
+
+
+**初始化**
+
+初始化函数：
+
+- 每个源文件都可以定义一个或多个(?)初始化函数。
+- 编译器不保证多个初始化函数执行次序。
+- 初始化函数在单一线程被调用，仅执行一次。
+- 初始化函数在包所有全局变量初始化后执行。
+- 在所有初始化函数结束后才执行main.main。
+- 无法调用初始化函数。
