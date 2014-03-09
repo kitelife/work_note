@@ -143,4 +143,83 @@ switch分支表达式可以是任意类型，不限于常量。可省略break，
       println("c")
   }
   
+支持函数内goto跳转。表签名区分大小写，未使用的标签会引发错误。
+
+break可用于for、switch、select，而continue仅能用于for循环。
+
+第三章 函数
+-----------------
+
+函数定义不支持嵌套（nested）、重载（overload）和默认参数（default parameter）。
+
+- 无需声明原型
+- 支持不定长变参
+- 支持多返回值
+- 支持命名返回参数
+- 支持匿名函数和闭包
+
+函数是第一类对象，可作为参数传递。建议将复杂签名定义为函数类型，以便于阅读。
+::
+
+  func test(fn func() int) int {
+    return fn()
+  }
+  
+  type FormatFunc func(s string, x, y int) string     // 定义函数原型
+  func format(fn FormatFunc, s string, x, y int) string {
+    return fn(s, x, y)
+  }
+  
+  func main() {
+    s1 := test(func() int { return 100 })     // 直接将匿名函数当参数
+    
+    s2  := format(func(s string, x, y int) string {
+      return fmt.Sprintf(s, x, y)
+    }, " %d, %d", 10, 20)
+    
+    println(s1, s2)
+  }
+  
+有返回值的函数，必须有明确的终⽌语句，否则会引发编译错误。
+
 ------
+
+变参本质上就是slice。只能有一个，且必须是最后一个。
+
+------
+
+不能用容器对象接收多返回值。只能用多个变量，或“_”忽略。
+
+多返回值可直接作为其他函数的调用实参。
+
+命名返回参数允许defer延迟调用通过闭包读取和修改。
+::
+
+  func add(x, y int) (z int) {
+    defer func() {
+      z += 100
+    }()
+    
+    z = x + y
+    return
+  }
+  
+  func main() {
+    println(add(1, 2))    // 输出：103
+  }
+  
+显式return返回前，会先修改命名返回参数。
+::
+
+  func add(x, y int) (z int) {
+    defer func() {
+      println(z)      // 输出：203
+    }()
+    
+    z = x + y
+    return z + 200        // 执行顺序：(z = z + 200) -> (call defer) -> (ret)
+  }
+  
+  func main() {
+    println(add(1, 2))      // 输出：203
+  }
