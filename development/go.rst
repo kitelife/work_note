@@ -5,6 +5,7 @@ Go语言
     :maxdepth: 2
 
     golang/go-web-programming
+    golang/go-learning-note
 
 
 语言基础
