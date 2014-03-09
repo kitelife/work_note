@@ -223,3 +223,84 @@ break可用于for、switch、select，而continue仅能用于for循环。
   func main() {
     println(add(1, 2))      // 输出：203
   }
+
+------
+
+匿名函数可赋值给变量，作为结构字段，或者在channel里传送。
+::
+
+  // function variable
+  
+  fn := func() { println("Hello World!") }
+  fn()
+  
+  // function collection
+  fns := [](func(x int) int){
+    func(x int) int { return x + 1 },
+    func(x int) int { return x + 2 },
+  }
+  
+  println(fns[0](100))
+  
+  // function as field
+  d := struct {
+    fn func() string
+  }{
+    fn: func() string { return "Hello, World!" },
+  }
+  
+  println(d.fn())
+  
+  // channel of function
+  fc := make(chan func() string, 2)
+  fc <- func() string { return "Hello, World!" }
+  println((<-fc)())
+  
+------
+
+闭包复制的是原对象指针，这就很容易解释延迟引用现象。
+::
+
+  func test() func() {
+    x := 100
+    fmt.Printf("x (%p) = %d\n", &x, x)
+    
+    return func() {
+      fmt.Printf("x (%p) = %d\n", &x, x)
+    }
+  }
+  
+  func main() {
+    f := test()
+    f()
+  }
+  
+输出：
+::
+
+  x (0x2101ef018) = 100
+  x (0x2101ef018) = 100
+  
+------
+
+关键字defer用于注册延迟调用。这些调用直到ret前才被执行，通常用于释放资源或错误处理。
+
+多个defer注册，按FILO次序执行。哪怕函数或某个延迟调用发生错误，这些调用依旧会被执行。
+
+如果需要保护代码片段，可将代码块重构成匿名函数，如此可确保后续代码被执行。
+::
+
+  func test(x, y int) {
+    var z int
+    
+    func() {
+      defer func() {
+        if recover() != nil { z = 0 }
+      }()
+      
+      z = x / y
+      return
+    }()
+    
+    println("x / y =", z)
+  }
