@@ -19,6 +19,8 @@ pushd, popd, dirs
 iptables
 ^^^^^^^^^^^^
 
+- `Iptables指南 1.1.19 <https://www.frozentux.net/iptables-tutorial/cn/iptables-tutorial-cn-1.1.19.html>`_
+
 lsof
 ^^^^^^^^^^
 
