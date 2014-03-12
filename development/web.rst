@@ -1,6 +1,14 @@
 Web开发问题记录
 ==================
 
+响应式设计
+------------
+
+- `用3个步骤实现响应式网页设计 <http://blog.csdn.net/hfahe/article/details/7082718>`_
+- `响应式网页设计 <http://www.qianduan.net/responsive-web-design.html>`_
+- `Responsive Design with CSS3 Media Queries <http://webdesignerwall.com/tutorials/responsive-design-with-css3-media-queries>`_
+
+
 工具
 -------
 
