@@ -7,19 +7,21 @@ Web开发问题记录
 - `用3个步骤实现响应式网页设计 <http://blog.csdn.net/hfahe/article/details/7082718>`_
 - `响应式网页设计 <http://www.qianduan.net/responsive-web-design.html>`_
 - `Responsive Design with CSS3 Media Queries <http://webdesignerwall.com/tutorials/responsive-design-with-css3-media-queries>`_
-
+- `Responsive Web Design <http://alistapart.com/article/responsive-web-design>`_
+- `Responsive Web Design Techniques, Tools and Design Strategies <http://mobile.smashingmagazine.com/2011/07/22/responsive-web-design-techniques-tools-and-design-strategies/>`_
+- `想学响应式设计？来看史上最全的响应式设计资源库 <http://www.uisdc.com/ultimate-resources-to-responsive-design>`_
+- `响应式网页设计 <http://isux.tencent.com/responsive-web-design.html>`_
 
 工具
 -------
 
-1. **Chrome Dev Tools** :
+- **Chrome Dev Tools** :
 
 `http://blog.jobbole.com/22065/ <Chrome Dev Tools 浅析：成为更高效的开发人员>`_
 
 
-2. 从这里查看各种浏览器对于某些CSS、JS、SVG、HTML5特性的支持情况：http://caniuse.com
-
-3. Firebug调试IE调试
+- 从这里查看各种浏览器对于某些CSS、JS、SVG、HTML5特性的支持情况：http://caniuse.com
+- Firebug调试IE调试
 
 IE 8没有内置好用的前端调试工具，可以通过在待调试的页面中引入Firebug Lite来调试。::
 
@@ -27,7 +29,12 @@ IE 8没有内置好用的前端调试工具，可以通过在待调试的页面�
 
 http://getfirebug.com/firebuglite
 
-4. `浏览器开发工具的秘密 <http://jinlong.github.io/blog/2013/08/29/devtoolsecrets/>`_
+- `浏览器开发工具的秘密 <http://jinlong.github.io/blog/2013/08/29/devtoolsecrets/>`_
+- `构建初级前端页面重构开发环境 <http://blog.wpjam.com/article/build-frontend-development-environment/>`_
+- `SASS用法指南 <http://www.ruanyifeng.com/blog/2012/06/sass.html>`_
+- `Compass --- an open-source CSS Authoring Framework <http://compass-style.org/>`_
+- `网页前端开发工具推荐！超实用的CSS库、框架大全 <http://www.uisdc.com/css-and-framework-tool>`_
+
 
 浏览器兼容问题
 ----------------
