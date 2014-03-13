@@ -15,3 +15,4 @@ Python
     python/sentry
     python/virtualenv
     python/scipy
+    python/sqlalchemy
