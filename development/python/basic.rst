@@ -14,25 +14,25 @@
   def getattr(object, name, default=None): # known special case of getattr
     """
     getattr(object, name[, default]) -> value
-    
+
     Get a named attribute from an object; getattr(x, 'y') is equivalent to x.y.
     When a default argument is given, it is returned when the attribute doesn't
     exist; without it, an exception is raised in that case.
     """
-    
+
 
 根据字符串查询某对象是否有以该字符串命名的属性/方法：
 
 ::
-  
+
   def hasattr(p_object, name): # real signature unknown; restored from __doc__
     """
     hasattr(object, name) -> bool
-    
+
     Return whether the object has an attribute with the given name.
     (This is done by calling getattr(object, name) and catching exceptions.)
     """
-  
+
 
 反射
 -----------
@@ -66,3 +66,6 @@
 - `蟒周刊 <http://weekly.pychina.org/>`_
 - `Using Pandas and XlsxWriter to create Excel charts <http://pandas-xlsxwriter-charts.readthedocs.org/>`_
 - `Parallelism in one line - A Better Model for Day to Day Threading Tasks <https://medium.com/building-things-on-the-internet/40e9b2b36148>`_ , `译文 <http://blog.jobbole.com/58700/>`_
+- `进程、线程和协程的理解 <http://blog.leiqin.name/2012/12/02/%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B%E7%9A%84%E7%90%86%E8%A7%A3.html>`_
+- `Python最难的问题 <http://www.oschina.net/translate/pythons-hardest-problem>`_
+- `python线程，GIL和ctypes <http://zhuoqiang.me/python-thread-gil-and-ctypes.html>`_
