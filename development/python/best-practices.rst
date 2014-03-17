@@ -9,3 +9,4 @@
 - `Gevent, Threads, and Benchmarks <http://blog.pythonisito.com/2012/07/gevent-threads-and-benchmarks.html>`_
 - `The Hitchhiker’s Guide to Python! <http://docs.python-guide.org/en/latest/>`_
 - `Python状况：为什么PyPy是Python的未来？ <http://www.oschina.net/translate/why_pypy_is_the_future_of_python>`_
+- `python-patterns <https://github.com/faif/python-patterns>`_
