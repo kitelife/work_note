@@ -69,3 +69,4 @@
 - `进程、线程和协程的理解 <http://blog.leiqin.name/2012/12/02/%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B%E7%9A%84%E7%90%86%E8%A7%A3.html>`_
 - `Python最难的问题 <http://www.oschina.net/translate/pythons-hardest-problem>`_
 - `python线程，GIL和ctypes <http://zhuoqiang.me/python-thread-gil-and-ctypes.html>`_
+- `Python修饰器的函数式编程 <http://coolshell.cn/articles/11265.html>`_
