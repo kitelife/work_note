@@ -160,3 +160,4 @@ Reddit
 - `高性能图片服务器浅谈 <http://zimg.buaa.us/arch_design.html>`_
 - `系统架构领域的一些学习材料 <http://www.valleytalk.org/2014/03/18/%E6%9E%97%E4%BB%95%E9%BC%8E-%E3%80%82-%E3%80%8A%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E9%A2%86%E5%9F%9F%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AD%A6%E4%B9%A0%E6%9D%90%E6%96%99%E3%80%8B/>`_
 - `系统设计黄金法则：简单之美 <http://blog.sciencenet.cn/blog-414166-562616.html>`_
+- `Scalability lessons from Google, YouTube, Twitter, Amazon, eBay, Facebook and Instagram <http://www.dodgycoder.net/2012/04/scalability-lessons-from-google-youtube.html>`_
