@@ -10,3 +10,4 @@
 - `The Hitchhiker’s Guide to Python! <http://docs.python-guide.org/en/latest/>`_
 - `Python状况：为什么PyPy是Python的未来？ <http://www.oschina.net/translate/why_pypy_is_the_future_of_python>`_
 - `python-patterns <https://github.com/faif/python-patterns>`_
+- `30 Python Language Features and Tricks You May Not Know About <http://sahandsaba.com/thirty-python-language-features-and-tricks-you-may-not-know.html>`_
