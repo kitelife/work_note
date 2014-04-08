@@ -15,3 +15,4 @@ JavaScript
     js/nodejs
     js/requirejs
     js/backbonejs
+    js/node-webkit
