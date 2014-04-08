@@ -347,3 +347,4 @@ JavaScript中的所有作用域，包括全局作用域，都有一个特别的�
 - `15+ Memorable jQuery Timeline Plugins <http://www.tripwiremagazine.com/2013/06/jquery-timeline-plugins.html>`_
 - `Frameworkless JavaScript <https://moot.it/blog/technology/frameworkless-javascript.html>`_
 - `JavaScript - The Right Way <http://jstherightway.org/>`_
+- `Superhero.js <http://superherojs.com/>`_ 赞！
