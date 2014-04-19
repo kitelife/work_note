@@ -9,3 +9,4 @@
 - `Operating System Development Series <http://www.brokenthorn.com/Resources/OSDevIndex.html>`_
 - The Linux Programming Interface
 - Unix环境高级编程（第二版）
+- `Computer Science from the Bottom Up <http://www.bottomupcs.com/>`_
