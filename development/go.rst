@@ -390,3 +390,4 @@ Web框架
 - `Nginx做前端Proxy时TIME_WAIT过多的问题 <http://rtbdev.com/2014/03/nginx-proxy-time_wait/>`_
 - `[译]Effective Go <http://blog.chingli.com/2014/04/effective-go/>`_
 - `Go Concurrency Patterns: Pipelines and cancellation <http://blog.golang.org/pipelines>`_
+- `go语言使用中的一些知识点 <http://www.seanluo.com/2014/04/something-else-about-golang/>`_
