@@ -6,7 +6,7 @@ Go语言
 
     golang/go-web-programming
     golang/go-learning-note
-    golang/a-tour-to-go
+    golang/a-tour-of-go
 
 
 语言基础
