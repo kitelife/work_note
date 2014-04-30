@@ -1,6 +1,11 @@
 第三方库集锦
 ===============
 
+APScheduler: Advanced Python Scheduler
+------------------------------------------
+
+https://pypi.python.org/pypi/APScheduler/2.1.2
+
 
 Envoy: Python Subprocesses for Humans
 ---------------------------------------
