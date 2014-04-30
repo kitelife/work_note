@@ -1,6 +1,13 @@
 参考资料
 ============
 
+Netflix
+-----------
+
+- `The Global Netflix Platform <http://www.slideshare.net/adrianco/global-netflix-platform>`_
+- `Keeping Movies Running Amid Thunderstorms! <http://www.slideshare.net/r39132/keeping-movies-running-amid-thunderstorms>`_
+- `Patterns for Continuous Delivery, High Availability, DevOps & Cloud Native Open Source with NetflixOSS <http://www.slideshare.net/slideshow/embed_code/29053377?hostedIn=slideshare&referer=http%253A%252F%252Fwww.slideshare.net%252Fadrianco>`_
+
 LinkedIn
 --------------
 
@@ -12,6 +19,7 @@ Pinterest
 
 - `Using Redis at Pinterest for Billions of Relationships <http://blog.gopivotal.com/case-studies-2/using-redis-at-pinterest-for-billions-of-relationships>`_
 - `Building a follower model from scratch <http://engineering.pinterest.com/post/55272557617/building-a-follower-model-from-scratch>`_
+- `LinkedIn Data Infrastructure <http://www.slideshare.net/r39132/linkedin-data-infrastructure-slides-version-2-13394853>`_
 
 Google
 -----------
