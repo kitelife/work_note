@@ -13,6 +13,7 @@ LinkedIn
 
 - `Quick Deploy: a distributed systems approach to developer productivity <http://engineering.linkedin.com/developer-productivity/quick-deploy-distributed-systems-approach-developer-productivity>`_
 - `The Log: What every software engineer should know about real-time data's unifying abstraction <http://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying>`_
+- `Building a terabyte-scale data cycle at LinkedIn with Hadoop and Project Voldemort <http://data.linkedin.com/blog/2009/06/building-a-terabyte-scale-data-cycle-at-linkedin-with-hadoop-and-project-voldemort>`_
 
 Pinterest
 ------------
