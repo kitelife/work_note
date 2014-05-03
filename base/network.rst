@@ -16,3 +16,4 @@
 - `High Performance Browser Networking <http://chimera.labs.oreilly.com/books/1230000000545/index.html>`_
 - `Making HTTP realtime with HTTP 2.0  <https://docs.google.com/presentation/d/1eqae3OBCxwWswOsaWMAWRpqnmrVVrAfPQclfSqPkXrA/present#slide=id.p19>`_
 - `Computer Networking : Principles, Protocols and Practice <http://cnp3book.info.ucl.ac.be/>`_
+- `负载均衡技术 <http://www.gslb.cn/list.htm>`_ 赞！
