@@ -76,6 +76,7 @@ for example, to extract the string we know is in the value, we could write:
 But if it turns out that the value does not contain a string, the program will crash with a run-time error. To guard against that, use the "comma, ok" idiom to test, safely, whether the value is a string:
 
 ::
+
   str, ok := value.(string)
   if ok {
     fmt.Printf("string value is: %q\n", str)
@@ -113,6 +114,7 @@ Embedding
 Go does not provide the typical, type-driven notion of subclassing, but it does have the ability to "borrow" pieces of an implementation by embedding types within a struct or interface.
 
 ::
+
   type Reader interface {
     Read(p []byte) (n int, err error)
   }
@@ -130,6 +132,7 @@ Only interfaces can be embedded within interfaces.
 The same basic idea applies to structs, but with more far-reaching implications. 
 
 ::
+
   // ReadWriter stores pointers to a Reader and a Writer
   // It implements io.ReadWriter.
   type ReadWriter struct {
@@ -160,6 +163,7 @@ Goroutines are multiplexed onto multiple OS threads so if one should block, such
 A function literal can be handy in a goroutine invocation. 
 
 ::
+
   func Announce(message string, delay time.Duration) {
     go func() {
         time.Sleep(delay)
