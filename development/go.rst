@@ -7,6 +7,7 @@ Go语言
     golang/go-web-programming
     golang/go-learning-note
     golang/a-tour-of-go
+    golang/note-effective-go
 
 
 语言基础
