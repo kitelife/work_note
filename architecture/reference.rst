@@ -119,8 +119,7 @@ Disqus
 - `HTTP for Great Good <https://speakerdeck.com/mattrobenolt/http-for-great-good>`_
 - `Caching is Hard: Varnish @ Disqus <https://speakerdeck.com/mattrobenolt/caching-is-hard-varnish-at-disqus>`_
 - `Trying out this Go thing… <http://blog.disqus.com/post/51155103801/trying-out-this-go-thing>`_
-- `Scaling Realtime at DISQUS <https://speakerdeck.com/pyconslides/scaling-realtime-at-disqus-by-adam-hitchcock>`_
-
+- `Scaling Realtime at DISQUS <https://speakerdeck.com/pyconslides/scaling-realtime-at-disqus-by-adam-hitchcock>`_ , `How Disqus Went Realtime with 165K Messages Per Second and Less than .2 Seconds Latency <http://highscalability.com/blog/2014/4/28/how-disqus-went-realtime-with-165k-messages-per-second-and-l.html>`_
 
 Twitter
 ---------
