@@ -18,6 +18,21 @@ http://www.highcharts.com
 Interactive JavaScript charts for your web projects.
 
 
+amCharts
+----------------
+
+http://www.amcharts.com/
+
+amCharts is an advanced charting library that will suit any data visualization need. 
+Our charting solution include Column, Bar, Line, Area, Step, Step without risers, Smoothed line, 
+Candlestick, OHLC, Pie/Donut, Radar/ Polar, XY/Scatter/Bubble, Bullet, Funnel/Pyramid charts as well as Gauges.
+
+We use SVG (Scalable Vector Graphics) to render the charts. This technology is supported by all modern browsers including 
+(but not limited to) modern versions of Firefox, Chrome, Safari, Opera and Internet Explorer (since v.9). 
+For older versions of Internet Explorer we use VML technology, which allows even IE6 users to view our charts. 
+Our charts also run on mobile devices powered by iOS (iPad, iPhone, iPod Touch) and Android (since v.4).
+
+
 Peity
 --------
 
