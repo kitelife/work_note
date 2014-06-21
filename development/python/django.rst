@@ -286,3 +286,5 @@ if the list is empty.
 - `The Django Book <http://www.djangobook.com/en/2.0/index.html>`_
 - `Effective Django Tutorial <http://effectivedjango.com/tutorial/index.html>`_
 - `Django Best Practices <http://lincolnloop.com/django-best-practices/>`_
+- `程序化地操作Django数据库 <http://42py.com/view/77>`_
+- `用Django里的命令清理数据库 <http://42py.com/view/79>`_
