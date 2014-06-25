@@ -26,6 +26,7 @@ xiayf的学习笔记
     operations/index
     operations/os
     operations/nginx
+    operations/uwsgi
     operations/db
     operations/lvs
     operations/varnish
