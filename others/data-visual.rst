@@ -1,6 +1,11 @@
 数据可视化
 ==============
 
+ECharts
+-----------
+
+http://echarts.baidu.com/
+
 
 Polymaps
 -----------
