@@ -4,6 +4,8 @@
 Whoosh
 ---------------
 
+http://whoosh.readthedocs.org/en/latest/
+
 Whoosh is a library of classes and functions for indexing text and then searching the index. 
 It allows you to develop custom search engines for your content. For example, if you were creating blogging software, 
 you could use Whoosh to add a search function to allow users to search blog entries.
