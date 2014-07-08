@@ -59,3 +59,4 @@ Sharding
 
 - 《高性能MySQL》
 - `MySQL Internals Manual <http://dev.mysql.com/doc/internals/en/>`_
+- `MySQL索引原理及慢查询优化 <http://tech.meituan.com/mysql-index.html>`_
