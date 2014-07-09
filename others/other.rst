@@ -22,3 +22,4 @@
 - `Linus，一生只为寻找欢笑 <https://www.evernote.com/shard/s105/sh/c00aa02c-39b7-4888-aa9d-48be17caf3e6/9c0394b616fc47e5db439be68e34049e>`_ , `Linus，走进硅谷 <http://www.evernote.com/shard/s105/sh/39cb2c2e-c273-4134-aa9b-97476d781a55/d810aec7d822cbbfc6022a9726f0a590>`_ , `财富到来，巨星碰撞 <http://www.evernote.com/shard/s105/sh/9fc1aba1-0f74-4e24-a95a-bbc449b4d512/8cfd355e4f74c91a663e50ecfeb5c400>`_
 - `基于Flume的美团日志收集系统(一)架构和设计 <http://tech.meituan.com/mt-log-system-arch.html>`_
 - `基于Flume的美团日志收集系统(二)改进和优化 <http://tech.meituan.com/mt-log-system-optimization.html>`_
+- `开发团队的效率 <http://coolshell.cn/articles/11656.html>`_
