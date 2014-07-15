@@ -171,3 +171,4 @@ Reddit
 - `系统设计黄金法则：简单之美 <http://blog.sciencenet.cn/blog-414166-562616.html>`_
 - `Scalability lessons from Google, YouTube, Twitter, Amazon, eBay, Facebook and Instagram <http://www.dodgycoder.net/2012/04/scalability-lessons-from-google-youtube.html>`_
 - `4 Architecture Issues When Scaling Web Applications: Bottlenecks, Database, CPU, IO <http://highscalability.com/blog/2014/5/12/4-architecture-issues-when-scaling-web-applications-bottlene.html>`_
+- `Bitly: Lessons Learned Building A Distributed System That Handles 6 Billion Clicks A Month <http://highscalability.com/blog/2014/7/14/bitly-lessons-learned-building-a-distributed-system-that-han.html>`_
