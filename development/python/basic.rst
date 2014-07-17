@@ -70,3 +70,4 @@
 - `Python最难的问题 <http://www.oschina.net/translate/pythons-hardest-problem>`_
 - `python线程，GIL和ctypes <http://zhuoqiang.me/python-thread-gil-and-ctypes.html>`_
 - `Python修饰器的函数式编程 <http://coolshell.cn/articles/11265.html>`_
+- `setuptools,pip,install,UnicodeDecodeError: 'ascii' codec can't decode byte.原因和解决方案 <http://blog.csdn.net/hugleecool/article/details/17996993>`_
