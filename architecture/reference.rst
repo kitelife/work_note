@@ -139,6 +139,7 @@ StackOverflow
 
 - `Stack Overflow Network Configuration <http://blog.stackoverflow.com/2010/01/stack-overflow-network-configuration/>`_
 - `The Architecture of StackOverflow <https://speakerdeck.com/sklivvz/the-architecture-of-stackoverflow-developer-conference-2013>`_
+- `StackOverflow Update: 560M Pageviews A Month, 25 Servers, And It's All About Performance <http://highscalability.com/blog/2014/7/21/stackoverflow-update-560m-pageviews-a-month-25-servers-and-i.html>`_
 
 Instagram
 --------------
