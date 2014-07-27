@@ -30,3 +30,5 @@
 `Multiplexing on top of TCP <http://250bpm.com/multiplexing>`_
 
 `ZeroMQ-The Guide <http://zguide.zeromq.org/page:all>`_
+
+`分布式发布订阅消息系统Kafka架构设计 <http://www.oschina.net/translate/kafka-design>`_
