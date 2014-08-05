@@ -132,7 +132,7 @@ Tumblr
 ---------
 
 - `Tumblr Architecture - 15 Billion Page Views A Month And Harder To Scale Than Twitter <http://highscalability.com/blog/2012/2/13/tumblr-architecture-15-billion-page-views-a-month-and-harder.html>`_
-
+- `Tumblr: Hashing Your Way To Handling 23,000 Blog Requests Per Second <http://highscalability.com/blog/2014/8/4/tumblr-hashing-your-way-to-handling-23000-blog-requests-per.html>`_
 
 StackOverflow
 ----------------
