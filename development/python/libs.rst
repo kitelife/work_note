@@ -1,6 +1,16 @@
 第三方库集锦
 ===============
 
+Pexpect
+--------------
+
+http://pexpect.readthedocs.org/en/latest/
+
+Pexpect can be used for automating interactive applications such as ssh, ftp, passwd, telnet, etc. It can be used 
+to a automate setup scripts for duplicating software package installations on different servers. 
+It can be used for automated software testing.
+
+
 Whoosh
 ---------------
 
