@@ -126,7 +126,7 @@ Twitter
 
 - `Billions of Hits: Scaling Twitter <http://www.slideshare.net/netik/billions-of-hits-scaling-twitter>`_
 - `Twitter网站架构学习笔记 <http://www.itivy.com/ivy/archive/2011/8/14/the-architecture-of-twitter.html>`_
-
+- `How Twitter Uses Redis To Scale - 105TB RAM, 39MM QPS, 10,000+ Instances <http://highscalability.com/blog/2014/9/8/how-twitter-uses-redis-to-scale-105tb-ram-39mm-qps-10000-ins.html>`_
 
 Tumblr
 ---------
