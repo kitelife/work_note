@@ -348,3 +348,4 @@ JavaScript中的所有作用域，包括全局作用域，都有一个特别的�
 - `Frameworkless JavaScript <https://moot.it/blog/technology/frameworkless-javascript.html>`_
 - `JavaScript - The Right Way <http://jstherightway.org/>`_
 - `Superhero.js <http://superherojs.com/>`_ 赞！
+- `angularjs-styleguide <https://github.com/johnpapa/angularjs-styleguide>`_
