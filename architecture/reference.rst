@@ -1,6 +1,12 @@
 参考资料
 ============
 
+知乎
+-----------
+
+- `从0到100——知乎架构变迁史 <http://www.infoq.com/cn/news/2014/12/zhihu-architecture-evolution>`_
+- `知乎技术体系 <http://wenku.baidu.com/link?url=XNOp8CZkKWmSwaVnwiSw6SfFeYqYnNqGq3rknuoNb8Ht-ELHxVp79Bk67RCG5VdgTYswbwzIu_oBaWzCozjvmMAOodHBJyBjCE3zptG3o3y>`_
+
 Netflix
 -----------
 
