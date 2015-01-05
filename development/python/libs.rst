@@ -1,6 +1,25 @@
 第三方库集锦
 ===============
 
+Pexpect
+--------------
+
+http://pexpect.readthedocs.org/en/latest/
+
+Pexpect can be used for automating interactive applications such as ssh, ftp, passwd, telnet, etc. It can be used 
+to a automate setup scripts for duplicating software package installations on different servers. 
+It can be used for automated software testing.
+
+
+Whoosh
+---------------
+
+http://whoosh.readthedocs.org/en/latest/
+
+Whoosh is a library of classes and functions for indexing text and then searching the index. 
+It allows you to develop custom search engines for your content. For example, if you were creating blogging software, 
+you could use Whoosh to add a search function to allow users to search blog entries.
+
 APScheduler: Advanced Python Scheduler
 ------------------------------------------
 

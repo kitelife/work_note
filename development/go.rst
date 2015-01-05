@@ -393,3 +393,5 @@ Web框架
 - `[译]Effective Go <http://blog.chingli.com/2014/04/effective-go/>`_
 - `Go Concurrency Patterns: Pipelines and cancellation <http://blog.golang.org/pipelines>`_
 - `go语言使用中的一些知识点 <http://www.seanluo.com/2014/04/something-else-about-golang/>`_
+- `awesome-go <https://github.com/avelino/awesome-go>`_
+- `悟空引擎入门 <http://blog.go-china.org/06-wukong>`_

@@ -1,6 +1,12 @@
 参考资料
 ============
 
+知乎
+-----------
+
+- `从0到100——知乎架构变迁史 <http://www.infoq.com/cn/news/2014/12/zhihu-architecture-evolution>`_
+- `知乎技术体系 <http://wenku.baidu.com/link?url=XNOp8CZkKWmSwaVnwiSw6SfFeYqYnNqGq3rknuoNb8Ht-ELHxVp79Bk67RCG5VdgTYswbwzIu_oBaWzCozjvmMAOodHBJyBjCE3zptG3o3y>`_
+
 Netflix
 -----------
 
@@ -126,19 +132,20 @@ Twitter
 
 - `Billions of Hits: Scaling Twitter <http://www.slideshare.net/netik/billions-of-hits-scaling-twitter>`_
 - `Twitter网站架构学习笔记 <http://www.itivy.com/ivy/archive/2011/8/14/the-architecture-of-twitter.html>`_
-
+- `How Twitter Uses Redis To Scale - 105TB RAM, 39MM QPS, 10,000+ Instances <http://highscalability.com/blog/2014/9/8/how-twitter-uses-redis-to-scale-105tb-ram-39mm-qps-10000-ins.html>`_
 
 Tumblr
 ---------
 
 - `Tumblr Architecture - 15 Billion Page Views A Month And Harder To Scale Than Twitter <http://highscalability.com/blog/2012/2/13/tumblr-architecture-15-billion-page-views-a-month-and-harder.html>`_
-
+- `Tumblr: Hashing Your Way To Handling 23,000 Blog Requests Per Second <http://highscalability.com/blog/2014/8/4/tumblr-hashing-your-way-to-handling-23000-blog-requests-per.html>`_
 
 StackOverflow
 ----------------
 
 - `Stack Overflow Network Configuration <http://blog.stackoverflow.com/2010/01/stack-overflow-network-configuration/>`_
 - `The Architecture of StackOverflow <https://speakerdeck.com/sklivvz/the-architecture-of-stackoverflow-developer-conference-2013>`_
+- `StackOverflow Update: 560M Pageviews A Month, 25 Servers, And It's All About Performance <http://highscalability.com/blog/2014/7/21/stackoverflow-update-560m-pageviews-a-month-25-servers-and-i.html>`_
 
 Instagram
 --------------
@@ -171,3 +178,4 @@ Reddit
 - `系统设计黄金法则：简单之美 <http://blog.sciencenet.cn/blog-414166-562616.html>`_
 - `Scalability lessons from Google, YouTube, Twitter, Amazon, eBay, Facebook and Instagram <http://www.dodgycoder.net/2012/04/scalability-lessons-from-google-youtube.html>`_
 - `4 Architecture Issues When Scaling Web Applications: Bottlenecks, Database, CPU, IO <http://highscalability.com/blog/2014/5/12/4-architecture-issues-when-scaling-web-applications-bottlene.html>`_
+- `Bitly: Lessons Learned Building A Distributed System That Handles 6 Billion Clicks A Month <http://highscalability.com/blog/2014/7/14/bitly-lessons-learned-building-a-distributed-system-that-han.html>`_
