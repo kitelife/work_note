@@ -5,3 +5,11 @@ Try changing the registry to the http version rather that the default https one 
 ::
 
   npm config set registry http://registry.npmjs.org/
+
+------
+
+- `Node-Webkit <github.com/rogerwang/node-webkit>`_
+
+
+推荐阅读
+----------
