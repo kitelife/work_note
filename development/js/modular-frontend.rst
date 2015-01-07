@@ -1,8 +1,10 @@
-RequireJS
+前端模块化开发
 ==============
 
-官网： `http://requirejs.org/ <http://requirejs.org/>`_
-
+- `Require.js <http://requirejs.org/>`_
+- `Browserify <http://browserify.org/>`_
+- `Bower <http://bower.io/>`_
+- `Duo <http://duojs.org/>`_
 
 推荐阅读
 ----------
