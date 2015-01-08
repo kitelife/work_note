@@ -5,14 +5,8 @@ JavaScript
     :maxdepth: 2
 
     js/basic
-    js/jquery
-    js/prototype
-    js/modernizr
-    js/mootools
-    js/underscorejs
-    js/d3js
-    js/emberjs
+    js/frontend-dv
+    js/frontend-framework
+    js/frontend-tool
+    js/modular-frontend
     js/nodejs
-    js/requirejs
-    js/backbonejs
-    js/node-webkit
