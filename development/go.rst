@@ -395,3 +395,4 @@ Web框架
 - `go语言使用中的一些知识点 <http://www.seanluo.com/2014/04/something-else-about-golang/>`_
 - `awesome-go <https://github.com/avelino/awesome-go>`_
 - `悟空引擎入门 <http://blog.go-china.org/06-wukong>`_
+- `Debugging performance issues in Go programs <https://software.intel.com/en-us/blogs/2014/05/10/debugging-performance-issues-in-go-programs>`_

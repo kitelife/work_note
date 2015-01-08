@@ -49,3 +49,5 @@ ip
 
 .. seealso:: `Linux Filesystem Hierarchy <http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/>`_
 
+- `Linux Performance <http://www.brendangregg.com/linuxperf.html>`_
+- `Linux Performance and Tuning Guidelines <http://www.redbooks.ibm.com/redpapers/pdfs/redp4285.pdf>`_
