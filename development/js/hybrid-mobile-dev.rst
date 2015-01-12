@@ -11,3 +11,4 @@
 ~~~~~~
 
 - `RequireJS <http://requirejs.org/>`_
+- `browserify <http://browserify.org/>`_
