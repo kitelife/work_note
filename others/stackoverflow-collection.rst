@@ -9,3 +9,4 @@ StackOverflow问答精选
 - `How do I configure go to use a proxy? <http://stackoverflow.com/questions/10383299/how-do-i-configure-go-to-use-a-proxy>`_
 - `Manually parse raw HTTP data with PHP <http://stackoverflow.com/questions/5483851/manually-parse-raw-http-data-with-php>`_
 - `What's the difference between nohup and ampersand <http://stackoverflow.com/questions/15595374/whats-the-difference-between-nohup-and-ampersand>`_
+- `Why do directories need the executable (X) permission to be opened? <http://unix.stackexchange.com/questions/21251/why-do-directories-need-the-executable-x-permission-to-be-opened>`_
