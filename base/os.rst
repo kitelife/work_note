@@ -11,3 +11,4 @@
 - Unix环境高级编程（第二版）
 - `Computer Science from the Bottom Up <http://www.bottomupcs.com/>`_
 - `Memory Management Reference <http://www.memorymanagement.org/index.html>`_
+- `理解Linux进程 <http://tobegit3hub1.gitbooks.io/understanding-linux-processes/content/index.html>`_
