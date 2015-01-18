@@ -1,0 +1,8 @@
+基本知识
+============
+
+
+推荐阅读
+------------
+
+- `Lua 5.3 参考手册 <http://cloudwu.github.io/lua53doc/contents.html>`_
