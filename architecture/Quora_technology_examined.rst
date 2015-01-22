@@ -2,7 +2,7 @@
 ========================================
 
 The Search-Box
------------------
+^^^^^^^^^^^^^^^^^
 
 Previously, they did use an open source search server, called Sphinx. It supports the features they are using above, but they have since moved from this due to real-time constraints. Their new solution is built in-house and allows them better prefix indexing and control over the matching algorithms. They built this in Python.
 
@@ -13,7 +13,7 @@ Queries are sent over AJAX as a GET request. Responses come back as JSON with th
 Quora uses persistent connections. A HTTP connection is established with the server when you start tying the search query. This connection is kept open and futher requests are made on this same open connection. The connection will terminate (times-out) if not used for 60 seconds. If a connection times-out then a new connection is established when tying begins.
 
 Webnode2 And LiveNode
---------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Webnode2 and LiveNode are some of Quora's internal systems, which were built for managing the content.
 
@@ -25,7 +25,7 @@ LiveNode is written in Python, C++, and JavaScript. jQuery and Cython is also us
 
 
 Amazon Web Services
--------------------------
+^^^^^^^^^^^^^^^^^^^^^^^
 
 Amazon EC2 and S3 is used for their hosting.
 
@@ -36,25 +36,25 @@ Amazon EC2 and S3 is used for their hosting.
 Using Amazon's distributed content delivery network, Cloudfront.（注：貌似现在Quora是用自己的CDN了，如http://qph.is.quoracdn.net/main-thumb-t-2803-50-pABO3faE4RywN4mCnyw8pMthjzRjmyh3.jpeg）
 
 HAProxy Load-Balancing
------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Quora uses HAProxy at the front-line, which load-balances onto the distributed Nginx server behind them.
 
 
 Nginx
--------------
+^^^^^^^^^^^^^^
 
 Behind the load-balancer, Nginx is used as a reverse-proxy server onto the web-servers.
 
 .. seealso:: `Using Nginx As Reverse-Proxy Server On High-Loaded Sites <http://kovyrin.net/2006/05/18/nginx-as-reverse-proxy/>`_
 
 Pylons And Paste
---------------------
+^^^^^^^^^^^^^^^^^^^^
 
 Pylons, a lightweight web framework, is used as their main web-server behind Nginx. The use the default `Pylons + Paste stack <http://spacepants.org/blog/pylons-paste-stack>`_
 
 Python
----------
+^^^^^^^^^^^^^
 
 Coming from Facebook, it was a good bet that Charlie and Adam would choose PHP for their development language. As Adam points out, "Facebook is stuck on that for legacy reasons, not because it is the best choice right now". **From this experience they knew that choosing technologies, especially programming languages, for the long-run was very important. Python won over Java because it is more expressive and quicker to write code than Java. Scala was too new. Adam mentions *speed and the lack of type-checking as drawbacks with Python* , but they both already knew the language reasonably well. Where Python lacks speed for performance critical backend components, they opt to write them in C++** . They saw Ruby as a close match to Python, but their experience with Python and lack of experience in Ruby, made Python the winner. Python 2.6, to be precise.
 
@@ -63,17 +63,17 @@ Additional benefits for using Python are the fact that data-structures that map 
 PyPy, a project that aims to produce a flexible and fast Python implementation, was also mentioned as something that might give them a speed-boost.
 
 Thrift
---------
+^^^^^^^^^^^^
 
 Thrift is used for communications between backend systems. The Thrift service is written in C++.
 
 Tornado
--------------
+^^^^^^^^^^^^^^
 
 The Tornado web framework is used for live updating. This is their Comet server, which handles **the large volumes of open connections used for long-polling** and pushed updates to the browsers.
 
 Long Polling (Comet)
--------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Quora does not display just static web pages. Each page will updates new content as questions, answers and comments are submitted by other others. As Adam D'Angelo points out, one of the best ways to do this currently is with "long polling". This is different to "polling".
 
@@ -90,22 +90,22 @@ The good news is that there are technologies specifically designed for this. It 
 .. seealso:: `Browser和Server持续同步的几种方式（jQuery+tornado演示） <http://qinxuye.me/article/ways-to-continual-sync-browser-and-server/>`_ , `WebSocket实战 <http://ued.sina.com.cn/?p=900>`_
 
 MySQL
------------
+^^^^^^^^^^^^
 
 The basic advice is to only partition data if necessary, keep data on one machine if possible and use a hash of the primary key to partition larger datasets across multiple databases. Joins must be avoided.
 
 .. seealso:: `How FriendFeed uses MySQL to store schema-less data <http://backchannel.org/blog/friendfeed-schemaless-mysql>`_ , `How does one evaluate if a database is efficient enough to not crash as it's put under increasing load? <http://www.quora.com/How-does-one-evaluate-if-a-database-is-efficient-enough-to-not-crash-as-its-put-under-increasing-load>`_
 
 Memcached
-------------
+^^^^^^^^^^^^^^^^
 
 Memcached is used as a caching layer in front of MySQL.
 
 Git
------
+^^^^^^^^^^
 
 JavaScript Placement
-----------------------
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 To place JavaScript at the end of the page will give the feeling of a quicker loading page, since the browser has content to display before the JavaScript has be seen.
 
