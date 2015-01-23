@@ -11,3 +11,4 @@ StackOverflow问答精选
 - `What's the difference between nohup and ampersand <http://stackoverflow.com/questions/15595374/whats-the-difference-between-nohup-and-ampersand>`_
 - `Why do directories need the executable (X) permission to be opened? <http://unix.stackexchange.com/questions/21251/why-do-directories-need-the-executable-x-permission-to-be-opened>`_
 - `MySQL check if a table exists without throwing an exception <http://stackoverflow.com/questions/1525784/mysql-check-if-a-table-exists-without-throwing-an-exception>`_
+- `Linux daemonize <http://stackoverflow.com/questions/3095566/linux-daemonize>`_
