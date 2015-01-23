@@ -27,22 +27,19 @@ xiayf的学习笔记
     operations/os
     operations/nginx
     operations/db
-    operations/uwsgi
-    operations/lvs
+    operations/docker
     operations/varnish
     operations/haproxy
+    operations/uwsgi
+    operations/lvs
     operations/keepalived
     operations/supervisor
     operations/gunicorn
     operations/openvpn
-    operations/docker
     operations/dns
-    operations/zookeeper
     operations/saltstack
     operations/zabbix
-    operations/coreos
     operations/ntp
-    operations/influxdb
 
 三. 开发
 -----------
