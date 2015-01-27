@@ -26,26 +26,20 @@ xiayf的学习笔记
     operations/index
     operations/os
     operations/nginx
-    operations/uwsgi
     operations/db
-    operations/lvs
+    operations/docker
     operations/varnish
     operations/haproxy
+    operations/uwsgi
+    operations/lvs
     operations/keepalived
-    operations/fabric
     operations/supervisor
     operations/gunicorn
     operations/openvpn
-    operations/docker
     operations/dns
-    operations/zookeeper
     operations/saltstack
     operations/zabbix
-    operations/buildbot
-    operations/coreos
     operations/ntp
-    operations/influxdb
-    operations/heka
 
 三. 开发
 -----------
@@ -53,15 +47,15 @@ xiayf的学习笔记
 .. toctree::
     :maxdepth: 2
 
-    development/php
     development/python
-    development/js
-    development/css
-    development/shell
     development/go
-    development/web
+    development/php
+    development/shell
     development/Erlang
     development/Lua
+    development/web
+    development/js
+    development/css
 
 四. 根基
 -----------
