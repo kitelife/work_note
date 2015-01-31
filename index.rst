@@ -83,4 +83,5 @@ xiayf的学习笔记
     others/distributed-system
     others/quora-collection
     others/stackoverflow-collection
+    others/awesomes
     others/other
