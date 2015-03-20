@@ -26,3 +26,4 @@
 - `A Programmer's Guide to Data Mining <http://guidetodatamining.com/>`_
 - `ThoughtWorks 技术雷达历年 A-Z 整理版 <http://www.thoughtworks.com/radar/a-z>`_
 - `Programming-Alpha-To-Omega <https://github.com/justjavac/Programming-Alpha-To-Omega>`_
+- `中文文案排版指北 <https://github.com/sparanoid/chinese-copywriting-guidelines>`_
