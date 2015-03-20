@@ -23,3 +23,4 @@ Nginx
 - `服务器系统架构分析日志 <http://www.sudone.com/>`_
 - `Nginx如何处理一个请求 <http://nginx.org/cn/docs/http/request_processing.html>`_
 - `NGINX and NGINX Plus Admin Guide <http://nginx.com/admin-guide/>`_
+- `Nginx Resources <https://github.com/fcambus/nginx-resources>`_
