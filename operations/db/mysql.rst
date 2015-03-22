@@ -29,6 +29,12 @@ MySQL
 
 修改MySQL数据库默认编码为UTF-8：在MySQL配置文件my.cnf中找到mysqld部分，在这部分中添加一句 ``character_set_server=utf8`` ，重启MySQL服务即可。
 
+MySQL用户创建与授权：
+
+1. 以root用户登录MySQL
+2. CREATE USER 'username'@'host' IDENTIFIED BY 'password';
+3. GRANT privileges ON databasename.tablename TO 'username'@'host'; // 如：GRANT ALL ON test.* TO 'pig'@'localhost';
+
 Sharding
 -----------
 
