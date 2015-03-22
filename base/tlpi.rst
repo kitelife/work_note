@@ -122,3 +122,7 @@
 .. image:: https://raw.github.com/youngsterxyf/work_note/master/base/pics/time-system-calls.png
 
 SUSv3规定，调用``ctime()``、``gmtime()``、``localTime()``或``asctime()``中的任一函数，都可能会覆盖由其他函数返回，且经静态分配的数据结构。换言之，这些函数可以共享返回的字符数据和tm结构体。
+
+系统的本地时区由时区文件/etc/localtime定义，通常链接到/usr/share/zoneinfo下的一个文件。
+
+为运行中的程序指定一个时区，需要将TZ环境变量设置为由一冒号（:）和时区名称组成的字符串，其中时区名称定义于/usr/share/zoneinfo中。设置时区会自动影响到函数``ctime()``、``localtime()``、``mktime()``和``strftime()``。为了获取当前的时区设置，上述函数都会调用tzset(3)。函数``tzset()``会首先检查环境变量TZ。如果尚未设置该变量，那么就采用/etc/localtime中定义的默认时区来初始化时区。如果TZ环境变量的值为空，或无法与时区文件名相匹配，那么就使用UTC。
