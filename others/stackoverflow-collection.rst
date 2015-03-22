@@ -12,3 +12,4 @@ StackOverflow问答精选
 - `Why do directories need the executable (X) permission to be opened? <http://unix.stackexchange.com/questions/21251/why-do-directories-need-the-executable-x-permission-to-be-opened>`_
 - `MySQL check if a table exists without throwing an exception <http://stackoverflow.com/questions/1525784/mysql-check-if-a-table-exists-without-throwing-an-exception>`_
 - `Linux daemonize <http://stackoverflow.com/questions/3095566/linux-daemonize>`_
+- `Is there a way to skip password typing when using https:// github <http://stackoverflow.com/questions/5343068/is-there-a-way-to-skip-password-typing-when-using-https-github>`_
