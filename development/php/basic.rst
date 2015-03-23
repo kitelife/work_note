@@ -20,3 +20,4 @@
 - `Fine tuning a Linux Apache MySQL PHP (LAMP) server <http://www.hjue.me/post/old-post/2012-fine-tuning-a-linux-apache-mysql-php-lamp-server>`_
 - `phc-the open source php compiler <http://www.phpcompiler.org/index.html>`_
 - `PHP中include与require的用法区别 <http://blog.csdn.net/zhanghao_hulk/article/details/12774799>`_
+- `Carbon <http://carbon.nesbot.com/>`_
