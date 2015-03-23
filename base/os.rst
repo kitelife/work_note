@@ -13,3 +13,4 @@
 - `Computer Science from the Bottom Up <http://www.bottomupcs.com/>`_
 - `Memory Management Reference <http://www.memorymanagement.org/index.html>`_
 - `理解Linux进程 <http://tobegit3hub1.gitbooks.io/understanding-linux-processes/content/index.html>`_
+- `Design and Implementation of the Second Extended Filesystem <http://www.tldp.org/LDP/khg/HyperNews/get/fs/ext2intro.html>`_
