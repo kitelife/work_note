@@ -15,3 +15,4 @@
 - `理解Linux进程 <http://tobegit3hub1.gitbooks.io/understanding-linux-processes/content/index.html>`_
 - `Design and Implementation of the Second Extended Filesystem <http://www.tldp.org/LDP/khg/HyperNews/get/fs/ext2intro.html>`_
 - `Linux Documentation Project Guides <http://www.tldp.org/guides.html>`_
+- `Operating Systems: Three Easy Pieces <http://pages.cs.wisc.edu/~remzi/OSTEP/>`_
