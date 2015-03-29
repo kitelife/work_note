@@ -15,3 +15,5 @@
 - `Distributed Systems Part-1: A peek into consistent hashing! <http://loveforprogramming.quora.com/Distributed-Systems-Part-1-A-peek-into-consistent-hashing>`_
 - `Distributed Systems Part-2: Consistency versus Availability, A Pragmatic Example! <http://loveforprogramming.quora.com/Distributed-Systems-Part-2-Consistency-versus-Availability-A-Pragmatic-Example>`_
 - `Distributed Systems Part-3: Managing Anti-Entropy using Merkle Trees <http://loveforprogramming.quora.com/Distributed-Systems-Part-3-Managing-Anti-Entropy-using-Merkle-Trees>`_
+- `走向分布式 <http://dcaoyuan.github.io/papers/pdfs/Scalability.pdf>`_
+- `CSE 552 Fall 2013 Lecture Topics <http://courses.cs.washington.edu/courses/cse552/13au/calendar/lecturelist.html>`_
