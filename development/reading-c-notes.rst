@@ -277,3 +277,310 @@ C99支持长度可变数组作为函数参数。
 
 ------
 
+void指针：``void*`` 又被称为 万能指针 ，可以代表任何对象的地址，但没有该对象的类型。也就是说必须转型后才能进行对象操作。 ``void*`` 指针可以与其他任何类型指针进行隐式转换。
+
+示例：
+
+::
+
+    #include <stdio.h>
+    #include <stdlib.h>
+
+    void test(void* p, size_t len)
+    {
+        unsigned char* cp = p;
+
+        for(int i = 0; i < len; i++)
+        {
+            printf("%02x ", *(cp + i));
+        }
+
+        printf("\n");
+    }
+
+    int main(int argc, char* argv[])
+    {
+        int x = 0x00112233;
+        // sizeof的单位为字节，正好可以存储2个十六进制数
+        test(&x, sizeof(x));
+
+        return EXIT_SUCCESS;
+    }
+
+输出为：
+
+::
+
+    33 22 11 00
+
+
+可以用初始化器初始化指针：
+
+- 空指针常量NULL
+- 相同类型的指针，或者指向限定符较少的相同类型指针
+- void指针
+
+指针运算：
+
+- 对指针进行相等或不等运算来判断是否指向同一对象
+- 对指针进行加法运算获取数组第n个元素指针
+- 对指针进行减法运算，以获取指针所在元素的数组索引序号
+- 对指针进行大小比较运算，相当于判断数组索引序号大小
+- 我们可以直接用 ``&x[i]`` 获取指定序号元素的指针
+
+
+限定符 const 可以声明“类型为指针的常量”和“指向常量的指针”。
+
+示例：
+
+::
+
+    int x[] = {1, 2, 3};
+
+    // 指针常量：指针本身为常量，不可修改，但可修改目标对象
+    int* const p1 = x;
+    *(p1 + 1) = 22;
+    printf("%d\n", x[1]);
+
+    // 常量指针：目标对象为常量，不可修改，但可修改指针
+    int const *p2 = x;
+    p2++;
+    printf("%d\n", *p2);
+
+区别在于const是修饰 ``p`` 还是 ``*p`` 。
+
+------
+
+结构类型无法把自己作为成员类型，但可以包含“指向自己类型”的指针成员：
+
+::
+
+    struct list_node
+    {
+        struct list_node* prev;
+        struct list_node* next;
+        void* value;
+    };
+
+定义不完整结构类型，只能使用小标签：
+
+::
+
+    typedef struct node_t
+    {
+        struct node_t* prev;
+        struct node_t* next;
+        void* value;
+    } list_node;
+
+小标签可以和typedef定义的类型名相同：
+
+::
+
+    typedef struct node_t
+    {
+        struct node_t* prev;
+        struct node_t* next;
+        void* value;
+    } node_t;
+
+
+在结构体内部使用匿名结构体成员，也是一种很常见的做法：
+
+::
+
+    #include <stdio.h>
+    #include <stdlib.h>
+
+    typedef struct
+    {
+        struct
+        {
+            int length;
+            char chars[100];
+        } s;
+
+        int x;
+    } data_t;
+
+    int main(int argc, char* argv[])
+    {
+        data_t d = { .s.length = 100, .s.chars = "abcd", .x = 1234 };
+        printf("%d\n%s\n%d\n", d.s.length, d.s.chars, d.x);
+
+        return EXIT_SUCCESS;
+    }
+
+
+利用 stddef.h 中的 offsetof 宏可以获取结构成员的偏移量。
+
+
+“不定长结构”就是在结构体尾部声明一个未指定长度的数组。用sizeof运算符时，该数组未计入结果。
+
+示例：
+
+::
+
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <string.h>
+
+    typedef struct string
+    {
+        int length;
+        char chars[];
+    } string;
+
+    int main(int argc, char* argv[])
+    {
+        int len = sizeof(string) + 10;  // 计算存储一个 10 字节长度的字符串（包括\0）所需的长度
+        char buf[len];      // 从栈上分配所需的内存空间
+
+        string* s = (string*)buf;   // 转换成 struct string 指针
+        s->length = 9;
+        strcpy(s->chars, "123456789");
+
+        printf("%d\n%s\n", s->length, s->chars);
+
+        return EXIT_SUCCESS;
+    }
+
+对这类结构体进行拷贝的时候，尾部结构成员不会被复制，而且不能直接对弹性结构成员进行初始化。
+
+示例：
+
+::
+
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <string.h>
+
+    typedef struct string
+    {
+        int length;
+        char chars[];
+    } string;
+
+    int main(int argc, char* argv[])
+    {
+        int len = sizeof(string) + 10;
+        char buf[len];
+
+        string *s = (string*)buf;
+        s->length = 9;
+        strcpy(s->chars, "123456789");
+
+        string s2 = *s;         // 复制 struct string s
+        printf("%d\n%s\n", s2.length, s2.chars);        // s2.length正常，s2.chars 就悲剧了
+
+        return EXIT_SUCCESS;
+    }
+
+------
+
+联合和结构的区别在于：联合每次只能存储一个成员，联合的长度由最宽成员类型决定。
+
+------
+
+位字段：可以把结构或联合的多个成员“压缩存储”在一个字段中，以节约内存。
+
+::
+
+    struct
+    {
+        unsigned int year: 22;
+        unsigned int month: 4;
+        unsigned int day: 5;
+    } d = {2010, 4, 30};
+
+    printf("size: %d\n", sizeof(d));
+    printf("year = %u, month = %u, day = %u\n", d.year, d.month, d.day);
+
+输出为：
+
+::
+
+    size: 4
+    year = 2010, month = 4, day = 30
+
+用来做标志位也挺好，比用位移运算符更直观，更节省内存。
+
+::
+
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <stdbool.h>
+
+    int main(int argc, char* argv[])
+    {
+        struct
+        {
+            bool a: 1;
+            bool b: 1;
+            bool c: 1;
+        } flags = { .b = true };
+
+        printf("%s\n", flags.b ? "b.T" : "b.F");
+        printf("%s\n", flags.c ? "c.T" : "c.F");
+
+        return EXIT_SUCCESS;
+    }
+
+不能对位字段成员使用 offsetof。
+
+------
+
+具有静态生存周期的对象，会被初始化为默认值0（指针为NULL）。
+
+------
+
+预处理指令以 ``#`` 开始（其前面可以有space或tab），通常独立一行，但可以用“ ``\`` ”换行。
+
+编译器会展开替换掉宏。如：
+
+::
+
+    #define SIZE 10
+
+    int main(int argc, char* argv[])
+    {
+        int x[SIZE] = {};
+        return EXIT_SUCCESS;
+    }
+
+展开：
+
+::
+
+    int main(int argc, char* argv[])
+    {
+        int x[10] = {};
+        return 0;
+    }
+
+利用宏可以定义伪函数，通常用 ``({...})`` 来组织多行语句，最后一个表达式作为返回值（无return，且有个“;”结束）。如：
+
+::
+
+    #define test(x, y) ({   \
+        int _z = x + y; \
+        _z; })
+
+    int main(int argc, char* argv[])
+    {
+        printf("%d\n", test(1, 2));
+        return EXIT_SUCCESS;
+    }
+
+展开：
+
+    int main(int argc, char* argv[])
+    {
+        printf("%d\n", ({ int _z = 1 + 2; _z; }));
+        return 0;
+    }
+
+
+可以使用“ ``#if ... #elif ... #else ... #endif`` ”、 ``#define`` 、 ``#undef`` 进行条件编译。
+
+------
