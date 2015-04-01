@@ -10,6 +10,8 @@
 - `alertify.js <http://fabien-d.github.io/alertify.js/>`_
 - `jsdifflib <https://github.com/cemerick/jsdifflib>`_
 - `Duo <http://duojs.org/>`_
+- `Bower <http://bower.io/>`_
+- `browserify <http://browserify.org/>`_
 
 推荐阅读
 -------------
