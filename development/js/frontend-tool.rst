@@ -9,6 +9,7 @@
 - `CodeMirror <http://codemirror.net/>`_
 - `alertify.js <http://fabien-d.github.io/alertify.js/>`_
 - `jsdifflib <https://github.com/cemerick/jsdifflib>`_
+- `Duo <http://duojs.org/>`_
 
 推荐阅读
 -------------
