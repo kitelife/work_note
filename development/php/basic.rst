@@ -21,3 +21,4 @@
 - `phc-the open source php compiler <http://www.phpcompiler.org/index.html>`_
 - `PHP中include与require的用法区别 <http://blog.csdn.net/zhanghao_hulk/article/details/12774799>`_
 - `Carbon <http://carbon.nesbot.com/>`_
+- `VLD <https://github.com/derickr/vld>`_ ：The Vulcan Logic Dumper hooks into the Zend Engine and dumps all the opcodes (execution units) of a script. It can be used to see what is going on in the Zend Engine.
