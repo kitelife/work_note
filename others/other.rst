@@ -28,3 +28,4 @@
 - `Programming-Alpha-To-Omega <https://github.com/justjavac/Programming-Alpha-To-Omega>`_
 - `中文文案排版指北 <https://github.com/sparanoid/chinese-copywriting-guidelines>`_
 - `EditorConfig <http://editorconfig.org/>`_
+- `专访阿里巴巴研究员赵海平：从Facebook到阿里巴巴 <http://www.infoq.com/cn/articles/interview-alibaba-zhaohaiping>`_
