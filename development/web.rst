@@ -169,3 +169,4 @@ IE下，button元素内如果加超链接，点击该button，不会发生通常
 - `Velocity 2010 Highlights(淘宝-叔度) <https://raw.github.com/youngsterxyf/work_note/master/development/files/velocity-highlights.pdf>`_
 - `浏览器的工作原理：新式网络浏览器幕后揭秘 <http://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/>`_
 - `WebPlatform.org <http://www.webplatform.org/>`_ (赞！强烈推荐！)
+- `AmazeUI <http://amazeui.org/>`_
