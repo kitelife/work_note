@@ -260,3 +260,4 @@ The first two values specify the length of the shadow offset. The first value sp
 7. `学习CSS布局 <http://zh.learnlayout.com/>`_
 8. 颜色选择器： `https://kuler.adobe.com/create/color-wheel/ <https://kuler.adobe.com/create/color-wheel/>`_ , `http://colorschemedesigner.com/ <http://colorschemedesigner.com/>`_
 9. `CSS动画简介 <http://www.ruanyifeng.com/blog/2014/02/css_transition_and_animation.html>`_
+10. `How To Use CSS3 Pseudo-Classes <http://www.smashingmagazine.com/2011/03/30/how-to-use-css3-pseudo-classes/>`_
