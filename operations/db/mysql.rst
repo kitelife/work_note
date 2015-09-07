@@ -35,6 +35,42 @@ MySQL用户创建与授权：
 2. CREATE USER 'username'@'host' IDENTIFIED BY 'password';
 3. GRANT privileges ON databasename.tablename TO 'username'@'host'; // 如：GRANT ALL ON test.* TO 'pig'@'localhost';
 
+
+一次简单的数据库迁移过程
+---------------------------
+
+原因：我们测试环境的访问速度过慢，主要原因是DB服务器和Web服务器之间的网络太差，所以将DB服务也迁移到Web服务器上。
+
+原MySQL版本：5.1.49，目标MySQL版本：5.6.19
+
+步骤：
+
+- 1. MySQL源码编译，见 http://dev.mysql.com/doc/refman/5.6/en/installing-source-distribution.html ，其中记得加系统账号mysql，设置数据目录权限，使用mysql_install_db进行数据库初始化
+
+- 2. 配置MySQL：
+  
+::
+
+    // 比如在mysqld部分添加以下两行
+    // 数据目录的路径
+    datadir=/var/lib/mysql
+    // 套接字文件路径
+    socket=/tmp/mysql.sock
+
+- 3. 修改用户密码，比如root的密码： ``mysqladmin -u root password 'new-password'``
+
+- 4. 数据导入导出：
+
+    - ``mysqldump -h host -u user -p dbname > /path/to/target_file.sql``
+    - ``CREATE DATABASE dbname DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci`` ，如果dbname属于MySQL的关键字，那么还得加反引号。
+    - ``mysql -h host -u user -p dbname < /path/to/source_file.sql``
+
+- 5. 测试应用程序：由于新旧两个版本的MySQL版本差别较大，所以需要在一些细节上对应用程序做调整。
+
+    - 如果数据表的某一字段设置为NOT NULL，但没有指定DEFAULT，在5.1.49版本上，如果应用程序在向该数据表插入一条记录且没有指定该字段的值，不会报错，但在5.6.19上会报错，所以更好的习惯是创建数据表/字段的时候，在指定NOT NULL的同时指定DEFAULT值
+    - 在版本5.6.19上，若一个字段的类型为timestamp，即使是0值，也必须按照格式给出，如：“0000-00-00 00:00:00”，但在5.1.49上可以直接给“0”
+
+
 Sharding
 -----------
 
