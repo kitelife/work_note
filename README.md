@@ -1,12 +1,3 @@
-安装主题：
+# Xiayf的技术笔记
 
-- [sphinx_rtd_theme](https://github.com/snide/sphinx_rtd_theme)
-
-------
-
-安装扩展：
-
-- [sphinx-to-github](https://github.com/youngsterxyf/sphinx-to-github)
-
-因为Github
-Pages会把sphinx默认生成的\_static和\_images视作特殊目录，从而无法正确加载静态资源。
+欢迎反馈问题，欢迎fork + pull request！
