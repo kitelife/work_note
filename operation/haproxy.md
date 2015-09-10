@@ -165,5 +165,5 @@ listen  http-in
 
 - [基于Keepalived+Haproxy搭建四层负载均衡器](http://blog.liuts.com/post/223/)
 - [HAProxy的安装和部署](http://lam.iteye.com/blog/990796)
-- [HAProxy架构](http://haproxy.1wt.eu/download/1.2/doc/architecture.txt)
-- [Making Applications Scalable with Load Balancing](http://www.exceliance.fr/sites/default/files/biblio/art-2006-making_applications_scalable_with_lb.pdf)
+- [HAProxy架构](http://www.haproxy.org/download/1.2/doc/architecture.txt)
+- [Making Applications Scalable with Load Balancing](http://www.haproxy.com/static/media/uploads/eng/resources/art-2006-making_applications_scalable_with_lb.pdf)
