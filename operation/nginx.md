@@ -1,5 +1,16 @@
 ## Nginx
 
+### 使用
+
+- 拒绝某个User Agent的请求：
+
+```nginx
+# 这个配置需要放在server或location模块内
+if ($http_user_agent ~* "xxx") {
+	return 403;
+}
+```
+
 ### 推荐阅读
 
 - [Nginx开发从入门到精通](http://tengine.taobao.org/book/)
