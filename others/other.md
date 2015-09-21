@@ -21,3 +21,4 @@
 - [中文文案排版指北](https://github.com/sparanoid/chinese-copywriting-guidelines)
 - [EditorConfig](http://editorconfig.org/)
 - [专访阿里巴巴研究员赵海平：从Facebook到阿里巴巴](http://www.infoq.com/cn/articles/interview-alibaba-zhaohaiping)
+- [七个对我最好的职业建议（精简版）](http://www.ruanyifeng.com/blog/2015/09/career-advice.html)

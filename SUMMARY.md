@@ -2,6 +2,7 @@
 
 - [架构](arch/index.md)
   - [Tumblr架构设计](arch/tumblr-arch.md)
+  - [<延迟、吞吐、成本那些事>课程笔记](arch/latency-output-cost.md)
   - [资料](arch/reference.md)
 - [编程语言](language/index.md)
   - [Python](language/python.md)

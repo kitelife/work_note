@@ -8,6 +8,8 @@
 
 （在shell中）数据库备份： ``mysqldump -h host -u user -p dbname > /path/to/target_file.sql`` ，单独导出某个数据表： ``mysqldump -h host -u user -p dbname tablename > /path/to/target_file.sql`` 。
 
+只导出数据表结构：**使用mysqldump时加`-d`选项**
+
 （在shell中）恢复数据库： ``mysql -h host -u user -p dbname < /path/to/source_file.sql`` 。
 
 删除数据库的SQL语句： ``DROP DATABASE dbname`` 。
