@@ -33,6 +33,7 @@
   - [NoSQL](operation/nosql.md)
   - [MQ](operation/mq.md)
   - [Nginx](operation/nginx.md)
+    - [OpenResty](operation/nginx/openresty.md) 
   - [HAProxy](operation/haproxy.md)
     - [HAProxy文档精简翻译版](operation/haproxy/conf-manual.md) 
   - [其他](operation/others.md)
