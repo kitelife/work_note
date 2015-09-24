@@ -138,4 +138,5 @@
 - [Scalability lessons from Google, YouTube, Twitter, Amazon, eBay, Facebook and Instagram](http://www.dodgycoder.net/2012/04/scalability-lessons-from-google-youtube.html)
 - [4 Architecture Issues When Scaling Web Applications: Bottlenecks, Database, CPU, IO](http://highscalability.com/blog/2014/5/12/4-architecture-issues-when-scaling-web-applications-bottlene.html)
 - [Bitly: Lessons Learned Building A Distributed System That Handles 6 Billion Clicks A Month](http://highscalability.com/blog/2014/7/14/bitly-lessons-learned-building-a-distributed-system-that-han.html)
+- [97 Things Every Software Architect Should Know](http://97things.oreilly.com/wiki/index.php/97_Things_Every_Software_Architect_Should_Know_-_The_Book)
 
