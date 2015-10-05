@@ -47,6 +47,7 @@
 
 #### YouTube
 
+- [YouTube Architecture](http://highscalability.com/youtube-architecture)
 - [7 Years Of YouTube Scalability Lessons In 30 Minutes](http://highscalability.com/blog/2012/3/26/7-years-of-youtube-scalability-lessons-in-30-minutes.html)
 
 #### Flickr

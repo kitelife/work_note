@@ -48,6 +48,7 @@
   - [编译](basic/compiler.md)
   - [存储](basic/storage.md)
 - [其他](others/index.md)
+  - [重构](others/refactoring.md)
   - [启示语录](others/quotes.md) 
   - [Web开发](others/web.md)
   - [分布式系统](others/ds.md)
