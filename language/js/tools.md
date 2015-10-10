@@ -9,5 +9,9 @@
 - [alertify.js](http://fabien-d.github.io/alertify.js/)
 - [jsdifflib](https://github.com/cemerick/jsdifflib)
 
+- [PhantomJS](http://phantomjs.org/)
+- [SlimerJS](http://slimerjs.org/)
+- [CasperJS](http://casperjs.org/)
+
 ### 推荐阅读
 
