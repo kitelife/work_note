@@ -1,3 +1,8 @@
+### Memcached
+
+- [Memcached 协议中英文对照](http://www.lvtao.net/content/book/memcached.html)
+
+
 ### LVS
 
 官网：http://www.linuxvirtualserver.org

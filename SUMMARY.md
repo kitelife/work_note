@@ -55,6 +55,7 @@
   - [启示语录](others/quotes.md) 
   - [Web开发](others/web.md)
   - [分布式系统](others/ds.md)
+  - [加密解密](others/encryption.md)
   - [StackOverflow问答精选](others/stackoverflow-collection.md)
   - [碎碎念](others/other.md)
     - [启示录](others/other/inspired.md) 
