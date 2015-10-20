@@ -52,6 +52,7 @@
   - [存储](basic/storage.md)
 - [其他](others/index.md)
   - [读书笔记：重构](others/refactoring.md)
+  - [读书笔记：计算机程序的构造与解释](others/sicp.md)
   - [启示语录](others/quotes.md) 
   - [Web开发](others/web.md)
   - [分布式系统](others/ds.md)
