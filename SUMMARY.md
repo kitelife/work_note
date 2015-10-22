@@ -23,6 +23,7 @@
     - [前端工具](language/js/tools.md)
     - [混合移动开发](language/js/hybrid-mobile.md)
     - [NodeJS](language/js/node.md)
+  - [CSS](language/css.md)
   - [C](language/c.md)
     - [读书笔记：C学习笔记](language/c/learning-c.md)
   - [Java/Scala](language/java.md)
