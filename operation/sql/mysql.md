@@ -36,6 +36,25 @@ MySQL用户创建与授权：
 3. GRANT privileges ON databasename.tablename TO 'username'@'host'; // 如：GRANT ALL ON test.* TO 'pig'@'localhost';
 
 
+#### INSERT INTO + SELECT FROM
+
+```sql
+INSERT INTO Evil0day (`app`,`version`) SELECT `app`, `version` FROM Fingerprint WHERE app="joomla" AND version >="3.2.0" AND version <="3.4.4" GROUP BY `version`;
+```
+
+### 添加索引
+
+```
+ALTER TABLE table_name
+    ADD INDEX [index_name] [index_type] (index_col_name,...) [index_option];
+```
+
+如：
+```
+ALTER TABLE Users
+    ADD INDEX (user_name);
+```
+
 ### 一次简单的数据库迁移过程
 
 原因：我们测试环境的访问速度过慢，主要原因是DB服务器和Web服务器之间的网络太差，所以将DB服务也迁移到Web服务器上。
@@ -83,3 +102,5 @@ socket=/tmp/mysql.sock
 - 《高性能MySQL》
 - [MySQL Internals Manual](http://dev.mysql.com/doc/internals/en/)
 - [MySQL索引原理及慢查询优化](http://tech.meituan.com/mysql-index.html)
+
+
