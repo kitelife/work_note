@@ -159,3 +159,5 @@ IE下，button元素内如果加超链接，点击该button，不会发生通常
 - [Pears（学习CSS的好资源）](http://pea.rs/)
 - [浏览器的工作原理：新式网络浏览器幕后揭秘](http://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/)
 - [WebPlatform.org](http://www.webplatform.org/)(赞！强烈推荐！)
+- [关于URL编码](http://www.ruanyifeng.com/blog/2010/02/url_encoding.html)
+

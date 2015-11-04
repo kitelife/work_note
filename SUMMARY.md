@@ -27,6 +27,7 @@
   - [CSS](language/css.md)
   - [C](language/c.md)
     - [读书笔记：C学习笔记](language/c/learning-c.md)
+  - [Lua](language/lua.md)
   - [Java/Scala](language/java.md)
     - [Play](language/java/play.md)
     - [Spring](language/spring.md)
