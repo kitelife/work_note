@@ -1,9 +1,14 @@
-## 前端模块化
+# 前端模块化
+
+## 值得关注
 
 - [Require.js](http://requirejs.org/)
 - [Browserify](http://browserify.org/)
 - [Bower](http://bower.io/)
 - [Duo](http://duojs.org/)
+
+- [Vue.js](http://cn.vuejs.org/)
+- [AngularJS](https://www.angularjs.org/)
 
 ## 推荐阅读
 

@@ -1,13 +1,15 @@
+# Go
+
 ## 基础知识
 
-#### Go语言程序设计的一些规则
+### Go语言程序设计的一些规则
 
 Go语言之所以简洁，是因为它有一些默认的行为。
 
 - 大写字母开头的变量是可导出的，即其他包可以读取，是公用变量；小写字母开头的不可导出，是私有变量。
 - 大写字母开头的函数也是一样，相当于class中带public关键词的公有函数；小写字母开头就是有private关键词的私有函数。
 
-#### Panic和Recover
+### Panic和Recover
 
 Go语言没有像Java那样的异常机制，它不能抛出异常，而是使用了panic和recover机制。一定要记住，你应当把它作为最后的手段来使用，也就是说，你的代码中应当没有，或者很少有panic的东西。
 
@@ -25,7 +27,7 @@ recover是一个内建函数，可以让进入令人恐慌的流程中的gorouti
 
 效果。如果当前的goroutine陷入恐慌，调用recover可以捕获到panic的输入值，并且恢复正常的执行。
 
-#### `main` 函数和 `init` 函数
+### `main` 函数和 `init` 函数
 
 Go里面有两个保留的函数：`init` 函数（能够应用于所有的 `package`）和 `main` 函数（只能应用于 `package main` ）。这两个函数在定义时不能有任何的参数和返回值。虽然一个 `package` 里面可以写任意多个 `init` 函数，但这无论是对于可读性还是以后的可维护性来说，我们都强烈建议用户在一个 ``package`` 中每个文件只写一个 ``init`` 函数。
 
@@ -35,7 +37,7 @@ Go程序会自动调用 `init()` 和 ``main()`` ，所以你不需要在任何�
 
 ![go-init](go/image/go-init.png)
 
-#### 面向对象
+### 面向对象
 
 method附属在一个给定的类型上，它的语法和函数的声明语法几乎一样，只是在func后面增加了一个receiver（也就是method所依从的主体）。
 
@@ -132,7 +134,7 @@ func main() {
 }
 ```
 
-#### interface
+### interface
 
 简单地说，interface是一组method的组合，我们通过interface来定义对象的一组行为。
 
@@ -152,7 +154,7 @@ Go语言实现了反射，所谓反射就是动态运行时的状态。我们一
 
 [The Laws of Reflection](http://golang.org/doc/articles/laws_of_reflection.html)
 
-#### 并发
+### 并发
 
 **goroutine**
 
@@ -244,6 +246,10 @@ runtime包中有几个处理goroutine的函数。
 - NumGoroutine：返回正在执行和排队的任务总数
 - GOMAXPROCS：用来设置可以运行的CPU核数
 
+## 值得关注
+
+- [caddy](https://github.com/mholt/caddy)
+
 ## 推荐阅读
 
 - [build-web-application-with-golang](https://github.com/astaxie/build-web-application-with-golang)
@@ -257,3 +263,4 @@ runtime包中有几个处理goroutine的函数。
 - [Go Concurrency Patterns: Pipelines and cancellation](http://blog.golang.org/pipelines)
 - [awesome-go](https://github.com/avelino/awesome-go)
 - [深入解析Go](https://github.com/tiancaiamao/go-internals)
+

@@ -55,6 +55,19 @@ ALTER TABLE Users
     ADD INDEX (user_name);
 ```
 
+### MySQL必知必会
+
+- 显示数据库每一列的信息：`SHOW COLUMNS FROM table_name;` 或 `DESCRIBE table_name;`
+- 显示广泛的服务器状态信息：`SHOW STATUS;`
+- 显示授予用户的安全权限：`SHOW GRANTS;`
+- `DESC`关键字只应用到直接位于其前面的列名。如果想在多个列上进行降序排序，必须对每个列指定DESC关键字。
+- 为了检查某个范围的值，可使用 **BETWEEN** 操作符，该操作符需要两个值，即范围的开始值和结束值。√
+- 空值检查，用`IS NULL`子句，如：`SELECT prod_name FROM products WHERE prod_price IS NULL;`
+- WHERE可包含任意数目的AND和OR操作符，但是在处理OR操作符之前，优先处理AND操作符。可以使用圆括号来明确地分组相应的操作符。
+- 通配符`_`，用途与`%`一样，但下划线只匹配单个字符而不是多个字符。
+- `Concat`函数用于拼接字符串，如：`SELECT Concat(vend_name, ' (', vend_country, ')') FROM vendors ORDER BY vend_name;`
+- 可使用 `RTrim()`、`LTrim()`、`Trim()`函数去除字符串两边的空格。
+
 ### 一次简单的数据库迁移过程
 
 原因：我们测试环境的访问速度过慢，主要原因是DB服务器和Web服务器之间的网络太差，所以将DB服务也迁移到Web服务器上。
@@ -88,6 +101,12 @@ socket=/tmp/mysql.sock
     - 如果数据表的某一字段设置为NOT NULL，但没有指定DEFAULT，在5.1.49版本上，如果应用程序在向该数据表插入一条记录且没有指定该字段的值，不会报错，但在5.6.19上会报错，所以更好的习惯是创建数据表/字段的时候，在指定NOT NULL的同时指定DEFAULT值
     - 在版本5.6.19上，若一个字段的类型为timestamp，即使是0值，也必须按照格式给出，如：“0000-00-00 00:00:00”，但在5.1.49上可以直接给“0”
 
+### 主从同步
+
+- `mysql> show slave hosts` -- 查看所有连接到Master的Slave信息
+- `mysql> show master status` -- 查看Master状态信息
+- `mysql> show slave status` -- 查看Slave状态信息
+- `mysql> show binary logs` -- 查看所有二进制日志
 
 ### Sharding
 
@@ -102,5 +121,6 @@ socket=/tmp/mysql.sock
 - 《高性能MySQL》
 - [MySQL Internals Manual](http://dev.mysql.com/doc/internals/en/)
 - [MySQL索引原理及慢查询优化](http://tech.meituan.com/mysql-index.html)
+- [Readings in Database Systems, 5th Edition](http://www.redbook.io/)
 
 

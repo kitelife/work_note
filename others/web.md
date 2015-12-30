@@ -160,4 +160,11 @@ IE下，button元素内如果加超链接，点击该button，不会发生通常
 - [浏览器的工作原理：新式网络浏览器幕后揭秘](http://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/)
 - [WebPlatform.org](http://www.webplatform.org/)(赞！强烈推荐！)
 - [关于URL编码](http://www.ruanyifeng.com/blog/2010/02/url_encoding.html)
+- [Chrome扩展及应用开发](http://www.ituring.com.cn/book/1421)
+
+- [说说JSON和JSONP，也许你会豁然开朗](http://kb.cnblogs.com/page/139725/)
+- [Javascript中几种实用的跨域方法](http://gejiawen.github.io/2014/09/19/methods-for-cross-region/)
+- [Cookie-based Authentication in AngularJS](http://blog.ionic.io/angularjs-authentication/)
+- [关于跨域的ajax——Cross-Origin Resource Sharing (CORS)](http://mutongwu.iteye.com/blog/1637183)
+- PDF和HTML互转神器：[wkhtmltopdf](http://wkhtmltopdf.org/)、[pdf2htmlEX](http://coolwanglu.github.io/pdf2htmlEX/)
 
