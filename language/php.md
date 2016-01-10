@@ -3,6 +3,7 @@
 ## 基础知识
 
 - PHP 5 新增了一个 final 关键字。如果父类中的方法被声明为 final，则子类无法覆盖该方法。如果一个类被声明为 final，则不能被继承。
+- `set_include_path` + `get_include_path` ：`set_include_path(get_include_path() . PATH_SEPARATOR . __DIR__);`
 
 ### 反射机制
 

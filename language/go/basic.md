@@ -249,6 +249,12 @@ runtime包中有几个处理goroutine的函数。
 ## 值得关注
 
 - [caddy](https://github.com/mholt/caddy)
+- [heka](https://github.com/mozilla-services/heka)
+- [awesome-go](https://github.com/avelino/awesome-go)
+- [cli](https://github.com/codegangsta/cli)
+- [gopkg](https://github.com/niemeyer/gopkg)
+- [beego](https://github.com/astaxie/beego)
+- [gopkg](https://github.com/gopkg/gopkg)
 
 ## 推荐阅读
 
@@ -261,6 +267,7 @@ runtime包中有几个处理goroutine的函数。
 - [Golang Http Server源码阅读](http://www.cnblogs.com/yjf512/archive/2012/08/22/2650873.html)
 - [[译]Effective Go](http://blog.chingli.com/2014/04/effective-go/)
 - [Go Concurrency Patterns: Pipelines and cancellation](http://blog.golang.org/pipelines)
-- [awesome-go](https://github.com/avelino/awesome-go)
 - [深入解析Go](https://github.com/tiancaiamao/go-internals)
+- [How to Write Go Code](https://golang.org/doc/code.html)
+- [Effective Go](https://golang.org/doc/effective_go.html)
 

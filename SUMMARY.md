@@ -33,6 +33,7 @@
     - [前端工具](language/js/tools.md)
     - [混合移动开发](language/js/hybrid-mobile.md)
     - [NodeJS](language/js/node.md)
+        - [NodeJS源码阅读笔记](language/js/node/reading-node.md)
   - [CSS](language/css.md)
   - [C](language/c.md)
     - [读书笔记：C学习笔记](language/c/learning-c.md)
@@ -41,6 +42,7 @@
     - [Play](language/java/play.md)
     - [Spring](language/java/spring.md)
     - [Spark](language/java/spark.md)
+  - [others](language/others.md) 
 
 - [运维](operation/index.md)
   - [操作系统](operation/os.md)
