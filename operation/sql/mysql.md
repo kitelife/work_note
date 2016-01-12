@@ -32,7 +32,7 @@
 MySQL用户创建与授权：
 
 1. 以root用户登录MySQL
-2. I 'username'@'host' IDENTIFIED BY 'password';
+2. CREATE USER 'username'@'host' IDENTIFIED BY 'password';
 3. GRANT privileges ON databasename.tablename TO 'username'@'host'; // 如：GRANT ALL ON test.* TO 'pig'@'localhost';
 
 

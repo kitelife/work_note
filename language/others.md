@@ -9,3 +9,7 @@
 
 > Open-source, Microservice & API Management Layer built on top of NGINX
 
+## 推荐阅读
+
+- [Elixir编程入门](https://github.com/straightdave/programming_elixir)
+

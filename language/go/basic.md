@@ -255,6 +255,9 @@ runtime包中有几个处理goroutine的函数。
 - [gopkg](https://github.com/niemeyer/gopkg)
 - [beego](https://github.com/astaxie/beego)
 - [gopkg](https://github.com/gopkg/gopkg)
+- [martini](https://github.com/go-martini/martini)
+- [gin](https://github.com/gin-gonic/gin)
+- [gopher-lua](https://github.com/yuin/gopher-lua)
 
 ## 推荐阅读
 
@@ -270,4 +273,5 @@ runtime包中有几个处理goroutine的函数。
 - [深入解析Go](https://github.com/tiancaiamao/go-internals)
 - [How to Write Go Code](https://golang.org/doc/code.html)
 - [Effective Go](https://golang.org/doc/effective_go.html)
+- [Beego in Action](https://github.com/lei-cao/beego-in-action)
 
