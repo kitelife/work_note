@@ -27,6 +27,7 @@
   - [Go](language/go.md)
     - [Effective Go](language/go/effective-go.md)
     - [读书笔记：Go学习笔记](language/go/learning-go.md)
+    - [Beego源码阅读](language/go/reading-beego.md)
   - [JavaScript](language/js.md)
     - [前端数据可视化](language/js/frontend-dv.md)
     - [前端模块化](language/js/modular.md)

@@ -258,6 +258,23 @@ runtime包中有几个处理goroutine的函数。
 - [martini](https://github.com/go-martini/martini)
 - [gin](https://github.com/gin-gonic/gin)
 - [gopher-lua](https://github.com/yuin/gopher-lua)
+- [etcd](https://github.com/coreos/etcd)
+- [web.go](https://github.com/hoisie/web)
+- [influxdb](https://github.com/influxdata/influxdb)
+
+> Scalable datastore for metrics, events, and real-time analytics
+
+- [telegraf](https://github.com/influxdata/telegraf)
+
+> The plugin-driven server agent for collecting & reporting metrics.
+
+- [kapacitor](https://github.com/influxdata/kapacitor)
+
+> Open source framework for processing, monitoring, and alerting on time series data
+
+- [cobra](https://github.com/spf13/cobra)
+
+> A Commander for modern Go CLI interactions
 
 ## 推荐阅读
 

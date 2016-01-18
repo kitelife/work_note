@@ -122,5 +122,6 @@ socket=/tmp/mysql.sock
 - [MySQL Internals Manual](http://dev.mysql.com/doc/internals/en/)
 - [MySQL索引原理及慢查询优化](http://tech.meituan.com/mysql-index.html)
 - [Readings in Database Systems, 5th Edition](http://www.redbook.io/)
+- [Readings in Databases](https://github.com/rxin/db-readings)
 
 

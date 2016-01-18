@@ -10,6 +10,7 @@
 - [CodeMirror](http://codemirror.net/)
 - [alertify.js](http://fabien-d.github.io/alertify.js/)
 - [jsdifflib](https://github.com/cemerick/jsdifflib)
+- [lodash](https://github.com/lodash/lodash)
 
 - [PhantomJS](http://phantomjs.org/)
 - [SlimerJS](http://slimerjs.org/)

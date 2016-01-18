@@ -31,3 +31,9 @@
 
 - [Linux Performance](http://www.brendangregg.com/linuxperf.html)
 - [Linux Performance and Tuning Guidelines](http://www.redbooks.ibm.com/redpapers/pdfs/redp4285.pdf)
+
+## 推荐阅读
+
+- [bash-handbook](https://github.com/denysdovhan/bash-handbook)
+
+
