@@ -49,24 +49,20 @@ func init() {
 ```go
 // Run beego application.
 // beego.Run() default run on HttpPort
+// beego.Run("localhost")
 // beego.Run(":8089")
 // beego.Run("127.0.0.1:8089")
 func Run(params ...string) {
-   // 这个方法调用时可以传入地址端口参数，但这里的实现比较丑
+	initBeforeHTTPRun()
+
 	if len(params) > 0 && params[0] != "" {
 		strs := strings.Split(params[0], ":")
 		if len(strs) > 0 && strs[0] != "" {
-			HttpAddr = strs[0]
+			BConfig.Listen.HTTPAddr = strs[0]
 		}
 		if len(strs) > 1 && strs[1] != "" {
-			HttpPort, _ = strconv.Atoi(strs[1])
+			BConfig.Listen.HTTPPort, _ = strconv.Atoi(strs[1])
 		}
-	}
-	initBeforeHttpRun()
-
-   // 如果配置启用管理页面（其实是管理服务后台）
-	if EnableAdmin {
-		go beeAdminApp.Run()
 	}
 
 	BeeApp.Run()
@@ -76,70 +72,34 @@ func Run(params ...string) {
 其中 `initBeforeHttpRun()` 实现如下：
 
 ```go
-func initBeforeHttpRun() {
-   /* 从这里看出，默认的配置有两处：
-   - filepath.Join(AppPath, "conf", "app.conf")
-   - filepath.Join(workPath, "conf", "app.conf")
-   */
-	// if AppConfigPath not In the conf/app.conf reParse config
-	if AppConfigPath != filepath.Join(AppPath, "conf", "app.conf") {
-		err := ParseConfig()
-		if err != nil && AppConfigPath != filepath.Join(workPath, "conf", "app.conf") {
-			// configuration is critical to app, panic here if parse failed
-			panic(err)
-		}
-	}
-
-	//init mime
-	// AddAPPStartHook函数可用于在应用启动之前执行一些hook
-	// 最后一个hook是initMime
-	AddAPPStartHook(initMime)
-
-	// do hooks function
-	// 逐个执行hook
-	for _, hk := range hooks {
-		err := hk()
-		if err != nil {
-			panic(err)
-		}
-	}
-
-   // 如果配置启用session
-	if SessionOn {
-		var err error
-		sessionConfig := AppConfig.String("sessionConfig")
-		if sessionConfig == "" {
-			sessionConfig = `{"cookieName":"` + SessionName + `",` +
-				`"gclifetime":` + strconv.FormatInt(SessionGCMaxLifetime, 10) + `,` +
-				`"providerConfig":"` + filepath.ToSlash(SessionSavePath) + `",` +
-				`"secure":` + strconv.FormatBool(EnableHttpTLS) + `,` +
-				`"enableSetCookie":` + strconv.FormatBool(SessionAutoSetCookie) + `,` +
-				`"domain":"` + SessionDomain + `",` +
-				`"cookieLifeTime":` + strconv.Itoa(SessionCookieLifeTime) + `}`
-		}
-		GlobalSessions, err = session.NewManager(SessionProvider,
-			sessionConfig)
-		if err != nil {
-			panic(err)
-		}
-		go GlobalSessions.GC()
-	}
-
-   // 加载所有的模板文件
-	// ViewsPath默认为views子目录
-	err := BuildTemplate(ViewsPath)
+func initBeforeHTTPRun() {
+	// if AppConfigPath is setted or conf/app.conf exist
+	err := ParseConfig()
 	if err != nil {
-		if RunMode == "dev" {
-			Warn(err)
+		panic(err)
+	}
+	//init log
+	for adaptor, config := range BConfig.Log.Outputs {
+		err = BeeLogger.SetLogger(adaptor, config)
+		if err != nil {
+			fmt.Printf("%s with the config `%s` got err:%s\n", adaptor, config, err)
 		}
 	}
 
-   // 注册默认的错误处理方法
-	registerDefaultErrorHandler()
+	SetLogFuncCall(BConfig.Log.FileLineNum)
 
-	if EnableDocs {
-		Get("/docs", serverDocs)
-		Get("/docs/*", serverDocs)
+	//init hooks
+	AddAPPStartHook(registerMime)
+	AddAPPStartHook(registerDefaultErrorHandler)
+	AddAPPStartHook(registerSession)
+	AddAPPStartHook(registerDocs)
+	AddAPPStartHook(registerTemplate)
+	AddAPPStartHook(registerAdmin)
+
+	for _, hk := range hooks {
+		if err := hk(); err != nil {
+			panic(err)
+		}
 	}
 }
 ```
@@ -161,137 +121,133 @@ func NewApp() *App {
 ```go
 // Run beego application.
 func (app *App) Run() {
-	addr := HttpAddr
+	addr := BConfig.Listen.HTTPAddr
 
-	if HttpPort != 0 {
-		addr = fmt.Sprintf("%s:%d", HttpAddr, HttpPort)
+	if BConfig.Listen.HTTPPort != 0 {
+		addr = fmt.Sprintf("%s:%d", BConfig.Listen.HTTPAddr, BConfig.Listen.HTTPPort)
 	}
 
 	var (
-		err error
-		l   net.Listener
+		err        error
+		l          net.Listener
+		endRunning = make(chan bool, 1)
 	)
-	endRunning := make(chan bool, 1)
 
-   // 使用FastCGI来提供服务
-	if UseFcgi {
-		if UseStdIo {
-			err = fcgi.Serve(nil, app.Handlers) // standard I/O
-			if err == nil {
+	// run cgi server
+	if BConfig.Listen.EnableFcgi {
+		if BConfig.Listen.EnableStdIo {
+		    // app.Handlers
+			if err = fcgi.Serve(nil, app.Handlers); err == nil { // standard I/O
 				BeeLogger.Info("Use FCGI via standard I/O")
 			} else {
-				BeeLogger.Info("Cannot use FCGI via standard I/O", err)
+				BeeLogger.Critical("Cannot use FCGI via standard I/O", err)
 			}
+			return
+		}
+		if BConfig.Listen.HTTPPort == 0 {
+			// remove the Socket file before start
+			if utils.FileExists(addr) {
+				os.Remove(addr)
+			}
+			l, err = net.Listen("unix", addr)
 		} else {
-			if HttpPort == 0 {
-				// remove the Socket file before start
-				if utils.FileExists(addr) {
-					os.Remove(addr)
+			l, err = net.Listen("tcp", addr)
+		}
+		if err != nil {
+			BeeLogger.Critical("Listen: ", err)
+		}
+		if err = fcgi.Serve(l, app.Handlers); err != nil {
+			BeeLogger.Critical("fcgi.Serve: ", err)
+		}
+		return
+	}
+
+	app.Server.Handler = app.Handlers
+	app.Server.ReadTimeout = time.Duration(BConfig.Listen.ServerTimeOut) * time.Second
+	app.Server.WriteTimeout = time.Duration(BConfig.Listen.ServerTimeOut) * time.Second
+
+	// run graceful mode
+	if BConfig.Listen.Graceful {
+		httpsAddr := BConfig.Listen.HTTPSAddr
+		app.Server.Addr = httpsAddr
+		if BConfig.Listen.EnableHTTPS {
+			go func() {
+				time.Sleep(20 * time.Microsecond)
+				if BConfig.Listen.HTTPSPort != 0 {
+					httpsAddr = fmt.Sprintf("%s:%d", BConfig.Listen.HTTPSAddr, BConfig.Listen.HTTPSPort)
+					app.Server.Addr = httpsAddr
 				}
-				l, err = net.Listen("unix", addr)
+				server := grace.NewServer(httpsAddr, app.Handlers)
+				server.Server.ReadTimeout = app.Server.ReadTimeout
+				server.Server.WriteTimeout = app.Server.WriteTimeout
+				if err := server.ListenAndServeTLS(BConfig.Listen.HTTPSCertFile, BConfig.Listen.HTTPSKeyFile); err != nil {
+					BeeLogger.Critical("ListenAndServeTLS: ", err, fmt.Sprintf("%d", os.Getpid()))
+					time.Sleep(100 * time.Microsecond)
+					endRunning <- true
+				}
+			}()
+		}
+		if BConfig.Listen.EnableHTTP {
+			go func() {
+				server := grace.NewServer(addr, app.Handlers)
+				server.Server.ReadTimeout = app.Server.ReadTimeout
+				server.Server.WriteTimeout = app.Server.WriteTimeout
+				if BConfig.Listen.ListenTCP4 {
+					server.Network = "tcp4"
+				}
+				if err := server.ListenAndServe(); err != nil {
+					BeeLogger.Critical("ListenAndServe: ", err, fmt.Sprintf("%d", os.Getpid()))
+					time.Sleep(100 * time.Microsecond)
+					endRunning <- true
+				}
+			}()
+		}
+		<-endRunning
+		return
+	}
+
+	// run normal mode
+	app.Server.Addr = addr
+	if BConfig.Listen.EnableHTTPS {
+		go func() {
+			time.Sleep(20 * time.Microsecond)
+			if BConfig.Listen.HTTPSPort != 0 {
+				app.Server.Addr = fmt.Sprintf("%s:%d", BConfig.Listen.HTTPSAddr, BConfig.Listen.HTTPSPort)
+			}
+			BeeLogger.Info("https server Running on %s", app.Server.Addr)
+			if err := app.Server.ListenAndServeTLS(BConfig.Listen.HTTPSCertFile, BConfig.Listen.HTTPSKeyFile); err != nil {
+				BeeLogger.Critical("ListenAndServeTLS: ", err)
+				time.Sleep(100 * time.Microsecond)
+				endRunning <- true
+			}
+		}()
+	}
+	if BConfig.Listen.EnableHTTP {
+		go func() {
+			app.Server.Addr = addr
+			BeeLogger.Info("http server Running on %s", app.Server.Addr)
+			if BConfig.Listen.ListenTCP4 {
+				ln, err := net.Listen("tcp4", app.Server.Addr)
+				if err != nil {
+					BeeLogger.Critical("ListenAndServe: ", err)
+					time.Sleep(100 * time.Microsecond)
+					endRunning <- true
+					return
+				}
+				if err = app.Server.Serve(ln); err != nil {
+					BeeLogger.Critical("ListenAndServe: ", err)
+					time.Sleep(100 * time.Microsecond)
+					endRunning <- true
+					return
+				}
 			} else {
-				l, err = net.Listen("tcp", addr)
+				if err := app.Server.ListenAndServe(); err != nil {
+					BeeLogger.Critical("ListenAndServe: ", err)
+					time.Sleep(100 * time.Microsecond)
+					endRunning <- true
+				}
 			}
-			if err != nil {
-				BeeLogger.Critical("Listen: ", err)
-			}
-			err = fcgi.Serve(l, app.Handlers)
-		}
-	} else {
-	    // 优雅地启动关闭服务
-		if Graceful {
-			app.Server.Addr = addr
-			app.Server.Handler = app.Handlers
-			app.Server.ReadTimeout = time.Duration(HttpServerTimeOut) * time.Second
-			app.Server.WriteTimeout = time.Duration(HttpServerTimeOut) * time.Second
-			if EnableHttpTLS {
-				go func() {
-					time.Sleep(20 * time.Microsecond)
-					if HttpsPort != 0 {
-						addr = fmt.Sprintf("%s:%d", HttpAddr, HttpsPort)
-						app.Server.Addr = addr
-					}
-					// 看到app.Handlers没？
-					server := grace.NewServer(addr, app.Handlers)
-					server.Server = app.Server
-					err := server.ListenAndServeTLS(HttpCertFile, HttpKeyFile)
-					if err != nil {
-						BeeLogger.Critical("ListenAndServeTLS: ", err, fmt.Sprintf("%d", os.Getpid()))
-						time.Sleep(100 * time.Microsecond)
-						endRunning <- true
-					}
-				}()
-			}
-			if EnableHttpListen {
-				go func() {
-				    // 看到没？
-					server := grace.NewServer(addr, app.Handlers)
-					server.Server = app.Server
-					if ListenTCP4 && HttpAddr == "" {
-						server.Network = "tcp4"
-					}
-					err := server.ListenAndServe()
-					if err != nil {
-						BeeLogger.Critical("ListenAndServe: ", err, fmt.Sprintf("%d", os.Getpid()))
-						time.Sleep(100 * time.Microsecond)
-						endRunning <- true
-					}
-				}()
-			}
-		} else {
-			app.Server.Addr = addr
-			//
-			app.Server.Handler = app.Handlers
-			app.Server.ReadTimeout = time.Duration(HttpServerTimeOut) * time.Second
-			app.Server.WriteTimeout = time.Duration(HttpServerTimeOut) * time.Second
-
-			if EnableHttpTLS {
-				go func() {
-					time.Sleep(20 * time.Microsecond)
-					if HttpsPort != 0 {
-						app.Server.Addr = fmt.Sprintf("%s:%d", HttpAddr, HttpsPort)
-					}
-					BeeLogger.Info("https server Running on %s", app.Server.Addr)
-					err := app.Server.ListenAndServeTLS(HttpCertFile, HttpKeyFile)
-					if err != nil {
-						BeeLogger.Critical("ListenAndServeTLS: ", err)
-						time.Sleep(100 * time.Microsecond)
-						endRunning <- true
-					}
-				}()
-			}
-
-			if EnableHttpListen {
-				go func() {
-					app.Server.Addr = addr
-					BeeLogger.Info("http server Running on %s", app.Server.Addr)
-					if ListenTCP4 && HttpAddr == "" {
-						ln, err := net.Listen("tcp4", app.Server.Addr)
-						if err != nil {
-							BeeLogger.Critical("ListenAndServe: ", err)
-							time.Sleep(100 * time.Microsecond)
-							endRunning <- true
-							return
-						}
-						err = app.Server.Serve(ln)
-						if err != nil {
-							BeeLogger.Critical("ListenAndServe: ", err)
-							time.Sleep(100 * time.Microsecond)
-							endRunning <- true
-							return
-						}
-					} else {
-						err := app.Server.ListenAndServe()
-						if err != nil {
-							BeeLogger.Critical("ListenAndServe: ", err)
-							time.Sleep(100 * time.Microsecond)
-							endRunning <- true
-						}
-					}
-				}()
-			}
-		}
-
+		}()
 	}
 	<-endRunning
 }

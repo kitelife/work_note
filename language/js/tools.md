@@ -20,5 +20,13 @@
 - [Semantic UI](http://semantic-ui.com/)
 - [Ant Design](http://ant.design/)
 
+- [Prism](http://prismjs.com/)
+
+> Prism is a lightweight, extensible syntax highlighter, built with modern web standards in mind
+
+- [hint.css](https://github.com/chinchang/hint.css)
+
+> A CSS only tooltip library for your lovely websites
+
 ### 推荐阅读
 

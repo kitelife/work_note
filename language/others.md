@@ -2,6 +2,7 @@
 
 - [Elixir](https://github.com/elixir-lang)
 - [Lua](http://www.lua.org/)
+- [Erlang](https://www.erlang.org/)
 
 ## 值得关注
 
@@ -12,4 +13,7 @@
 ## 推荐阅读
 
 - [Elixir编程入门](https://github.com/straightdave/programming_elixir)
+- [Elixir的高级知识：OTP编程](https://github.com/straightdave/advanced_elixir)
+- [Learn you some Erlang for great good!](http://learnyousomeerlang.com/)
+- [MODERN CONCURRENCY:ERLANG, SCALA, GO, CLOJURE](http://kachayev.github.io/talks/kharkivpy%230/#/)
 

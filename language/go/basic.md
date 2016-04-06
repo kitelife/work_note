@@ -276,6 +276,14 @@ runtime包中有几个处理goroutine的函数。
 
 > A Commander for modern Go CLI interactions
 
+- [uniqush-push](https://github.com/uniqush/uniqush-push)
+
+> Uniqush is a free and open source software which provides a unified push service for server-side notification to apps on mobile devices.
+
+- [expvarmon](https://github.com/divan/expvarmon)
+
+> TermUI based monitor for Go apps using expvars (/debug/vars). Quickest way to monitor your Go app(s).
+
 ## 推荐阅读
 
 - [build-web-application-with-golang](https://github.com/astaxie/build-web-application-with-golang)
@@ -291,4 +299,9 @@ runtime包中有几个处理goroutine的函数。
 - [How to Write Go Code](https://golang.org/doc/code.html)
 - [Effective Go](https://golang.org/doc/effective_go.html)
 - [Beego in Action](https://github.com/lei-cao/beego-in-action)
+- [Go编码规范指南](http://golanghome.com/post/550)
+- [Go Code Review Comments](https://github.com/golang/go/wiki/CodeReviewComments)
+- [Go语言圣经](http://golang-china.github.io/gopl-zh/)
+- [Docker for beginners](http://prakhar.me/docker-curriculum/)
+- [Awsome Docker](http://veggiemonk.github.io/awesome-docker/)
 
