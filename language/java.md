@@ -26,4 +26,11 @@
 - [Modern Java - A Guide to Java 8](https://github.com/winterbe/java8-tutorial)
 - [Spring Boot参考指南](https://qbgbook.gitbooks.io/spring-boot-reference-guide-zh/content/index.html)
 - [JVM Readings](https://github.com/rxin/jvm-readings)
+- [The Java™ Tutorials](http://docs.oracle.com/javase/tutorial/index.html)
+- [Java 8 Stream Tutorial](http://winterbe.com/posts/2014/07/31/java8-stream-tutorial-examples/)
+- [Java 8 Tutorial](http://winterbe.com/posts/2014/03/16/java-8-tutorial/)
+- Java 8 Concurrency Tutorial: 
+    1. [Threads and Executors](http://winterbe.com/posts/2015/04/07/java8-concurrency-tutorial-thread-executor-examples/)
+    2. [Synchronization and Locks](http://winterbe.com/posts/2015/04/30/java8-concurrency-tutorial-synchronized-locks-examples/)
+    3. [Atomic Variables and ConcurrentMap](http://winterbe.com/posts/2015/05/22/java8-concurrency-tutorial-atomic-concurrent-map-examples/)
 

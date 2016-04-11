@@ -14,7 +14,6 @@
 > CTRL R = reverse search history
 > !! = repeat last command
 
-
 ## 工具篇
 
 **pushd, popd, dirs**
