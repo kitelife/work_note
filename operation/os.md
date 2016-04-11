@@ -1,7 +1,21 @@
-## Linux
+# Linux
+
+## shell
+
+- Bash/Zsh? 快捷键
+
+> CTRL L = Clear the terminal
+> CTRL A = Cursor to start of line
+> CTRL E = Cursor the end of line
+> CTRL U = Delete left of the cursor 
+> CTRL K = Delete right of the cursor
+> CTRL W = Delete word on the left
+> CTRL Y = Paste (after CTRL U,K or W) 
+> CTRL R = reverse search history
+> !! = repeat last command
 
 
-### 工具篇
+## 工具篇
 
 **pushd, popd, dirs**
 
@@ -21,7 +35,7 @@
 - [命令解析工具-explainshell](http://explainshell.com/)
 
 
-### 原理篇
+## 原理篇
 
 - [章炎的主页-Linux](http://dirlt.com/linux.html)
 - [Linux下高并发socket最大连接数所受的各种限制](http://blog.sae.sina.com.cn/archives/1988)

@@ -16,4 +16,5 @@
 - [Elixir的高级知识：OTP编程](https://github.com/straightdave/advanced_elixir)
 - [Learn you some Erlang for great good!](http://learnyousomeerlang.com/)
 - [MODERN CONCURRENCY:ERLANG, SCALA, GO, CLOJURE](http://kachayev.github.io/talks/kharkivpy%230/#/)
+- [Elixir School](https://elixirschool.com/lessons/basics/basics/)
 
