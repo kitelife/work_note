@@ -129,5 +129,6 @@ exports = module.exports = {};
 - [Mastering the filesystem in Node.js](https://medium.com/@yoshuawuyts/mastering-the-filesystem-in-node-js-4706b7cb0801#.dermpbiul) √
 - [Node.js: Style and structure](http://caolan.org/posts/nodejs_style_and_structure/) √ 非常赞！
 - [七天学会NodeJS](http://nqdeng.github.io/7-days-nodejs/) √ 挺不错！
+- [深入理解Node.js：核心思想与源码分析](https://yjhjstz.gitbooks.io/deep-into-node/content/)
 
 

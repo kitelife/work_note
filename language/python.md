@@ -61,4 +61,5 @@ def hasattr(p_object, name): # real signature unknown; restored from __doc__
 - [Unofficial Windows Binaries for Python Extension Packages](http://www.lfd.uci.edu/~gohlke/pythonlibs/)
 - [蟒周刊](http://weekly.pychina.org/)
 - [Python进阶](https://eastlakeside.gitbooks.io/interpy-zh/content/index.html)
+- [Python Tips](https://github.com/rainyear/pytips)
 

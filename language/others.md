@@ -1,8 +1,9 @@
 # 其他潜力编程语言
 
-- [Elixir](https://github.com/elixir-lang)
-- [Lua](http://www.lua.org/)
+- [Elixir](https://github.com/elixir-lang) √
 - [Erlang](https://www.erlang.org/)
+- [Lua](http://www.lua.org/)
+- [Haskell](https://www.haskell.org/)
 
 ## 值得关注
 
@@ -17,4 +18,6 @@
 - [Learn you some Erlang for great good!](http://learnyousomeerlang.com/)
 - [MODERN CONCURRENCY:ERLANG, SCALA, GO, CLOJURE](http://kachayev.github.io/talks/kharkivpy%230/#/)
 - [Elixir School](https://elixirschool.com/lessons/basics/basics/)
+- [A Haskell Reading List](http://www.stephendiehl.com/posts/essential_haskell.html)
+
 

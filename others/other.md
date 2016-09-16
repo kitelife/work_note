@@ -25,5 +25,6 @@
 - [微信背后的产品观](http://mp.weixin.qq.com/s?__biz=MjM5NjAyMzcyMA==&mid=223462459&idx=5&sn=6a9a04baa931c5316475748a31cffd12&scene=2&srcid=10119hieIKl9sjhVv1fAv4NU&from=timeline&isappinstalled=0&key=2877d24f51fa53841cc9e0465898412855ed9c2cd182dc2c34066ca2b474dc34f42fa2cb6013dbb19efcf37ab74df3e7&ascene=0&uin=MjM1NDM2Mjg4Mg%253D%253D&version=11020201&pass_ticket=GTowmFW3orQFBZgxkEOz09Cv15WoDaXG5c7tjHymsEqthY2rg8Luas%252FNpWrEj48T)
 - [让思路更清晰——我是怎样使用思维导图的](https://blog.coding.net/blog/coding-mindmap)
 - [vim-galore](https://github.com/mhinz/vim-galore)
+- [Being A Developer After 40](https://medium.freecodecamp.com/being-a-developer-after-40-3c5dd112210c) √
 
 

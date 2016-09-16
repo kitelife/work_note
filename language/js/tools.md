@@ -28,5 +28,10 @@
 
 > A CSS only tooltip library for your lovely websites
 
+- [flatpickr](https://github.com/chmln/flatpickr) √ √ √
+
+> lightweight, powerful datetimepicker. zero dependencies
+
+
 ### 推荐阅读
 

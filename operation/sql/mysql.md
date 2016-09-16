@@ -35,11 +35,67 @@ MySQL用户创建与授权：
 2. CREATE USER 'username'@'host' IDENTIFIED BY 'password';
 3. GRANT privileges ON databasename.tablename TO 'username'@'host'; // 如：GRANT ALL ON test.* TO 'pig'@'localhost';
 
+- 查看环境变量：`SHOW VARIABLES;`、`SHOW VARIABLES LIKE '%size%';`
+- 修改帐号密码：`SET PASSWORD FOR 'user_name'@'where_from' = PASSWORD('password');`。不过貌似不同版本的MySQL修改帐号密码的方式不一样。
+- 设置binlog的保持时长：`SET GLOBAL expire_logs_days = 3;`
+- 当某个字段的值为null，需要将其更新为空字符串：`update cnvdvul set author="" WHERE author is null;`
 
 #### INSERT INTO + SELECT FROM
 
 ```sql
 INSERT INTO Evil0day (`app`,`version`) SELECT `app`, `version` FROM Fingerprint WHERE app="joomla" AND version >="3.2.0" AND version <="3.4.4" GROUP BY `version`;
+```
+
+```sql
+INSERT IGNORE INTO `BaseIndex` (`host`, `realtime`, `ex_realtime`,  `history`, `ex_history`, `environment`, `ex_environment`, `attackrisk`, `ex_attackrisk`, `datestamp`) SELECT `host`, `realtime`, `ex_realtime`,  `history`, `ex_history`, `environment`, `ex_environment`, `attackrisk`, `ex_attackrisk`, 20160412 FROM `BaseIndex` WHERE `datestamp`=20160411;
+```
+
+#### 复杂SQL
+
+来自：http://www.sohamkamani.com/blog/2016/07/07/a-beginners-guide-to-sql/
+
+```sql
+SELECT members.firstname || ' ' || members.lastname AS "Full Name"
+
+FROM borrowings
+INNER JOIN members
+ON members.memberid=borrowings.memberid
+INNER JOIN books
+ON books.bookid=borrowings.bookid
+
+WHERE borrowings.bookid IN (SELECT bookid FROM books WHERE stock>  (SELECT avg(stock) FROM books)  )
+
+GROUP BY members.firstname, members.lastname;
+```
+
+```sql
+SELECT title, bookid
+FROM books
+WHERE author IN (SELECT author
+  FROM (SELECT author, sum(stock)
+  FROM books
+  GROUP BY author) AS results
+  WHERE sum > 3);
+```
+
+```sql
+SELECT
+members.firstname AS "First Name",
+members.lastname AS "Last Name",
+count(*) AS "Number of books borrowed"
+FROM borrowings
+JOIN books ON borrowings.bookid=books.bookid
+JOIN members ON members.memberid=borrowings.memberid
+WHERE books.author='Dan Brown'
+GROUP BY members.firstname, members.lastname;
+```
+
+### OUTFILE + INFILE
+
+```sql
+SELECT DISTINCT(name), "host" FROM `clean_vul` WHERE `vul_class`=28 AND name NOT LIKE '%/%' INTO OUTFILE '/home/work/app_names.csv' FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';
+
+LOAD DATA INFILE '/home/work/app_names.csv' INTO TABLE app_name_mapper FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n' (old_app_name, type);
 ```
 
 ### 添加索引
@@ -101,12 +157,46 @@ socket=/tmp/mysql.sock
     - 如果数据表的某一字段设置为NOT NULL，但没有指定DEFAULT，在5.1.49版本上，如果应用程序在向该数据表插入一条记录且没有指定该字段的值，不会报错，但在5.6.19上会报错，所以更好的习惯是创建数据表/字段的时候，在指定NOT NULL的同时指定DEFAULT值
     - 在版本5.6.19上，若一个字段的类型为timestamp，即使是0值，也必须按照格式给出，如：“0000-00-00 00:00:00”，但在5.1.49上可以直接给“0”
 
+## 错误处理
+
+> Got fatal error 1236 from master when reading data from binary log: ‘binlog truncated in the middle of event; consider out of disk space on master; the first event ‘mysql-bin.000525’ at 175770780, the last event read from ‘/data/mysql/repl/mysql-bin.000525’ at 175770780, the last byte read from ‘/data/mysql/repl/mysql-bin.000525′ at 175771648.’
+
+
+The solution would be to move the slave thread to the next available binary log and initialize slave thread with the first available position on binary log as below:
+
+> CHANGE MASTER TO MASTER_LOG_FILE='mysql-bin.000526', MASTER_LOG_POS=4;
+
+在主数据库上执行 `SHOW BINARY LOGS`，找到距离错误的bin log文件位置最近的一个日志位置，然后执行上面的这条命令（记得替换参数MASTER_LOG_FILE和MASTER_LOG_POS）。
+
+------
+
+当主从同步出现问题时，可以先按照下面的步骤处理：
+
+1. `SHOW SLAVE STATUS`
+2. `STOP SLAVE`
+3. `SET GLOBAL sql_slave_skip_counter = N`
+4. `START SLAVE`
+5. `SHOW SLAVE STATUS`
+
 ### 主从同步
 
 - `mysql> show slave hosts` -- 查看所有连接到Master的Slave信息
 - `mysql> show master status` -- 查看Master状态信息
 - `mysql> show slave status` -- 查看Slave状态信息
 - `mysql> show binary logs` -- 查看所有二进制日志
+
+### 慢日志
+
+在my.cnf中添加:
+
+```
+# 启用慢日志
+slow_query_log = 1
+# 记录执行时间大于等于5秒的SQL
+long_query_time = 5
+# 慢日志文件的路径
+slow_query_log_file = /home/work/logs/mysql/mysqld.slow.log
+```
 
 ### Sharding
 
@@ -115,7 +205,6 @@ socket=/tmp/mysql.sock
 - [An Unorthodox Approach To Database Design : The Coming Of The Shard](http://highscalability.com/unorthodox-approach-database-design-coming-shard)
 - [Scaling Web Databases: Auto-Sharding with MySQL Cluster](https://blogs.oracle.com/MySQL/entry/scaling_web_databases_auto_sharding)
 
-
 ### 推荐阅读
 
 - 《高性能MySQL》
@@ -123,5 +212,7 @@ socket=/tmp/mysql.sock
 - [MySQL索引原理及慢查询优化](http://tech.meituan.com/mysql-index.html)
 - [Readings in Database Systems, 5th Edition](http://www.redbook.io/)
 - [Readings in Databases](https://github.com/rxin/db-readings)
+- [Top 10 performance tuning tips for relational databases](http://web.synametrics.com/top10performancetips.htm)
+- [Is it safe to delete mysql-bin files?](http://dba.stackexchange.com/questions/41050/is-it-safe-to-delete-mysql-bin-files)
 
 

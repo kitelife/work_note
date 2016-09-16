@@ -14,3 +14,7 @@
 - [Is there a way to skip password typing when using https:// github](http://stackoverflow.com/questions/5343068/is-there-a-way-to-skip-password-typing-when-using-https-github)
 - [Creating default object from empty value in PHP?](http://stackoverflow.com/questions/8900701/creating-default-object-from-empty-value-in-php)
 - [Memcache stats understanding](http://stackoverflow.com/questions/15110999/memcache-stats-understanding)
+- [Delete local Git branches after deleting them on the remote repo](http://stackoverflow.com/questions/17983068/delete-local-git-branches-after-deleting-them-on-the-remote-repo)
+- [How long is “too long” for MySQL Connections to sleep?](http://dba.stackexchange.com/questions/1558/how-long-is-too-long-for-mysql-connections-to-sleep)
+
+
