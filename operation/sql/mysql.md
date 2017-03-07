@@ -28,6 +28,7 @@
 显示服务器错误或警告信息： ``SHOW ERRORS/SHOW WARNINGS``
 
 修改MySQL数据库默认编码为UTF-8：在MySQL配置文件my.cnf中找到mysqld部分，在这部分中添加一句 ``character_set_server=utf8`` ，重启MySQL服务即可。
+mysql线程等待时间，解决sleep进程过多的办法：http://blog.sina.com.cn/s/blog_78ecbe330101332k.html
 
 MySQL用户创建与授权：
 
@@ -37,8 +38,10 @@ MySQL用户创建与授权：
 
 - 查看环境变量：`SHOW VARIABLES;`、`SHOW VARIABLES LIKE '%size%';`
 - 修改帐号密码：`SET PASSWORD FOR 'user_name'@'where_from' = PASSWORD('password');`。不过貌似不同版本的MySQL修改帐号密码的方式不一样。
-- 设置binlog的保持时长：`SET GLOBAL expire_logs_days = 3;`
+- 设置binlog的保持时长：`SET GLOBAL expire_logs_days = 3;`，也可以在日志中`mysqld`部分添加下面这行 `expire_logs_days=3`；也可以在命令行中立即清理log：`PURGE BINARY LOGS BEFORE (date(now()) + interval 0 second - interval 3 day);`。详情见：[http://dba.stackexchange.com/questions/30930/how-soon-after-updating-expire-logs-days-param-and-restarting-sql-will-old-binlo](http://dba.stackexchange.com/questions/30930/how-soon-after-updating-expire-logs-days-param-and-restarting-sql-will-old-binlo)
+
 - 当某个字段的值为null，需要将其更新为空字符串：`update cnvdvul set author="" WHERE author is null;`
+- 删除用户：`DROP USER 'username'@'host';`
 
 #### INSERT INTO + SELECT FROM
 
@@ -48,6 +51,10 @@ INSERT INTO Evil0day (`app`,`version`) SELECT `app`, `version` FROM Fingerprint 
 
 ```sql
 INSERT IGNORE INTO `BaseIndex` (`host`, `realtime`, `ex_realtime`,  `history`, `ex_history`, `environment`, `ex_environment`, `attackrisk`, `ex_attackrisk`, `datestamp`) SELECT `host`, `realtime`, `ex_realtime`,  `history`, `ex_history`, `environment`, `ex_environment`, `attackrisk`, `ex_attackrisk`, 20160412 FROM `BaseIndex` WHERE `datestamp`=20160411;
+```
+
+```sql
+INSERT INTO TaitanData (host, fingerprint, hostscan, vul_num, datestamp) SELECT host, fingerprint, hostscan, vul_num, 20161009 FROM TaitanData WHERE host="btytgs.com" AND datestamp=20161006
 ```
 
 #### 复杂SQL
@@ -123,6 +130,7 @@ ALTER TABLE Users
 - 通配符`_`，用途与`%`一样，但下划线只匹配单个字符而不是多个字符。
 - `Concat`函数用于拼接字符串，如：`SELECT Concat(vend_name, ' (', vend_country, ')') FROM vendors ORDER BY vend_name;`
 - 可使用 `RTrim()`、`LTrim()`、`Trim()`函数去除字符串两边的空格。
+- 设置数据库的最大连接数：`SET GLOBAL max_connections=3000;`
 
 ### 一次简单的数据库迁移过程
 
@@ -214,5 +222,6 @@ slow_query_log_file = /home/work/logs/mysql/mysqld.slow.log
 - [Readings in Databases](https://github.com/rxin/db-readings)
 - [Top 10 performance tuning tips for relational databases](http://web.synametrics.com/top10performancetips.htm)
 - [Is it safe to delete mysql-bin files?](http://dba.stackexchange.com/questions/41050/is-it-safe-to-delete-mysql-bin-files)
-
+- [MySQL: What happens to the row when skip-errors=1062 is set](http://dba.stackexchange.com/questions/65690/mysql-what-happens-to-the-row-when-skip-errors-1062-is-set)
+- [The Unofficial MySQL 8.0 Optimizer Guide](http://www.unofficialmysqlguide.com/)
 
