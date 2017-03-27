@@ -44,7 +44,7 @@
     - [读书笔记：C学习笔记](language/c/learning-c.md)
   - [Lua](language/lua.md)
   - [Java/Scala](language/java.md)
-    - [Play](language/java/play.md)
+    - [读书笔记：Java核心技术（卷1）](language/java/learning-java.md)
     - [Spring](language/java/spring.md)
     - [Spark](language/java/spark.md)
   - [others](language/others.md) 
