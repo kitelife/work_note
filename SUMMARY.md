@@ -1,5 +1,11 @@
 # xiayf的技术笔记
 
+- [大数据](bigdata/index.md)
+  - [spark](bigdata/spark.md)
+  - [flink](bigdata/flink.md)
+
+- [人工智能](ai/index.md)
+
 - [架构](arch/index.md)
   - [Tumblr架构设计](arch/tumblr-arch.md)
   - [<延迟、吞吐、成本那些事>课程笔记](arch/latency-output-cost.md)
