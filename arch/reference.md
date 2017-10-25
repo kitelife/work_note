@@ -1,5 +1,14 @@
 # 资料
 
+- [Lessons Learned while Working on Large-Scale Server Software](https://ferd.ca/lessons-learned-while-working-on-large-scale-server-software.html)
+
+*摘录*
+> 
+> 9. Crash Early, Crash Often
+>
+> When you're not sure about how to handle an error, let it crash. Violent failures on 1/Nth of your system early on is far better than silent corruption in 100% of it over a long period of time. Errors that declare themselves loudly and early are easy to spot, and easy to thwart. Errors that you notice have been slowly destroying your system from the inside over the course of days, weeks, or months are what is truly painful.
+>
+
 #### 知乎
 
 - [从0到100——知乎架构变迁史](http://www.infoq.com/cn/news/2014/12/zhihu-architecture-evolution)
@@ -144,5 +153,3 @@
 - [How Uber Scales Their Real-Time Market Platform](http://highscalability.com/blog/2015/9/14/how-uber-scales-their-real-time-market-platform.html)
 - [Service Principles](https://github.com/youngsterxyf/service-principles)
 - [实施微服务，我们需要哪些基础框架？](http://www.infoq.com/cn/articles/basis-frameworkto-implement-micro-service) ***
-
-
