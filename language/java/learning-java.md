@@ -156,6 +156,3 @@ java -enableassertions MyApp
 
 - 断言失败是致命的、不可恢复的错误
 - 断言检查只用于开发和测试阶段
-
-
-

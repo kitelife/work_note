@@ -45,6 +45,7 @@
   - [Lua](language/lua.md)
   - [Java/Scala](language/java.md)
     - [读书笔记：Java核心技术（卷1）](language/java/learning-java.md)
+    - [读书笔记：Java技术手册（第6版）](language/java/java-in-a-nutshell.md)
     - [Spring](language/java/spring.md)
     - [Spark](language/java/spark.md)
   - [others](language/others.md) 
