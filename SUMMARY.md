@@ -1,5 +1,11 @@
 # xiayf的技术笔记
 
+- [大数据](bigdata/index.md)
+  - [spark](bigdata/spark.md)
+  - [flink](bigdata/flink.md)
+
+- [人工智能](ai/index.md)
+
 - [架构](arch/index.md)
   - [Tumblr架构设计](arch/tumblr-arch.md)
   - [<延迟、吞吐、成本那些事>课程笔记](arch/latency-output-cost.md)
@@ -7,9 +13,9 @@
 
 - [基础](basic/index.md)
   - [系统编程](basic/system.md)
-    - [读书笔记：Linux/UNIX系统编程手册](basic/system/tlpi.md)  
+    - [读书笔记：Linux/UNIX系统编程手册](basic/system/tlpi.md)
   - [算法](basic/algorithm.md)
-    - [读书笔记：算法导论](basic/algorithm/introduction-to-algorithm.md) 
+    - [读书笔记：算法导论](basic/algorithm/introduction-to-algorithm.md)
   - [网络](basic/network.md)
   - [编译](basic/compiler.md)
     - [读书笔记：flex与bison](basic/compiler/flex-bison.md) 
@@ -76,5 +82,3 @@
   - [碎碎念](others/other.md)
     - [启示录](others/other/inspired.md) 
     - [读书笔记：淘宝技术这十年](others/other/taobao-ten-years.md)
-
-

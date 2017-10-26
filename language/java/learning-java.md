@@ -156,3 +156,7 @@ java -enableassertions MyApp
 
 - 断言失败是致命的、不可恢复的错误
 - 断言检查只用于开发和测试阶段
+
+## 推荐阅读
+
+- [Real-time Java](https://www.ibm.com/developerworks/views/java/libraryview.jsp?search_by=Real+time+Java+Part)
