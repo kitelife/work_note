@@ -156,3 +156,13 @@ java -enableassertions MyApp
 
 - 断言失败是致命的、不可恢复的错误
 - 断言检查只用于开发和测试阶段
+
+## 推荐阅读
+
+- [Real-time Java](https://www.ibm.com/developerworks/views/java/libraryview.jsp?search_by=Real+time+Java+Part)
+- [better-java](https://github.com/cxxr/better-java)
+
+>
+> Try to avoid using nulls when you can. Do not return null collections when you should have instead returned an empty collection. If you're going to use null, consider the @Nullable annotation. IntelliJ IDEA has built-in support for the @Nullable annotation.
+>
+

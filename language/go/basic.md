@@ -297,7 +297,7 @@ runtime包中有几个处理goroutine的函数。
 - [Code to Read When Learning Go](http://www.somethingsimilar.com/2013/12/27/code-to-read-when-learning-go/)
 - [The Golang Magazine](https://flipboard.com/section/the-golang-magazine-bVP7nS)
 - [Golang Http Server源码阅读](http://www.cnblogs.com/yjf512/archive/2012/08/22/2650873.html)
-- [[译]Effective Go](http://blog.chingli.com/2014/04/effective-go/)
+- [Effective Go](http://blog.chingli.com/2014/04/effective-go/)
 - [Go Concurrency Patterns: Pipelines and cancellation](http://blog.golang.org/pipelines)
 - [深入解析Go](https://github.com/tiancaiamao/go-internals)
 - [How to Write Go Code](https://golang.org/doc/code.html)
@@ -308,4 +308,17 @@ runtime包中有几个处理goroutine的函数。
 - [Go语言圣经](http://golang-china.github.io/gopl-zh/)
 - [Docker for beginners](http://prakhar.me/docker-curriculum/)
 - [Awsome Docker](http://veggiemonk.github.io/awesome-docker/)
+
+
+- [Golang’s Real-time GC in Theory and Practice](https://making.pusher.com/golangs-real-time-gc-in-theory-and-practice/)
+- [Go GC: Latency Problem Solved](https://talks.golang.org/2015/go-gc.pdf)
+- [Golang/proposal](https://github.com/golang/proposal)
+- [The Go scheduler](https://morsmachine.dk/go-scheduler)
+- [golang 垃圾回收机制](https://lengzzz.com/note/gc-in-golang)
+- [Tracing garbage collection](https://en.wikipedia.org/wiki/Tracing_garbage_collection)
+- [LuaJIT - New Garbage Collector](http://wiki.luajit.org/New-Garbage-Collector)
+- [各种编程语言的实现都采用了哪些垃圾回收算法？这些算法都有哪些优点和缺点？](https://www.zhihu.com/question/20018826)
+- [Real-time Java: Real-time garbage collection](https://www.ibm.com/developerworks/java/library/j-rtj4/index.html)
+- [Modern garbage collection](https://blog.plan99.net/modern-garbage-collection-911ef4f8bd8e)
+- [Go’s march to low-latency GC](https://blog.twitch.tv/gos-march-to-low-latency-gc-a6fa96f06eb7)
 
